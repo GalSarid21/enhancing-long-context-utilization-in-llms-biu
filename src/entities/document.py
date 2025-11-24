@@ -1,4 +1,4 @@
-from pydantic.dataclasses import dataclass
+from pydantic import BaseModel
 from typing import TypeVar, Optional, Type, Dict, Any
 from copy import deepcopy
 
@@ -9,9 +9,8 @@ T = TypeVar("T")
 # Adapted from the nelson-liu/lost-in-the-middle repository
 # Original source: https://github.com/nelson-liu/lost-in-the-middle
 # Licensed under the MIT License
-# Modifications may have been made to suit specific project needs.
-@dataclass(frozen=True)
-class Document:
+# The pydantic.dataclass type was changed to pydantic.BaseModel
+class Document(BaseModel):
     title: str
     text: str
     id: Optional[str] = None

@@ -1,4 +1,4 @@
-from entities.document import Document
+from src.entities.document import Document
 
 from typing import List, Dict, Optional
 import random
