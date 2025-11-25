@@ -4,7 +4,7 @@
       "name": "gold_at_0",
       "data": [
         {
-          "question_id": "d225a676-fae9-422e-b813-b44b1a02dcc7",
+          "question_id": "4a945472-eb40-47f2-8d3e-cb074c57c509",
           "question": "who got the first nobel prize in physics",
           "answers": [
             "Wilhelm Conrad R\u00f6ntgen"
@@ -67,7 +67,7 @@
           ]
         },
         {
-          "question_id": "de9b2e49-a157-48a4-9f0d-1484796df4c5",
+          "question_id": "ab5539ea-eaa7-4cdd-9405-f946df97b46b",
           "question": "when is the next deadpool movie being released",
           "answers": [
             "May 18, 2018"
@@ -130,7 +130,7 @@
           ]
         },
         {
-          "question_id": "15ac367e-89b0-48da-996f-dfd21dc76bf2",
+          "question_id": "d89c6982-f6bc-4f23-95d5-a33170a3ed2f",
           "question": "the south west wind blows across nigeria between",
           "answers": [
             "till September"
@@ -193,7 +193,7 @@
           ]
         },
         {
-          "question_id": "0a9bf937-0632-45d7-981d-71b0f17dc06d",
+          "question_id": "0ac2753d-5c6a-44dc-bd40-ddc31b2c0e84",
           "question": "what does hp mean in war and order",
           "answers": [
             "hit points or health points"
@@ -256,7 +256,7 @@
           ]
         },
         {
-          "question_id": "be0c4e08-e000-4932-8f84-849451b5baf2",
+          "question_id": "4dcacd05-13db-4b0d-8ed7-ca1339edf0d9",
           "question": "who wrote the first declaration of human rights",
           "answers": [
             "Cyrus"
@@ -321,10 +321,10 @@
       ]
     },
     {
-      "name": "gold_at_2",
+      "name": "gold_at_404",
       "data": [
         {
-          "question_id": "d225a676-fae9-422e-b813-b44b1a02dcc7",
+          "question_id": "4a945472-eb40-47f2-8d3e-cb074c57c509",
           "question": "who got the first nobel prize in physics",
           "answers": [
             "Wilhelm Conrad R\u00f6ntgen"
@@ -345,15 +345,6 @@
               "id": "4107064",
               "score": 1.6037977,
               "hasanswer": false,
-              "isgold": null,
-              "original_retrieval_index": null
-            },
-            {
-              "title": "University of Wu\u0308rzburg",
-              "text": "the discovery of x-rays by physicist Wilhelm Conrad R\u00f6ntgen, first winner of the Nobel Prize for Physics, in 1895. R\u00f6ntgen's discovery, which he dubbed a \"new kind of ray\", is regarded as the university's greatest intellectual achievement, and, simultaneously, a scientific development of huge global import. R\u00f6ntgen's successors, namely Wilhelm Wien, Johannes Stark and the chemists Emil Fischer and Eduard Buchner, also number among the succession of Nobel Prize winners to lecture at the university, a tradition which endures in the modern-day example of Klaus von Klitzing. After World War II, the free state of Bavaria invested a fortune in",
-              "id": "3253246",
-              "score": 1.3327142,
-              "hasanswer": true,
               "isgold": null,
               "original_retrieval_index": null
             },
@@ -383,11 +374,20 @@
               "hasanswer": false,
               "isgold": null,
               "original_retrieval_index": null
+            },
+            {
+              "title": "University of Wu\u0308rzburg",
+              "text": "the discovery of x-rays by physicist Wilhelm Conrad R\u00f6ntgen, first winner of the Nobel Prize for Physics, in 1895. R\u00f6ntgen's discovery, which he dubbed a \"new kind of ray\", is regarded as the university's greatest intellectual achievement, and, simultaneously, a scientific development of huge global import. R\u00f6ntgen's successors, namely Wilhelm Wien, Johannes Stark and the chemists Emil Fischer and Eduard Buchner, also number among the succession of Nobel Prize winners to lecture at the university, a tradition which endures in the modern-day example of Klaus von Klitzing. After World War II, the free state of Bavaria invested a fortune in",
+              "id": "3253246",
+              "score": 1.3327142,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
             }
           ]
         },
         {
-          "question_id": "de9b2e49-a157-48a4-9f0d-1484796df4c5",
+          "question_id": "ab5539ea-eaa7-4cdd-9405-f946df97b46b",
           "question": "when is the next deadpool movie being released",
           "answers": [
             "May 18, 2018"
@@ -408,15 +408,6 @@
               "id": "18286027",
               "score": 1.6732361,
               "hasanswer": false,
-              "isgold": null,
-              "original_retrieval_index": null
-            },
-            {
-              "title": "Show Dogs",
-              "text": "million in the United States and Canada, and $20.9 million in other territories, for a worldwide total of $38.8 million. In the United States and Canada, \"Show Dogs\" was released on May 18, 2018 alongside \"Deadpool 2\" and \"Book Club\", and was projected to gross $7\u20139 million from 3,145 theaters in its opening weekend. It ended up debuting to $6 million, finishing sixth at the box office. It dropped 49% in its second weekend to $3.1 million, finishing seventh. On review aggregation website Rotten Tomatoes, the film holds an approval rating of 17% based on 60 reviews with an average",
-              "id": "19902220",
-              "score": 1.247823,
-              "hasanswer": true,
               "isgold": null,
               "original_retrieval_index": null
             },
@@ -446,11 +437,20 @@
               "hasanswer": false,
               "isgold": null,
               "original_retrieval_index": null
+            },
+            {
+              "title": "Show Dogs",
+              "text": "million in the United States and Canada, and $20.9 million in other territories, for a worldwide total of $38.8 million. In the United States and Canada, \"Show Dogs\" was released on May 18, 2018 alongside \"Deadpool 2\" and \"Book Club\", and was projected to gross $7\u20139 million from 3,145 theaters in its opening weekend. It ended up debuting to $6 million, finishing sixth at the box office. It dropped 49% in its second weekend to $3.1 million, finishing seventh. On review aggregation website Rotten Tomatoes, the film holds an approval rating of 17% based on 60 reviews with an average",
+              "id": "19902220",
+              "score": 1.247823,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
             }
           ]
         },
         {
-          "question_id": "15ac367e-89b0-48da-996f-dfd21dc76bf2",
+          "question_id": "d89c6982-f6bc-4f23-95d5-a33170a3ed2f",
           "question": "the south west wind blows across nigeria between",
           "answers": [
             "till September"
@@ -471,15 +471,6 @@
               "id": "283809",
               "score": 1.6039791,
               "hasanswer": false,
-              "isgold": null,
-              "original_retrieval_index": null
-            },
-            {
-              "title": "Geography of Nigeria",
-              "text": "north easterlies formed mainly as a result of the interactions of the two dominant airmasses in Nigeria known as the Maritime tropical(south westerlies) and the Continental tropical(north easterlies), begins in central Nigeria while the Monsoons from the south atlantic ocean arrives in central Nigeria in July bringing with it high humidity, heavy cloud cover and heavy rainfall which can be daily occurrence lasting till September when the monsoons gradually begin retreating southward to the southern part of Nigeria.Rainfall totals in central Nigeria varies from in the lowlands of the river Niger Benue trough to over along the south western escarpment",
-              "id": "283803",
-              "score": 1.4846077,
-              "hasanswer": true,
               "isgold": null,
               "original_retrieval_index": null
             },
@@ -509,11 +500,20 @@
               "hasanswer": false,
               "isgold": null,
               "original_retrieval_index": null
+            },
+            {
+              "title": "Geography of Nigeria",
+              "text": "north easterlies formed mainly as a result of the interactions of the two dominant airmasses in Nigeria known as the Maritime tropical(south westerlies) and the Continental tropical(north easterlies), begins in central Nigeria while the Monsoons from the south atlantic ocean arrives in central Nigeria in July bringing with it high humidity, heavy cloud cover and heavy rainfall which can be daily occurrence lasting till September when the monsoons gradually begin retreating southward to the southern part of Nigeria.Rainfall totals in central Nigeria varies from in the lowlands of the river Niger Benue trough to over along the south western escarpment",
+              "id": "283803",
+              "score": 1.4846077,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
             }
           ]
         },
         {
-          "question_id": "0a9bf937-0632-45d7-981d-71b0f17dc06d",
+          "question_id": "0ac2753d-5c6a-44dc-bd40-ddc31b2c0e84",
           "question": "what does hp mean in war and order",
           "answers": [
             "hit points or health points"
@@ -534,15 +534,6 @@
               "id": "4045297",
               "score": 1.3113221,
               "hasanswer": false,
-              "isgold": null,
-              "original_retrieval_index": null
-            },
-            {
-              "title": "Health (gaming)",
-              "text": "Health (gaming) Health or vitality is an attribute assigned to entities such as characters or objects within role-playing games and video games, that indicates their continued ability to function. Health is usually measured in hit points or health points, shortened to HP which lowers by set amounts when the entity is attacked or injured. When the HP of a player character or non-player character reaches zero, that character is incapacitated and barred from taking further action. In some games, such as those with cooperative multiplayer and party based role playing games, it may be possible for an ally to revive",
-              "id": "9383879",
-              "score": 1.2184865,
-              "hasanswer": true,
               "isgold": null,
               "original_retrieval_index": null
             },
@@ -572,11 +563,20 @@
               "hasanswer": false,
               "isgold": null,
               "original_retrieval_index": null
+            },
+            {
+              "title": "Health (gaming)",
+              "text": "Health (gaming) Health or vitality is an attribute assigned to entities such as characters or objects within role-playing games and video games, that indicates their continued ability to function. Health is usually measured in hit points or health points, shortened to HP which lowers by set amounts when the entity is attacked or injured. When the HP of a player character or non-player character reaches zero, that character is incapacitated and barred from taking further action. In some games, such as those with cooperative multiplayer and party based role playing games, it may be possible for an ally to revive",
+              "id": "9383879",
+              "score": 1.2184865,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
             }
           ]
         },
         {
-          "question_id": "be0c4e08-e000-4932-8f84-849451b5baf2",
+          "question_id": "4dcacd05-13db-4b0d-8ed7-ca1339edf0d9",
           "question": "who wrote the first declaration of human rights",
           "answers": [
             "Cyrus"
@@ -597,15 +597,6 @@
               "id": "1737809",
               "score": 1.6434989,
               "hasanswer": false,
-              "isgold": null,
-              "original_retrieval_index": null
-            },
-            {
-              "title": "Cyrus Cylinder",
-              "text": "of the Jewish people following their Babylonian captivity (an act that the Book of Ezra attributes to Cyrus), as the text refers to the restoration of cult sanctuaries and repatriation of deported peoples. This interpretation has been disputed, as the text identifies only Mesopotamian sanctuaries, and makes no mention of Jews, Jerusalem, or Judea. The Cylinder has also been referred to by Mohammad Reza Pahlavi, the last Shah of Iran as the first declaration of universal human rights, a view rejected by some historians as anachronistic and a misunderstanding of the Cylinder's generic nature as a typical statement made by",
-              "id": "6090820",
-              "score": 1.2777393,
-              "hasanswer": true,
               "isgold": null,
               "original_retrieval_index": null
             },
@@ -633,6 +624,15 @@
               "id": "101361",
               "score": 1.6027459,
               "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Cyrus Cylinder",
+              "text": "of the Jewish people following their Babylonian captivity (an act that the Book of Ezra attributes to Cyrus), as the text refers to the restoration of cult sanctuaries and repatriation of deported peoples. This interpretation has been disputed, as the text identifies only Mesopotamian sanctuaries, and makes no mention of Jews, Jerusalem, or Judea. The Cylinder has also been referred to by Mohammad Reza Pahlavi, the last Shah of Iran as the first declaration of universal human rights, a view rejected by some historians as anachronistic and a misunderstanding of the Cylinder's generic nature as a typical statement made by",
+              "id": "6090820",
+              "score": 1.2777393,
+              "hasanswer": true,
               "isgold": null,
               "original_retrieval_index": null
             }
@@ -641,10 +641,10 @@
       ]
     },
     {
-      "name": "gold_at_4",
+      "name": "gold_at_808",
       "data": [
         {
-          "question_id": "d225a676-fae9-422e-b813-b44b1a02dcc7",
+          "question_id": "4a945472-eb40-47f2-8d3e-cb074c57c509",
           "question": "who got the first nobel prize in physics",
           "answers": [
             "Wilhelm Conrad R\u00f6ntgen"
@@ -687,15 +687,6 @@
               "original_retrieval_index": null
             },
             {
-              "title": "University of Wu\u0308rzburg",
-              "text": "the discovery of x-rays by physicist Wilhelm Conrad R\u00f6ntgen, first winner of the Nobel Prize for Physics, in 1895. R\u00f6ntgen's discovery, which he dubbed a \"new kind of ray\", is regarded as the university's greatest intellectual achievement, and, simultaneously, a scientific development of huge global import. R\u00f6ntgen's successors, namely Wilhelm Wien, Johannes Stark and the chemists Emil Fischer and Eduard Buchner, also number among the succession of Nobel Prize winners to lecture at the university, a tradition which endures in the modern-day example of Klaus von Klitzing. After World War II, the free state of Bavaria invested a fortune in",
-              "id": "3253246",
-              "score": 1.3327142,
-              "hasanswer": true,
-              "isgold": null,
-              "original_retrieval_index": null
-            },
-            {
               "title": "Nobel Prize in Physics",
               "text": "rendered by the discovery of the remarkable rays (or x-rays). This award is administered by the Nobel Foundation and widely regarded as the most prestigious award that a scientist can receive in physics. It is presented in Stockholm at an annual ceremony on 10 December, the anniversary of Nobel's death. Through 2018, a total of 209 individuals have been awarded the prize. Only three women (1.4% of laureates) have won the Nobel Prize in Physics: Marie Curie in 1903, Maria Goeppert Mayer in 1963, and Donna Strickland in 2018. Alfred Nobel, in his last will and testament, stated that his",
               "id": "628714",
@@ -703,11 +694,20 @@
               "hasanswer": false,
               "isgold": null,
               "original_retrieval_index": null
+            },
+            {
+              "title": "University of Wu\u0308rzburg",
+              "text": "the discovery of x-rays by physicist Wilhelm Conrad R\u00f6ntgen, first winner of the Nobel Prize for Physics, in 1895. R\u00f6ntgen's discovery, which he dubbed a \"new kind of ray\", is regarded as the university's greatest intellectual achievement, and, simultaneously, a scientific development of huge global import. R\u00f6ntgen's successors, namely Wilhelm Wien, Johannes Stark and the chemists Emil Fischer and Eduard Buchner, also number among the succession of Nobel Prize winners to lecture at the university, a tradition which endures in the modern-day example of Klaus von Klitzing. After World War II, the free state of Bavaria invested a fortune in",
+              "id": "3253246",
+              "score": 1.3327142,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
             }
           ]
         },
         {
-          "question_id": "de9b2e49-a157-48a4-9f0d-1484796df4c5",
+          "question_id": "ab5539ea-eaa7-4cdd-9405-f946df97b46b",
           "question": "when is the next deadpool movie being released",
           "answers": [
             "May 18, 2018"
@@ -750,15 +750,6 @@
               "original_retrieval_index": null
             },
             {
-              "title": "Show Dogs",
-              "text": "million in the United States and Canada, and $20.9 million in other territories, for a worldwide total of $38.8 million. In the United States and Canada, \"Show Dogs\" was released on May 18, 2018 alongside \"Deadpool 2\" and \"Book Club\", and was projected to gross $7\u20139 million from 3,145 theaters in its opening weekend. It ended up debuting to $6 million, finishing sixth at the box office. It dropped 49% in its second weekend to $3.1 million, finishing seventh. On review aggregation website Rotten Tomatoes, the film holds an approval rating of 17% based on 60 reviews with an average",
-              "id": "19902220",
-              "score": 1.247823,
-              "hasanswer": true,
-              "isgold": null,
-              "original_retrieval_index": null
-            },
-            {
               "title": "Deadpool 2",
               "text": "film, explaining its general plot, was released at the end of March. \"Forbes\" contributor Scott Mendelson called it \"pretty funny and mostly entertaining\", but was disappointed in it being a \"conventional\" trailer compared to the more out-there videos previously released for the film. He explained that he thought the first film \"had a winning lead character and fine character-centric jokes, but a pretty generic origin story plot that eventually became the thing it was critiquing\", and was concerned that the sequel would turn out to be \"a more standard 'superhero sequel' sell\". Mendelson also noted the inclusion of T.J. Miller",
               "id": "18960896",
@@ -766,11 +757,20 @@
               "hasanswer": false,
               "isgold": null,
               "original_retrieval_index": null
+            },
+            {
+              "title": "Show Dogs",
+              "text": "million in the United States and Canada, and $20.9 million in other territories, for a worldwide total of $38.8 million. In the United States and Canada, \"Show Dogs\" was released on May 18, 2018 alongside \"Deadpool 2\" and \"Book Club\", and was projected to gross $7\u20139 million from 3,145 theaters in its opening weekend. It ended up debuting to $6 million, finishing sixth at the box office. It dropped 49% in its second weekend to $3.1 million, finishing seventh. On review aggregation website Rotten Tomatoes, the film holds an approval rating of 17% based on 60 reviews with an average",
+              "id": "19902220",
+              "score": 1.247823,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
             }
           ]
         },
         {
-          "question_id": "15ac367e-89b0-48da-996f-dfd21dc76bf2",
+          "question_id": "d89c6982-f6bc-4f23-95d5-a33170a3ed2f",
           "question": "the south west wind blows across nigeria between",
           "answers": [
             "till September"
@@ -813,15 +813,6 @@
               "original_retrieval_index": null
             },
             {
-              "title": "Geography of Nigeria",
-              "text": "north easterlies formed mainly as a result of the interactions of the two dominant airmasses in Nigeria known as the Maritime tropical(south westerlies) and the Continental tropical(north easterlies), begins in central Nigeria while the Monsoons from the south atlantic ocean arrives in central Nigeria in July bringing with it high humidity, heavy cloud cover and heavy rainfall which can be daily occurrence lasting till September when the monsoons gradually begin retreating southward to the southern part of Nigeria.Rainfall totals in central Nigeria varies from in the lowlands of the river Niger Benue trough to over along the south western escarpment",
-              "id": "283803",
-              "score": 1.4846077,
-              "hasanswer": true,
-              "isgold": null,
-              "original_retrieval_index": null
-            },
-            {
               "title": "Awka",
               "text": "dry winds from across the Sahara desert. The monsoon winds from the Atlantic creates six months of heavy tropical rains, which occur between April and July, followed by a short dry period in August lasting two to three weeks with the rain resuming in September and October. This is followed by five months of dryness (November - March) marked by a Harmattan wind, also known as Ugulu in Igbo, which is a particularly dry and dusty wind which enters Nigeria in late December or in the early part of January and is characterized by a grey haze limiting visibility and",
               "id": "5683497",
@@ -829,11 +820,20 @@
               "hasanswer": false,
               "isgold": null,
               "original_retrieval_index": null
+            },
+            {
+              "title": "Geography of Nigeria",
+              "text": "north easterlies formed mainly as a result of the interactions of the two dominant airmasses in Nigeria known as the Maritime tropical(south westerlies) and the Continental tropical(north easterlies), begins in central Nigeria while the Monsoons from the south atlantic ocean arrives in central Nigeria in July bringing with it high humidity, heavy cloud cover and heavy rainfall which can be daily occurrence lasting till September when the monsoons gradually begin retreating southward to the southern part of Nigeria.Rainfall totals in central Nigeria varies from in the lowlands of the river Niger Benue trough to over along the south western escarpment",
+              "id": "283803",
+              "score": 1.4846077,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
             }
           ]
         },
         {
-          "question_id": "0a9bf937-0632-45d7-981d-71b0f17dc06d",
+          "question_id": "0ac2753d-5c6a-44dc-bd40-ddc31b2c0e84",
           "question": "what does hp mean in war and order",
           "answers": [
             "hit points or health points"
@@ -876,15 +876,6 @@
               "original_retrieval_index": null
             },
             {
-              "title": "Health (gaming)",
-              "text": "Health (gaming) Health or vitality is an attribute assigned to entities such as characters or objects within role-playing games and video games, that indicates their continued ability to function. Health is usually measured in hit points or health points, shortened to HP which lowers by set amounts when the entity is attacked or injured. When the HP of a player character or non-player character reaches zero, that character is incapacitated and barred from taking further action. In some games, such as those with cooperative multiplayer and party based role playing games, it may be possible for an ally to revive",
-              "id": "9383879",
-              "score": 1.2184865,
-              "hasanswer": true,
-              "isgold": null,
-              "original_retrieval_index": null
-            },
-            {
               "title": "War and Peace (game)",
               "text": "Spain and Russia where it was harder for armies to live off the land; all units in their home country get a -1 DRM whereas unsupplied units get a +1 DRM). If more than one strength point is to be lost then one of them must be cavalry if there is one in the hex. Neutral countries are immune from attrition, enabling a defeated major power to rebuild their forces until they rejoin the war. Diplomacy takes place in the alliance phase. This system is used to allow nations to ally with one another. Alliances essentially allow you to acquire",
               "id": "12658916",
@@ -892,11 +883,20 @@
               "hasanswer": false,
               "isgold": null,
               "original_retrieval_index": null
+            },
+            {
+              "title": "Health (gaming)",
+              "text": "Health (gaming) Health or vitality is an attribute assigned to entities such as characters or objects within role-playing games and video games, that indicates their continued ability to function. Health is usually measured in hit points or health points, shortened to HP which lowers by set amounts when the entity is attacked or injured. When the HP of a player character or non-player character reaches zero, that character is incapacitated and barred from taking further action. In some games, such as those with cooperative multiplayer and party based role playing games, it may be possible for an ally to revive",
+              "id": "9383879",
+              "score": 1.2184865,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
             }
           ]
         },
         {
-          "question_id": "be0c4e08-e000-4932-8f84-849451b5baf2",
+          "question_id": "4dcacd05-13db-4b0d-8ed7-ca1339edf0d9",
           "question": "who wrote the first declaration of human rights",
           "answers": [
             "Cyrus"
@@ -939,20 +939,20 @@
               "original_retrieval_index": null
             },
             {
-              "title": "Cyrus Cylinder",
-              "text": "of the Jewish people following their Babylonian captivity (an act that the Book of Ezra attributes to Cyrus), as the text refers to the restoration of cult sanctuaries and repatriation of deported peoples. This interpretation has been disputed, as the text identifies only Mesopotamian sanctuaries, and makes no mention of Jews, Jerusalem, or Judea. The Cylinder has also been referred to by Mohammad Reza Pahlavi, the last Shah of Iran as the first declaration of universal human rights, a view rejected by some historians as anachronistic and a misunderstanding of the Cylinder's generic nature as a typical statement made by",
-              "id": "6090820",
-              "score": 1.2777393,
-              "hasanswer": true,
-              "isgold": null,
-              "original_retrieval_index": null
-            },
-            {
               "title": "Declaration of the Rights of Man and of the Citizen",
               "text": "version of the Declaration was discussed by the representatives on the basis of a 24 article draft proposed by , led by . The draft was later modified during the debates. A second and lengthier declaration, known as the Declaration of the Rights of Man and Citizen of 1793, was written in 1793 but never formally adopted. The concepts in the Declaration come from the philosophical and political duties of the Enlightenment, such as individualism, the social contract as theorized by the Genevan philosopher Rousseau, and the separation of powers espoused by the Baron de Montesquieu. As can be seen",
               "id": "101361",
               "score": 1.6027459,
               "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Cyrus Cylinder",
+              "text": "of the Jewish people following their Babylonian captivity (an act that the Book of Ezra attributes to Cyrus), as the text refers to the restoration of cult sanctuaries and repatriation of deported peoples. This interpretation has been disputed, as the text identifies only Mesopotamian sanctuaries, and makes no mention of Jews, Jerusalem, or Judea. The Cylinder has also been referred to by Mohammad Reza Pahlavi, the last Shah of Iran as the first declaration of universal human rights, a view rejected by some historians as anachronistic and a misunderstanding of the Cylinder's generic nature as a typical statement made by",
+              "id": "6090820",
+              "score": 1.2777393,
+              "hasanswer": true,
               "isgold": null,
               "original_retrieval_index": null
             }

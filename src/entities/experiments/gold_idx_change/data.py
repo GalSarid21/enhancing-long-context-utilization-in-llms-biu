@@ -9,7 +9,7 @@ class SingleQuestionRawData(BaseModel):
     question_id: str
     question: str
     answers: List[str]
-    docuemnts: Optional[List[Document]] = None
+    documents: Optional[List[Document]] = None
     gold_docs: Optional[List[Document]] = None
 
 

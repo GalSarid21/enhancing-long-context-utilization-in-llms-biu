@@ -12,4 +12,6 @@ class GoldIdxChangeDatasetCreation(AbstractTask):
 
     async def load_data(self) -> GoldIdxChangeExperimentData:
         nq_helper.get_golden_idx_change_data(prompting_mode=self._prompting_mode,
-                                             tokenizer=self._tokenizer)
+                                             tokenizer=self._tokenizer,
+                                             min_prompt_tokens=self._min_prompt_tokens,
+                                             )

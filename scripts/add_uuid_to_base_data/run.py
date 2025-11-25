@@ -1,9 +1,14 @@
 import json
 import uuid
+import sys
 
 from pathlib import Path
 from typing import List, Dict
 from xopen import xopen
+
+project_root = Path(__file__).resolve().parents[2]
+sys.path.append(str(project_root))
+from common.consts import NQ_DATASET_FILE_PATH
 
 
 def _count_lines(path: Path) -> int:
@@ -63,14 +68,12 @@ def _validate_results(out_path: Path) -> bool:
 
 
 def run() -> None:
-    current_file = Path(__file__).resolve()
-    current_dir = current_file.parent
-    data_path = current_dir / "nq-open-contriever-msmarco-retrieved-documents.jsonl"
+    data_path = Path("./data/nq-open-contriever-msmarco-retrieved-documents.jsonl")
     print(f"add_uuid_to_base_data - starting: {data_path=}")
 
     data_with_uuid = _create_new_data(data_path=data_path)
 
-    out_path = current_dir / "nq-open-with-uuid.jsonl.gz"
+    out_path = DATASET_FILE_PATH
     _save_new_data(new_data=data_with_uuid, out_path=out_path)
 
     _validate_results(out_path=out_path)

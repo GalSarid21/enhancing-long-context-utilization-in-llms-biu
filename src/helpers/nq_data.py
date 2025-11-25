@@ -1,10 +1,13 @@
 import logging
 import json
 
+from collections.abc import AsyncIterator
 from pathlib import Path
 from typing import Optional, Dict,List
 from xopen import xopen
 from copy import deepcopy
+
+from common.consts import NQ_DATASET_FILE_PATH, MODEL_DOCS_MAPPINGS
 
 from src.entities.experiments.gold_idx_change.data import (
     GoldIdxChangeExperimentData,
@@ -22,25 +25,20 @@ logger = logging.getLogger(__name__)
 
 async def get_golden_idx_change_data(
     prompting_mode: PromptingMode,
-    tokenizer: Optional[HfTokenizer] = None,
-    min_prompt_tokens: Optional[int] = None,
-    gold_idxs: Optional[List[int]] = None,
+    model_name: Optional[str] = None,
+    num_idxs: Optional[int] = None,
     path: Optional[str] = None,
     num_examples: Optional[int] = None
 ) -> GoldIdxChangeExperimentData:
 
-    if tokenizer and not min_prompt_tokens:
-        raise Exception("tokenizer needs 'min_prompt_tokens' to set number of prompt documents")
-
-    logger.info(f"get_golden_idx_change_data - started: {gold_idxs=}, {prompting_mode=}, {path=}, {num_examples=}")
+    logger.info(f"get_golden_idx_change_data - started: {num_idxs=}, {prompting_mode=}, {model_name=}, {path=}, {num_examples=}")
     raw_data: List[SingleQuestionRawData] = await read_data_file(prompting_mode=prompting_mode, path=path, num_examples=num_examples)
     experiments = []
 
-    if gold_idxs:
-        experiments = await _create_experiments_with_full_documents_list(gold_idxs=gold_idxs,
+    if num_idxs:
+        experiments = await _create_experiments_with_full_documents_list(num_idxs=num_idxs,
                                                                          raw_data=raw_data,
-                                                                         tokenizer=tokenizer,
-                                                                         min_prompt_tokens=min_prompt_tokens)
+                                                                         model_name=model_name)
     # when there are no gold indcies - we're working in closedbook or baseline
     else:
         experiments = await _create_experiments_with_partial_documents_list(prompting_mode=prompting_mode, raw_data=raw_data)
@@ -50,32 +48,48 @@ async def get_golden_idx_change_data(
     return gold_idx_change_data
 
 
-async def _create_gold_idx_list() -> List[int]:
-    pass
+async def _generate_gold_idxs(num_idxs: int, num_docs: int) -> AsyncIterator[int]:
+    await _validate_create_gold_idx_list_args(num_idxs=num_idxs, num_docs=num_docs)
 
+    if num_idxs == 1:
+        yield 0
+        return
+
+    step = (num_docs - 1) / (num_idxs - 1)
+
+    for i in range(num_idxs):
+        yield round(i * step)
+
+
+async def _validate_create_gold_idx_list_args(num_docs: int, num_idxs: int) -> None:
+    if not isinstance(num_docs, int) or not isinstance(num_idxs, int):
+        raise TypeError("num_docs and num_idxs must be integers")
+    if num_docs <= 0:
+        raise ValueError("num_docs must be > 0")
+    if num_idxs <= 0:
+        raise ValueError("num_idxs must be > 0")
+    if num_idxs > num_docs:
+        raise ValueError("num_idxs cannot exceed num_docs")
 
 
 async def _create_experiments_with_full_documents_list(
-    gold_idxs: List[int],
+    num_idxs: int,
     raw_data: List[SingleQuestionRawData],
-    min_prompt_tokens: int,
-    tokenizer: HfTokenizer
+    model_name: str
 ) -> List[SingleIdxData]:
 
+    model_short_name = model_name.split("/")[-1]
+
+    num_docs = MODEL_DOCS_MAPPINGS.get(model_short_name)
+    if not num_docs:
+        raise RuntimeError(f"num docs mapping failed! model={model_short_name}")
+
     experiments = []
-    for gold_idx in gold_idxs:
+    async for gold_idx in _generate_gold_idxs(num_idxs=num_idxs, num_docs=num_docs):
 
         idx_data = []
         for data in raw_data:
-            documents_cpy: List[Document] = deepcopy(data.docuemnts)
-            
-            total_tokens = 0
-            for num_docs, doc in enumerate(documents_cpy, 1):
-                title_tokens: int = tokenizer.count_tokens(prompt=doc.title)
-                text_tokens: int = tokenizer.count_tokens(prompt=doc.text)
-                total_tokens += (title_tokens + text_tokens)
-                if total_tokens >= min_prompt_tokens:
-                    break
+            documents_cpy: List[Document] = deepcopy(data.documents)
             documents_cpy = documents_cpy[:num_docs]
 
             # TODO: create shuffle logic that is based on external document ids order (for stability)
@@ -144,23 +158,7 @@ async def read_data_file(prompting_mode: PromptingMode, path: Optional[str] = No
 
 
 async def _get_data_path(path: Optional[str] = None) -> Path:
-    if path:
-        data_path = Path(path)
-    else:
-        project_root = await _get_project_root()
-        # set default path if nothing else is provided
-        data_path = project_root / "scripts" / "add_uuid_to_base_data" / "nq-open-with-uuid.jsonl.gz"
-
-    return data_path
-
-
-async def _get_project_root() -> Path:
-    """We identify the root as the folder which has 'pyproject.toml' in it"""
-    current = Path(__file__).resolve()
-    for parent in [current] + list(current.parents):
-        if (parent / "pyproject.toml").exists():
-            return parent
-    raise RuntimeError("pyproject.toml not found")
+    return Path(path) if path else NQ_DATASET_FILE_PATH
 
 
 async def _get_single_question_raw_data_payload(raw_data: Dict, prompting_mode: PromptingMode) -> Dict:
@@ -184,6 +182,6 @@ async def _get_single_question_raw_data_payload(raw_data: Dict, prompting_mode: 
 
         question_data_payload["gold_docs"] = gold_docs
         if prompting_mode != PromptingMode.BASELINE:
-            question_data_payload["docuemnts"] = docs[:5] # TEST
+            question_data_payload["documents"] = docs[:5] # TEST
 
     return question_data_payload

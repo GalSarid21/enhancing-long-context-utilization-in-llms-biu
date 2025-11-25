@@ -1,11 +1,11 @@
 [
   {
-    "question_id": "d225a676-fae9-422e-b813-b44b1a02dcc7",
+    "question_id": "4a945472-eb40-47f2-8d3e-cb074c57c509",
     "question": "who got the first nobel prize in physics",
     "answers": [
       "Wilhelm Conrad R\u00f6ntgen"
     ],
-    "docuemnts": [
+    "documents": [
       {
         "title": "Nobel Prize in Physics",
         "text": "receive a diploma, a medal and a document confirming the prize amount. Nobel Prize in Physics The Nobel Prize in Physics () is a yearly award given by the Royal Swedish Academy of Sciences for those who have made the most outstanding contributions for mankind in the field of physics. It is one of the five Nobel Prizes established by the will of Alfred Nobel in 1895 and awarded since 1901; the others being the Nobel Prize in Chemistry, Nobel Prize in Literature, Nobel Peace Prize, and Nobel Prize in Physiology or Medicine. The first Nobel Prize in Physics was",
@@ -83,12 +83,12 @@
     ]
   },
   {
-    "question_id": "de9b2e49-a157-48a4-9f0d-1484796df4c5",
+    "question_id": "ab5539ea-eaa7-4cdd-9405-f946df97b46b",
     "question": "when is the next deadpool movie being released",
     "answers": [
       "May 18, 2018"
     ],
-    "docuemnts": [
+    "documents": [
       {
         "title": "Deadpool (video game)",
         "text": "2015 in North America and Australia, and November 20, 2015 in the United Kingdom. It is unknown how Activision reacquired the rights to publish \"Deadpool: The Video Game\", but it is believed that the re-release was timed to help promote the then-upcoming Deadpool feature film, released roughly three months after the next-gen version of the game. High Moon Studios showed an early demo of the video game to journalists at Gamescom 2012, where the game earned a nomination for Best of Show. Several sites wrote positive impression of the demo that was shown at Gamescom and the Electronic Entertainment Expo",
@@ -247,12 +247,12 @@
     ]
   },
   {
-    "question_id": "15ac367e-89b0-48da-996f-dfd21dc76bf2",
+    "question_id": "d89c6982-f6bc-4f23-95d5-a33170a3ed2f",
     "question": "the south west wind blows across nigeria between",
     "answers": [
       "till September"
     ],
-    "docuemnts": [
+    "documents": [
       {
         "title": "Geography of Nigeria",
         "text": "south atlantic ocean, locally known as the south western wind, or by its main name, The Tropical Maritime (MT) airmass. These two major wind systems in Nigeria are known as the trade winds. The tropical maritime airmass (MT) is responsible for Nigeria's rainy season. This wind (the tropical maritime airmass) invades the country from February in the southern part of Nigeria while it takes longer for the wind to fully cover the whole of the country, reaching the northern part of Nigeria in June. Its invasion is as a result of the northward retreat, of the tropical continental airmass (CT)",
