@@ -3,8 +3,12 @@ from enum import Enum
 
 
 class TaskType(str, Enum):
-    GOLD_IDX_CHANGE_EXPERIMENT = "gold_idx_change_experiment"
+    EXPERIMENT = "experiment"
     DATASET_CREATION = "dataset_creation"
+
+
+class TaskName(str, Enum):
+    GOLD_IDX_CHANGE = "gold_idx_change"
 
 
 class PromptingMode(str, Enum):
@@ -21,3 +25,8 @@ class PromptingMode(str, Enum):
 
 class Metric(str, Enum):
     BEST_SUBSPAN_EM = "best_subspan_em"
+
+
+class Status(str, Enum):
+    SUCCESS = "success"
+    FAILURE = "failure"

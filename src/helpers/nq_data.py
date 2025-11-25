@@ -50,6 +50,11 @@ async def get_golden_idx_change_data(
     return gold_idx_change_data
 
 
+async def _create_gold_idx_list() -> List[int]:
+    pass
+
+
+
 async def _create_experiments_with_full_documents_list(
     gold_idxs: List[int],
     raw_data: List[SingleQuestionRawData],
@@ -142,11 +147,20 @@ async def _get_data_path(path: Optional[str] = None) -> Path:
     if path:
         data_path = Path(path)
     else:
-        project_root = Path(__file__).resolve().parents[1]
+        project_root = await _get_project_root()
         # set default path if nothing else is provided
         data_path = project_root / "scripts" / "add_uuid_to_base_data" / "nq-open-with-uuid.jsonl.gz"
 
     return data_path
+
+
+async def _get_project_root() -> Path:
+    """We identify the root as the folder which has 'pyproject.toml' in it"""
+    current = Path(__file__).resolve()
+    for parent in [current] + list(current.parents):
+        if (parent / "pyproject.toml").exists():
+            return parent
+    raise RuntimeError("pyproject.toml not found")
 
 
 async def _get_single_question_raw_data_payload(raw_data: Dict, prompting_mode: PromptingMode) -> Dict:

@@ -1,4 +1,3 @@
-import asyncio
 import pytest
 import json
 
@@ -8,7 +7,7 @@ from typing import List, Dict, Optional
 
 from src.entities.experiments.gold_idx_change.data import SingleQuestionRawData, GoldIdxChangeExperimentData
 from src.entities.enums import PromptingMode
-from common.nq_data import read_data_file, get_golden_idx_change_data
+from src.helpers.nq_data import read_data_file, get_golden_idx_change_data
 from src.wrappers import HfTokenizer
 
 
