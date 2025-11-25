@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Generator
 from enum import Enum
 
 

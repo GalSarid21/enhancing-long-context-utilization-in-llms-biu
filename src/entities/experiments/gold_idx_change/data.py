@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import List, Optional
 
+from src.entities.base import BaseDataClass
 from src.entities.document import Document
 
 
@@ -25,5 +26,5 @@ class SingleIdxData(BaseModel):
     data: List[SingleQuestionData]
 
 
-class GoldIdxChangeExperimentData(BaseModel):
+class GoldIdxChangeExperimentData(BaseDataClass):
     experiments: List[SingleIdxData]

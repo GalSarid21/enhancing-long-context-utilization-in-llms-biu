@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional, List
 
+from src.entities.base import BaseTaskResults
 from src.entities.enums import PromptingMode, Metric
 
 
@@ -18,7 +19,7 @@ class SingleIdxResults(BaseModel):
     results: List[SingleQuestionResult]
 
 
-class GoldIdxChangeExperimentResults(BaseModel):
+class GoldIdxChangeExperimentResults(BaseTaskResults):
     model: str
     num_documents: int
     prompting_mode: PromptingMode

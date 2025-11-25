@@ -1,0 +1,99 @@
+{
+  "experiments": [
+    {
+      "name": "baseline",
+      "data": [
+        {
+          "question_id": "d225a676-fae9-422e-b813-b44b1a02dcc7",
+          "question": "who got the first nobel prize in physics",
+          "answers": [
+            "Wilhelm Conrad R\u00f6ntgen"
+          ],
+          "documents": [
+            {
+              "title": "University of Wu\u0308rzburg",
+              "text": "the discovery of x-rays by physicist Wilhelm Conrad R\u00f6ntgen, first winner of the Nobel Prize for Physics, in 1895. R\u00f6ntgen's discovery, which he dubbed a \"new kind of ray\", is regarded as the university's greatest intellectual achievement, and, simultaneously, a scientific development of huge global import. R\u00f6ntgen's successors, namely Wilhelm Wien, Johannes Stark and the chemists Emil Fischer and Eduard Buchner, also number among the succession of Nobel Prize winners to lecture at the university, a tradition which endures in the modern-day example of Klaus von Klitzing. After World War II, the free state of Bavaria invested a fortune in",
+              "id": "3253246",
+              "score": 1.3327142,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        },
+        {
+          "question_id": "de9b2e49-a157-48a4-9f0d-1484796df4c5",
+          "question": "when is the next deadpool movie being released",
+          "answers": [
+            "May 18, 2018"
+          ],
+          "documents": [
+            {
+              "title": "Show Dogs",
+              "text": "million in the United States and Canada, and $20.9 million in other territories, for a worldwide total of $38.8 million. In the United States and Canada, \"Show Dogs\" was released on May 18, 2018 alongside \"Deadpool 2\" and \"Book Club\", and was projected to gross $7\u20139 million from 3,145 theaters in its opening weekend. It ended up debuting to $6 million, finishing sixth at the box office. It dropped 49% in its second weekend to $3.1 million, finishing seventh. On review aggregation website Rotten Tomatoes, the film holds an approval rating of 17% based on 60 reviews with an average",
+              "id": "19902220",
+              "score": 1.247823,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        },
+        {
+          "question_id": "15ac367e-89b0-48da-996f-dfd21dc76bf2",
+          "question": "the south west wind blows across nigeria between",
+          "answers": [
+            "till September"
+          ],
+          "documents": [
+            {
+              "title": "Geography of Nigeria",
+              "text": "north easterlies formed mainly as a result of the interactions of the two dominant airmasses in Nigeria known as the Maritime tropical(south westerlies) and the Continental tropical(north easterlies), begins in central Nigeria while the Monsoons from the south atlantic ocean arrives in central Nigeria in July bringing with it high humidity, heavy cloud cover and heavy rainfall which can be daily occurrence lasting till September when the monsoons gradually begin retreating southward to the southern part of Nigeria.Rainfall totals in central Nigeria varies from in the lowlands of the river Niger Benue trough to over along the south western escarpment",
+              "id": "283803",
+              "score": 1.4846077,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        },
+        {
+          "question_id": "0a9bf937-0632-45d7-981d-71b0f17dc06d",
+          "question": "what does hp mean in war and order",
+          "answers": [
+            "hit points or health points"
+          ],
+          "documents": [
+            {
+              "title": "Health (gaming)",
+              "text": "Health (gaming) Health or vitality is an attribute assigned to entities such as characters or objects within role-playing games and video games, that indicates their continued ability to function. Health is usually measured in hit points or health points, shortened to HP which lowers by set amounts when the entity is attacked or injured. When the HP of a player character or non-player character reaches zero, that character is incapacitated and barred from taking further action. In some games, such as those with cooperative multiplayer and party based role playing games, it may be possible for an ally to revive",
+              "id": "9383879",
+              "score": 1.2184865,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        },
+        {
+          "question_id": "be0c4e08-e000-4932-8f84-849451b5baf2",
+          "question": "who wrote the first declaration of human rights",
+          "answers": [
+            "Cyrus"
+          ],
+          "documents": [
+            {
+              "title": "Cyrus Cylinder",
+              "text": "of the Jewish people following their Babylonian captivity (an act that the Book of Ezra attributes to Cyrus), as the text refers to the restoration of cult sanctuaries and repatriation of deported peoples. This interpretation has been disputed, as the text identifies only Mesopotamian sanctuaries, and makes no mention of Jews, Jerusalem, or Judea. The Cylinder has also been referred to by Mohammad Reza Pahlavi, the last Shah of Iran as the first declaration of universal human rights, a view rejected by some historians as anachronistic and a misunderstanding of the Cylinder's generic nature as a typical statement made by",
+              "id": "6090820",
+              "score": 1.2777393,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

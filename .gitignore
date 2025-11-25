@@ -212,3 +212,6 @@ __marimo__/
 
 # ignore vs-code files
 /.vscode
+
+# ignore results folder
+/results

@@ -7,6 +7,7 @@ requires-python = ">=3.11"
 dependencies = [
     "pydantic>=2.12.4",
     "transformers>=4.57.1",
+    "vllm==0.8.4",
     "xopen>=2.0.2",
 ]
 

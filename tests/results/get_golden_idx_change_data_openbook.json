@@ -1,0 +1,964 @@
+{
+  "experiments": [
+    {
+      "name": "gold_at_0",
+      "data": [
+        {
+          "question_id": "d225a676-fae9-422e-b813-b44b1a02dcc7",
+          "question": "who got the first nobel prize in physics",
+          "answers": [
+            "Wilhelm Conrad R\u00f6ntgen"
+          ],
+          "documents": [
+            {
+              "title": "University of Wu\u0308rzburg",
+              "text": "the discovery of x-rays by physicist Wilhelm Conrad R\u00f6ntgen, first winner of the Nobel Prize for Physics, in 1895. R\u00f6ntgen's discovery, which he dubbed a \"new kind of ray\", is regarded as the university's greatest intellectual achievement, and, simultaneously, a scientific development of huge global import. R\u00f6ntgen's successors, namely Wilhelm Wien, Johannes Stark and the chemists Emil Fischer and Eduard Buchner, also number among the succession of Nobel Prize winners to lecture at the university, a tradition which endures in the modern-day example of Klaus von Klitzing. After World War II, the free state of Bavaria invested a fortune in",
+              "id": "3253246",
+              "score": 1.3327142,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Nobel Prize in Physics",
+              "text": "receive a diploma, a medal and a document confirming the prize amount. Nobel Prize in Physics The Nobel Prize in Physics () is a yearly award given by the Royal Swedish Academy of Sciences for those who have made the most outstanding contributions for mankind in the field of physics. It is one of the five Nobel Prizes established by the will of Alfred Nobel in 1895 and awarded since 1901; the others being the Nobel Prize in Chemistry, Nobel Prize in Literature, Nobel Peace Prize, and Nobel Prize in Physiology or Medicine. The first Nobel Prize in Physics was",
+              "id": "628725",
+              "score": 1.6234328,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Norwegian Americans",
+              "text": "science, Ernest Lawrence won the Nobel Prize in Physics in 1939. Lars Onsager won the 1968 Nobel Prize in Chemistry. Norman Borlaug, father of the Green Revolution, won the Nobel Peace Prize in 1970. Christian B. Anfinsen won the Nobel Prize for chemistry in 1972. Ivar Giaever won the Nobel Prize in Physics 1973. Carl Richard Hagen is noted for his work in physics. In engineering, Clayton Jacobson II is credited with the invention of the modern personal watercraft. Ole Singstad was a pioneer of underwater tunnels. Ole Evinrude invented the first outboard motor with practical commercial application, recognizable today",
+              "id": "4107064",
+              "score": 1.6037977,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Nobel Prize in Physics",
+              "text": "Nobel Prize in Physics The Nobel Prize in Physics () is a yearly award given by the Royal Swedish Academy of Sciences for those who have made the most outstanding contributions for mankind in the field of physics. It is one of the five Nobel Prizes established by the will of Alfred Nobel in 1895 and awarded since 1901; the others being the Nobel Prize in Chemistry, Nobel Prize in Literature, Nobel Peace Prize, and Nobel Prize in Physiology or Medicine. The first Nobel Prize in Physics was awarded to physicist Wilhelm R\u00f6ntgen in recognition of the extraordinary services he",
+              "id": "628713",
+              "score": 1.5958772,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "E\u0301cole normale supe\u0301rieure (Paris)",
+              "text": "was also awarded the Abel prize. In addition, eight \"normaliens\" have gone on to receive the Nobel Prize in Physics: Claude Cohen-Tannoudji, Pierre-Gilles de Gennes, Albert Fert, Alfred Kastler, Gabriel Lippmann, Louis N\u00e9el, Jean Baptiste Perrin and Serge Haroche, while other ENS physicists include such major figures as Paul Langevin, famous for developing Langevin dynamics and the Langevin equation. Alumnus Paul Sabatier won the Nobel Prize in Chemistry. A ranking of universities worldwide based on ratios of alumni to Nobel prize-winners published in 2016 by American scholars Stephen Hsu and Jonathan Wai placed ENS as the first university worldwide, far",
+              "id": "2112526",
+              "score": 1.5804691,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Nobel Prize in Physics",
+              "text": "rendered by the discovery of the remarkable rays (or x-rays). This award is administered by the Nobel Foundation and widely regarded as the most prestigious award that a scientist can receive in physics. It is presented in Stockholm at an annual ceremony on 10 December, the anniversary of Nobel's death. Through 2018, a total of 209 individuals have been awarded the prize. Only three women (1.4% of laureates) have won the Nobel Prize in Physics: Marie Curie in 1903, Maria Goeppert Mayer in 1963, and Donna Strickland in 2018. Alfred Nobel, in his last will and testament, stated that his",
+              "id": "628714",
+              "score": 1.5673295,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        },
+        {
+          "question_id": "de9b2e49-a157-48a4-9f0d-1484796df4c5",
+          "question": "when is the next deadpool movie being released",
+          "answers": [
+            "May 18, 2018"
+          ],
+          "documents": [
+            {
+              "title": "Show Dogs",
+              "text": "million in the United States and Canada, and $20.9 million in other territories, for a worldwide total of $38.8 million. In the United States and Canada, \"Show Dogs\" was released on May 18, 2018 alongside \"Deadpool 2\" and \"Book Club\", and was projected to gross $7\u20139 million from 3,145 theaters in its opening weekend. It ended up debuting to $6 million, finishing sixth at the box office. It dropped 49% in its second weekend to $3.1 million, finishing seventh. On review aggregation website Rotten Tomatoes, the film holds an approval rating of 17% based on 60 reviews with an average",
+              "id": "19902220",
+              "score": 1.247823,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Deadpool (video game)",
+              "text": "2015 in North America and Australia, and November 20, 2015 in the United Kingdom. It is unknown how Activision reacquired the rights to publish \"Deadpool: The Video Game\", but it is believed that the re-release was timed to help promote the then-upcoming Deadpool feature film, released roughly three months after the next-gen version of the game. High Moon Studios showed an early demo of the video game to journalists at Gamescom 2012, where the game earned a nomination for Best of Show. Several sites wrote positive impression of the demo that was shown at Gamescom and the Electronic Entertainment Expo",
+              "id": "16652154",
+              "score": 1.680884,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Deadpool (film)",
+              "text": "footage was leaked online in July 2014, and was met with an overwhelmingly enthusiastic response. That September, Fox gave \"Deadpool\" a release date of February 12, 2016. Production was set to begin in March 2015, with Simon Kinberg joining as producer. Reynolds attributed Fox's green-lighting of the film entirely to the leak. He, Miller and the writers had previously discussed leaking the footage themselves, and Reynolds initially thought that Miller had done so. He later believed the leak came from someone at Fox. In exchange for being able to make the film the way they wanted, Fox gave the crew",
+              "id": "18286027",
+              "score": 1.6732361,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Deadpool (film)",
+              "text": "May of that year. Several vendors provided visual effects for the film, ranging from the addition of blood and gore to the creation of the CG character Colossus. \"Deadpool\" was released in the United States on February 12, 2016, after an unconventional marketing campaign. The film achieved both financial and critical success. It earned over $783 million against a $58 million budget, breaking numerous records: it became the highest-grossing R-rated film, the highest-grossing \"X-Men\" film, and the ninth-highest-grossing 2016 film. Critics praised Reynolds' performance, the film's style and faithfulness to the comics, and its action sequences. Some detractors criticized the",
+              "id": "18286012",
+              "score": 1.6697204,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Paul Wernick",
+              "text": "Tim Miller. The R-rated film was released on February 12, 2016. Its opening weekend was the highest grossing of all time for R-Rated films, and it went on to gross more than $780 million worldwide. The team's next project, sci-fi thriller \"Life\", was released in March 2017. The film was directed by Daniel Espinosa, produced by Skydance, and through Sony Pictures, with Ryan Reynolds, Jake Gyllenhaal, and Rebecca Ferguson starring. They wrote \"Deadpool 2\" in 2018, which like its predecessor was released to positive reviews. Wernick and Reese were announced as the co-screenwriters of the feature film adaptation of \"Cowboy",
+              "id": "13479582",
+              "score": 1.6621784,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Deadpool 2",
+              "text": "film, explaining its general plot, was released at the end of March. \"Forbes\" contributor Scott Mendelson called it \"pretty funny and mostly entertaining\", but was disappointed in it being a \"conventional\" trailer compared to the more out-there videos previously released for the film. He explained that he thought the first film \"had a winning lead character and fine character-centric jokes, but a pretty generic origin story plot that eventually became the thing it was critiquing\", and was concerned that the sequel would turn out to be \"a more standard 'superhero sequel' sell\". Mendelson also noted the inclusion of T.J. Miller",
+              "id": "18960896",
+              "score": 1.6511292,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        },
+        {
+          "question_id": "15ac367e-89b0-48da-996f-dfd21dc76bf2",
+          "question": "the south west wind blows across nigeria between",
+          "answers": [
+            "till September"
+          ],
+          "documents": [
+            {
+              "title": "Geography of Nigeria",
+              "text": "north easterlies formed mainly as a result of the interactions of the two dominant airmasses in Nigeria known as the Maritime tropical(south westerlies) and the Continental tropical(north easterlies), begins in central Nigeria while the Monsoons from the south atlantic ocean arrives in central Nigeria in July bringing with it high humidity, heavy cloud cover and heavy rainfall which can be daily occurrence lasting till September when the monsoons gradually begin retreating southward to the southern part of Nigeria.Rainfall totals in central Nigeria varies from in the lowlands of the river Niger Benue trough to over along the south western escarpment",
+              "id": "283803",
+              "score": 1.4846077,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Geography of Nigeria",
+              "text": "south atlantic ocean, locally known as the south western wind, or by its main name, The Tropical Maritime (MT) airmass. These two major wind systems in Nigeria are known as the trade winds. The tropical maritime airmass (MT) is responsible for Nigeria's rainy season. This wind (the tropical maritime airmass) invades the country from February in the southern part of Nigeria while it takes longer for the wind to fully cover the whole of the country, reaching the northern part of Nigeria in June. Its invasion is as a result of the northward retreat, of the tropical continental airmass (CT)",
+              "id": "283806",
+              "score": 1.7124131,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Geography of Nigeria",
+              "text": "of low pressure to develop over west Africa and Nigeria (between March to May). The Tropical continental airmass (CT) from the Sahara Desert in the northern part of West Africa, is weakened due to the overheating of the land surface in west Africa and Nigeria at this time. The Tropical continental airmass (CT) begins to retreat northwards to the Sahara Desert due to massive heating of the land which transfers heat in the form of convection into the Tropical continental airmass (CT) which constitutes the main layer of air above the land. This transfer of heat in the Tropical continental",
+              "id": "283809",
+              "score": 1.6039791,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Geography of Nigeria",
+              "text": "airmass (CT) in turn, causes the wind to expand and become lighter as this is the normal behaviour for winds moving above intensely heated grounds. The Tropical continental airmass (CT) loses its strength as a major airmass in the region of west Africa and over Nigeria at this time (around February in the southern part of Nigeria to June in northern Nigeria) and begins to retreat coupled with the rising of air in form of convection within this airmass (Tropical continental airmass (CT)), further weakening the dominance of the wind over west Africa and Nigeria. The Tropical continental airmass (CT)",
+              "id": "283810",
+              "score": 1.5820746,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Geography of Nigeria",
+              "text": "northern end is south of the 15 degrees line at about 14 degrees. Nigeria's location in the wetter part of the easterly waves south of the 15 degree line creates wetter climatic conditions for Nigeria especially during the monsoons. The Tropical Continental Airmass (CT) locally known as the harmattan, is a wind originating from North Africa which crosses the Sahara Desert into west Africa to Nigeria. This airmass dominates Nigeria's climate during the dry season from December to March. The Tropical continental airmass is dusty and creates a haze within the atmosphere of west Africa and Nigeria when it predominates.",
+              "id": "283814",
+              "score": 1.5722123,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Awka",
+              "text": "dry winds from across the Sahara desert. The monsoon winds from the Atlantic creates six months of heavy tropical rains, which occur between April and July, followed by a short dry period in August lasting two to three weeks with the rain resuming in September and October. This is followed by five months of dryness (November - March) marked by a Harmattan wind, also known as Ugulu in Igbo, which is a particularly dry and dusty wind which enters Nigeria in late December or in the early part of January and is characterized by a grey haze limiting visibility and",
+              "id": "5683497",
+              "score": 1.545485,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        },
+        {
+          "question_id": "0a9bf937-0632-45d7-981d-71b0f17dc06d",
+          "question": "what does hp mean in war and order",
+          "answers": [
+            "hit points or health points"
+          ],
+          "documents": [
+            {
+              "title": "Health (gaming)",
+              "text": "Health (gaming) Health or vitality is an attribute assigned to entities such as characters or objects within role-playing games and video games, that indicates their continued ability to function. Health is usually measured in hit points or health points, shortened to HP which lowers by set amounts when the entity is attacked or injured. When the HP of a player character or non-player character reaches zero, that character is incapacitated and barred from taking further action. In some games, such as those with cooperative multiplayer and party based role playing games, it may be possible for an ally to revive",
+              "id": "9383879",
+              "score": 1.2184865,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Order of War",
+              "text": "Order of War Order of War is a World War II Strategy video game developed by Wargaming.net and published by Square Enix. It was released on September 22, 2009. In the summer of 1944, World War II entered its end-game when the Allies launched two major operations that would drive back German forces on both the Western and Eastern Fronts at once. Order of War contains two campaigns, one American and one German. Order of War allows players to lead American forces to victory in the west and also places players in command of the German forces charged with repelling",
+              "id": "13284088",
+              "score": 1.363863,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Dark Ages (1999 video game)",
+              "text": "boost stats so they can learn skills with the fewest points actually spent possible, enabling the excess points to be spent in CON or WIS, allowing the character to enjoy a greatly improved HP or MP pool and regeneration while leveling. HP and MP are the standards hit point and magic points. HP is reduced from receiving damage in combat from enemies, and if it is reduced to 0 results in the death of the character except under special circumstances. If a character is a member of a party, instead of immediate death the character is in a swooning state",
+              "id": "4045297",
+              "score": 1.3113221,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Hume's principle",
+              "text": "Hume's principle Hume's principle or HP\u2014the terms were coined by George Boolos\u2014says that the number of \"F\"s is equal to the number of \"G\"s if and only if there is a one-to-one correspondence (a bijection) between the \"F\"s and the \"G\"s. HP can be stated formally in systems of second-order logic. Hume's principle is named for the Scottish philosopher David Hume. HP plays a central role in Gottlob Frege's philosophy of mathematics. Frege shows that HP and suitable definitions of arithmetical notions entail all axioms of what we now call second-order arithmetic. This result is known as Frege's theorem, which",
+              "id": "2104361",
+              "score": 1.3078943,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Order of War",
+              "text": "the Red Army\u2019s offensive in the east. Order of War features detailed graphics and a historically accurate storyline. The main focus of the game that sets it apart from other strategy offers is the sweeping scale of battlefield vistas featuring company level engagements. Players take command of multiple unit types, including ground troops, artillery, tanks and aircraft in strategic assaults based on key missions and operations from 1944. Order of War is a Real Time Strategy (RTS) game without requiring the player to manage traditional base building or resource collection activities. Much like the Relic Entertainment's \"\" series or the",
+              "id": "13284089",
+              "score": 1.2997231,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "War and Peace (game)",
+              "text": "Spain and Russia where it was harder for armies to live off the land; all units in their home country get a -1 DRM whereas unsupplied units get a +1 DRM). If more than one strength point is to be lost then one of them must be cavalry if there is one in the hex. Neutral countries are immune from attrition, enabling a defeated major power to rebuild their forces until they rejoin the war. Diplomacy takes place in the alliance phase. This system is used to allow nations to ally with one another. Alliances essentially allow you to acquire",
+              "id": "12658916",
+              "score": 1.292705,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        },
+        {
+          "question_id": "be0c4e08-e000-4932-8f84-849451b5baf2",
+          "question": "who wrote the first declaration of human rights",
+          "answers": [
+            "Cyrus"
+          ],
+          "documents": [
+            {
+              "title": "Cyrus Cylinder",
+              "text": "of the Jewish people following their Babylonian captivity (an act that the Book of Ezra attributes to Cyrus), as the text refers to the restoration of cult sanctuaries and repatriation of deported peoples. This interpretation has been disputed, as the text identifies only Mesopotamian sanctuaries, and makes no mention of Jews, Jerusalem, or Judea. The Cylinder has also been referred to by Mohammad Reza Pahlavi, the last Shah of Iran as the first declaration of universal human rights, a view rejected by some historians as anachronistic and a misunderstanding of the Cylinder's generic nature as a typical statement made by",
+              "id": "6090820",
+              "score": 1.2777393,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Drafting of the Universal Declaration of Human Rights",
+              "text": "P. C. Chang of Republic of China (Taiwan), and Hansa Mehta of India among others. While not a member of the drafting committee, the French philosopher Jacques Maritain was influential in the lead up to the drafting of the Universal Declaration, advocacy for it within UNESCO in 1947-8, and in its subsequent advancement. The Drafting Committee included John Peters Humphrey was newly appointed as Director of the Division of Human Rights within the United Nations Secretariat. In this role, he produced the first draft of a list of rights that were to form the basis of the Declaration. The underlying",
+              "id": "12461048",
+              "score": 1.6599674,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "John Peters Humphrey",
+              "text": "John Peters Humphrey John Peters Humphrey, OC (April 30, 1905 \u2013 March 14, 1995) was a Canadian legal scholar, jurist, and human rights advocate. He is most famous as the author of the first draft of the Universal Declaration of Human Rights. Humphrey was born to Frank Humphrey and Nellie Peter on April 30, 1905, in Hampton, New Brunswick. His childhood was touched by tragedy as he lost both his parents to cancer and he also lost one of his arms in an accident while playing with fire. Humphrey attended a boarding school where he endured teasing from other students;",
+              "id": "1737809",
+              "score": 1.6434989,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Drafting of the Universal Declaration of Human Rights",
+              "text": "Drafting of the Universal Declaration of Human Rights The Universal Declaration of Human Rights was drafted from early 1947 to late 1948 by Drafting Committee the first United Nations Commission on Human Rights. Further discussion and amendments were made by the Commission on Human Rights, the Economic and Social Council and the General Assembly of the United Nations. Members of the Commission who contributed significantly to the creation of the Declaration included Canadian John Peters Humphrey of the United Nations Secretariat, Eleanor Roosevelt of the United States (who chaired the Drafting Committee), Ren\u00e9 Cassin of France, Charles Malik of Lebanon,",
+              "id": "12461047",
+              "score": 1.6110829,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "John Peters Humphrey",
+              "text": "of the bench, which sits beside two tall stone plinths, one of which has several articles from the Universal Declaration of Human Rights carved into it in English, French and Maliseet. The memorial sits on the front lawn of the County Court House in the center of the town. John Peters Humphrey John Peters Humphrey, OC (April 30, 1905 \u2013 March 14, 1995) was a Canadian legal scholar, jurist, and human rights advocate. He is most famous as the author of the first draft of the Universal Declaration of Human Rights. Humphrey was born to Frank Humphrey and Nellie Peter",
+              "id": "1737820",
+              "score": 1.6041157,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Declaration of the Rights of Man and of the Citizen",
+              "text": "version of the Declaration was discussed by the representatives on the basis of a 24 article draft proposed by , led by . The draft was later modified during the debates. A second and lengthier declaration, known as the Declaration of the Rights of Man and Citizen of 1793, was written in 1793 but never formally adopted. The concepts in the Declaration come from the philosophical and political duties of the Enlightenment, such as individualism, the social contract as theorized by the Genevan philosopher Rousseau, and the separation of powers espoused by the Baron de Montesquieu. As can be seen",
+              "id": "101361",
+              "score": 1.6027459,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gold_at_2",
+      "data": [
+        {
+          "question_id": "d225a676-fae9-422e-b813-b44b1a02dcc7",
+          "question": "who got the first nobel prize in physics",
+          "answers": [
+            "Wilhelm Conrad R\u00f6ntgen"
+          ],
+          "documents": [
+            {
+              "title": "Nobel Prize in Physics",
+              "text": "receive a diploma, a medal and a document confirming the prize amount. Nobel Prize in Physics The Nobel Prize in Physics () is a yearly award given by the Royal Swedish Academy of Sciences for those who have made the most outstanding contributions for mankind in the field of physics. It is one of the five Nobel Prizes established by the will of Alfred Nobel in 1895 and awarded since 1901; the others being the Nobel Prize in Chemistry, Nobel Prize in Literature, Nobel Peace Prize, and Nobel Prize in Physiology or Medicine. The first Nobel Prize in Physics was",
+              "id": "628725",
+              "score": 1.6234328,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Norwegian Americans",
+              "text": "science, Ernest Lawrence won the Nobel Prize in Physics in 1939. Lars Onsager won the 1968 Nobel Prize in Chemistry. Norman Borlaug, father of the Green Revolution, won the Nobel Peace Prize in 1970. Christian B. Anfinsen won the Nobel Prize for chemistry in 1972. Ivar Giaever won the Nobel Prize in Physics 1973. Carl Richard Hagen is noted for his work in physics. In engineering, Clayton Jacobson II is credited with the invention of the modern personal watercraft. Ole Singstad was a pioneer of underwater tunnels. Ole Evinrude invented the first outboard motor with practical commercial application, recognizable today",
+              "id": "4107064",
+              "score": 1.6037977,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "University of Wu\u0308rzburg",
+              "text": "the discovery of x-rays by physicist Wilhelm Conrad R\u00f6ntgen, first winner of the Nobel Prize for Physics, in 1895. R\u00f6ntgen's discovery, which he dubbed a \"new kind of ray\", is regarded as the university's greatest intellectual achievement, and, simultaneously, a scientific development of huge global import. R\u00f6ntgen's successors, namely Wilhelm Wien, Johannes Stark and the chemists Emil Fischer and Eduard Buchner, also number among the succession of Nobel Prize winners to lecture at the university, a tradition which endures in the modern-day example of Klaus von Klitzing. After World War II, the free state of Bavaria invested a fortune in",
+              "id": "3253246",
+              "score": 1.3327142,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Nobel Prize in Physics",
+              "text": "Nobel Prize in Physics The Nobel Prize in Physics () is a yearly award given by the Royal Swedish Academy of Sciences for those who have made the most outstanding contributions for mankind in the field of physics. It is one of the five Nobel Prizes established by the will of Alfred Nobel in 1895 and awarded since 1901; the others being the Nobel Prize in Chemistry, Nobel Prize in Literature, Nobel Peace Prize, and Nobel Prize in Physiology or Medicine. The first Nobel Prize in Physics was awarded to physicist Wilhelm R\u00f6ntgen in recognition of the extraordinary services he",
+              "id": "628713",
+              "score": 1.5958772,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "E\u0301cole normale supe\u0301rieure (Paris)",
+              "text": "was also awarded the Abel prize. In addition, eight \"normaliens\" have gone on to receive the Nobel Prize in Physics: Claude Cohen-Tannoudji, Pierre-Gilles de Gennes, Albert Fert, Alfred Kastler, Gabriel Lippmann, Louis N\u00e9el, Jean Baptiste Perrin and Serge Haroche, while other ENS physicists include such major figures as Paul Langevin, famous for developing Langevin dynamics and the Langevin equation. Alumnus Paul Sabatier won the Nobel Prize in Chemistry. A ranking of universities worldwide based on ratios of alumni to Nobel prize-winners published in 2016 by American scholars Stephen Hsu and Jonathan Wai placed ENS as the first university worldwide, far",
+              "id": "2112526",
+              "score": 1.5804691,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Nobel Prize in Physics",
+              "text": "rendered by the discovery of the remarkable rays (or x-rays). This award is administered by the Nobel Foundation and widely regarded as the most prestigious award that a scientist can receive in physics. It is presented in Stockholm at an annual ceremony on 10 December, the anniversary of Nobel's death. Through 2018, a total of 209 individuals have been awarded the prize. Only three women (1.4% of laureates) have won the Nobel Prize in Physics: Marie Curie in 1903, Maria Goeppert Mayer in 1963, and Donna Strickland in 2018. Alfred Nobel, in his last will and testament, stated that his",
+              "id": "628714",
+              "score": 1.5673295,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        },
+        {
+          "question_id": "de9b2e49-a157-48a4-9f0d-1484796df4c5",
+          "question": "when is the next deadpool movie being released",
+          "answers": [
+            "May 18, 2018"
+          ],
+          "documents": [
+            {
+              "title": "Deadpool (video game)",
+              "text": "2015 in North America and Australia, and November 20, 2015 in the United Kingdom. It is unknown how Activision reacquired the rights to publish \"Deadpool: The Video Game\", but it is believed that the re-release was timed to help promote the then-upcoming Deadpool feature film, released roughly three months after the next-gen version of the game. High Moon Studios showed an early demo of the video game to journalists at Gamescom 2012, where the game earned a nomination for Best of Show. Several sites wrote positive impression of the demo that was shown at Gamescom and the Electronic Entertainment Expo",
+              "id": "16652154",
+              "score": 1.680884,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Deadpool (film)",
+              "text": "footage was leaked online in July 2014, and was met with an overwhelmingly enthusiastic response. That September, Fox gave \"Deadpool\" a release date of February 12, 2016. Production was set to begin in March 2015, with Simon Kinberg joining as producer. Reynolds attributed Fox's green-lighting of the film entirely to the leak. He, Miller and the writers had previously discussed leaking the footage themselves, and Reynolds initially thought that Miller had done so. He later believed the leak came from someone at Fox. In exchange for being able to make the film the way they wanted, Fox gave the crew",
+              "id": "18286027",
+              "score": 1.6732361,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Show Dogs",
+              "text": "million in the United States and Canada, and $20.9 million in other territories, for a worldwide total of $38.8 million. In the United States and Canada, \"Show Dogs\" was released on May 18, 2018 alongside \"Deadpool 2\" and \"Book Club\", and was projected to gross $7\u20139 million from 3,145 theaters in its opening weekend. It ended up debuting to $6 million, finishing sixth at the box office. It dropped 49% in its second weekend to $3.1 million, finishing seventh. On review aggregation website Rotten Tomatoes, the film holds an approval rating of 17% based on 60 reviews with an average",
+              "id": "19902220",
+              "score": 1.247823,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Deadpool (film)",
+              "text": "May of that year. Several vendors provided visual effects for the film, ranging from the addition of blood and gore to the creation of the CG character Colossus. \"Deadpool\" was released in the United States on February 12, 2016, after an unconventional marketing campaign. The film achieved both financial and critical success. It earned over $783 million against a $58 million budget, breaking numerous records: it became the highest-grossing R-rated film, the highest-grossing \"X-Men\" film, and the ninth-highest-grossing 2016 film. Critics praised Reynolds' performance, the film's style and faithfulness to the comics, and its action sequences. Some detractors criticized the",
+              "id": "18286012",
+              "score": 1.6697204,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Paul Wernick",
+              "text": "Tim Miller. The R-rated film was released on February 12, 2016. Its opening weekend was the highest grossing of all time for R-Rated films, and it went on to gross more than $780 million worldwide. The team's next project, sci-fi thriller \"Life\", was released in March 2017. The film was directed by Daniel Espinosa, produced by Skydance, and through Sony Pictures, with Ryan Reynolds, Jake Gyllenhaal, and Rebecca Ferguson starring. They wrote \"Deadpool 2\" in 2018, which like its predecessor was released to positive reviews. Wernick and Reese were announced as the co-screenwriters of the feature film adaptation of \"Cowboy",
+              "id": "13479582",
+              "score": 1.6621784,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Deadpool 2",
+              "text": "film, explaining its general plot, was released at the end of March. \"Forbes\" contributor Scott Mendelson called it \"pretty funny and mostly entertaining\", but was disappointed in it being a \"conventional\" trailer compared to the more out-there videos previously released for the film. He explained that he thought the first film \"had a winning lead character and fine character-centric jokes, but a pretty generic origin story plot that eventually became the thing it was critiquing\", and was concerned that the sequel would turn out to be \"a more standard 'superhero sequel' sell\". Mendelson also noted the inclusion of T.J. Miller",
+              "id": "18960896",
+              "score": 1.6511292,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        },
+        {
+          "question_id": "15ac367e-89b0-48da-996f-dfd21dc76bf2",
+          "question": "the south west wind blows across nigeria between",
+          "answers": [
+            "till September"
+          ],
+          "documents": [
+            {
+              "title": "Geography of Nigeria",
+              "text": "south atlantic ocean, locally known as the south western wind, or by its main name, The Tropical Maritime (MT) airmass. These two major wind systems in Nigeria are known as the trade winds. The tropical maritime airmass (MT) is responsible for Nigeria's rainy season. This wind (the tropical maritime airmass) invades the country from February in the southern part of Nigeria while it takes longer for the wind to fully cover the whole of the country, reaching the northern part of Nigeria in June. Its invasion is as a result of the northward retreat, of the tropical continental airmass (CT)",
+              "id": "283806",
+              "score": 1.7124131,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Geography of Nigeria",
+              "text": "of low pressure to develop over west Africa and Nigeria (between March to May). The Tropical continental airmass (CT) from the Sahara Desert in the northern part of West Africa, is weakened due to the overheating of the land surface in west Africa and Nigeria at this time. The Tropical continental airmass (CT) begins to retreat northwards to the Sahara Desert due to massive heating of the land which transfers heat in the form of convection into the Tropical continental airmass (CT) which constitutes the main layer of air above the land. This transfer of heat in the Tropical continental",
+              "id": "283809",
+              "score": 1.6039791,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Geography of Nigeria",
+              "text": "north easterlies formed mainly as a result of the interactions of the two dominant airmasses in Nigeria known as the Maritime tropical(south westerlies) and the Continental tropical(north easterlies), begins in central Nigeria while the Monsoons from the south atlantic ocean arrives in central Nigeria in July bringing with it high humidity, heavy cloud cover and heavy rainfall which can be daily occurrence lasting till September when the monsoons gradually begin retreating southward to the southern part of Nigeria.Rainfall totals in central Nigeria varies from in the lowlands of the river Niger Benue trough to over along the south western escarpment",
+              "id": "283803",
+              "score": 1.4846077,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Geography of Nigeria",
+              "text": "airmass (CT) in turn, causes the wind to expand and become lighter as this is the normal behaviour for winds moving above intensely heated grounds. The Tropical continental airmass (CT) loses its strength as a major airmass in the region of west Africa and over Nigeria at this time (around February in the southern part of Nigeria to June in northern Nigeria) and begins to retreat coupled with the rising of air in form of convection within this airmass (Tropical continental airmass (CT)), further weakening the dominance of the wind over west Africa and Nigeria. The Tropical continental airmass (CT)",
+              "id": "283810",
+              "score": 1.5820746,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Geography of Nigeria",
+              "text": "northern end is south of the 15 degrees line at about 14 degrees. Nigeria's location in the wetter part of the easterly waves south of the 15 degree line creates wetter climatic conditions for Nigeria especially during the monsoons. The Tropical Continental Airmass (CT) locally known as the harmattan, is a wind originating from North Africa which crosses the Sahara Desert into west Africa to Nigeria. This airmass dominates Nigeria's climate during the dry season from December to March. The Tropical continental airmass is dusty and creates a haze within the atmosphere of west Africa and Nigeria when it predominates.",
+              "id": "283814",
+              "score": 1.5722123,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Awka",
+              "text": "dry winds from across the Sahara desert. The monsoon winds from the Atlantic creates six months of heavy tropical rains, which occur between April and July, followed by a short dry period in August lasting two to three weeks with the rain resuming in September and October. This is followed by five months of dryness (November - March) marked by a Harmattan wind, also known as Ugulu in Igbo, which is a particularly dry and dusty wind which enters Nigeria in late December or in the early part of January and is characterized by a grey haze limiting visibility and",
+              "id": "5683497",
+              "score": 1.545485,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        },
+        {
+          "question_id": "0a9bf937-0632-45d7-981d-71b0f17dc06d",
+          "question": "what does hp mean in war and order",
+          "answers": [
+            "hit points or health points"
+          ],
+          "documents": [
+            {
+              "title": "Order of War",
+              "text": "Order of War Order of War is a World War II Strategy video game developed by Wargaming.net and published by Square Enix. It was released on September 22, 2009. In the summer of 1944, World War II entered its end-game when the Allies launched two major operations that would drive back German forces on both the Western and Eastern Fronts at once. Order of War contains two campaigns, one American and one German. Order of War allows players to lead American forces to victory in the west and also places players in command of the German forces charged with repelling",
+              "id": "13284088",
+              "score": 1.363863,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Dark Ages (1999 video game)",
+              "text": "boost stats so they can learn skills with the fewest points actually spent possible, enabling the excess points to be spent in CON or WIS, allowing the character to enjoy a greatly improved HP or MP pool and regeneration while leveling. HP and MP are the standards hit point and magic points. HP is reduced from receiving damage in combat from enemies, and if it is reduced to 0 results in the death of the character except under special circumstances. If a character is a member of a party, instead of immediate death the character is in a swooning state",
+              "id": "4045297",
+              "score": 1.3113221,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Health (gaming)",
+              "text": "Health (gaming) Health or vitality is an attribute assigned to entities such as characters or objects within role-playing games and video games, that indicates their continued ability to function. Health is usually measured in hit points or health points, shortened to HP which lowers by set amounts when the entity is attacked or injured. When the HP of a player character or non-player character reaches zero, that character is incapacitated and barred from taking further action. In some games, such as those with cooperative multiplayer and party based role playing games, it may be possible for an ally to revive",
+              "id": "9383879",
+              "score": 1.2184865,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Hume's principle",
+              "text": "Hume's principle Hume's principle or HP\u2014the terms were coined by George Boolos\u2014says that the number of \"F\"s is equal to the number of \"G\"s if and only if there is a one-to-one correspondence (a bijection) between the \"F\"s and the \"G\"s. HP can be stated formally in systems of second-order logic. Hume's principle is named for the Scottish philosopher David Hume. HP plays a central role in Gottlob Frege's philosophy of mathematics. Frege shows that HP and suitable definitions of arithmetical notions entail all axioms of what we now call second-order arithmetic. This result is known as Frege's theorem, which",
+              "id": "2104361",
+              "score": 1.3078943,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Order of War",
+              "text": "the Red Army\u2019s offensive in the east. Order of War features detailed graphics and a historically accurate storyline. The main focus of the game that sets it apart from other strategy offers is the sweeping scale of battlefield vistas featuring company level engagements. Players take command of multiple unit types, including ground troops, artillery, tanks and aircraft in strategic assaults based on key missions and operations from 1944. Order of War is a Real Time Strategy (RTS) game without requiring the player to manage traditional base building or resource collection activities. Much like the Relic Entertainment's \"\" series or the",
+              "id": "13284089",
+              "score": 1.2997231,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "War and Peace (game)",
+              "text": "Spain and Russia where it was harder for armies to live off the land; all units in their home country get a -1 DRM whereas unsupplied units get a +1 DRM). If more than one strength point is to be lost then one of them must be cavalry if there is one in the hex. Neutral countries are immune from attrition, enabling a defeated major power to rebuild their forces until they rejoin the war. Diplomacy takes place in the alliance phase. This system is used to allow nations to ally with one another. Alliances essentially allow you to acquire",
+              "id": "12658916",
+              "score": 1.292705,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        },
+        {
+          "question_id": "be0c4e08-e000-4932-8f84-849451b5baf2",
+          "question": "who wrote the first declaration of human rights",
+          "answers": [
+            "Cyrus"
+          ],
+          "documents": [
+            {
+              "title": "Drafting of the Universal Declaration of Human Rights",
+              "text": "P. C. Chang of Republic of China (Taiwan), and Hansa Mehta of India among others. While not a member of the drafting committee, the French philosopher Jacques Maritain was influential in the lead up to the drafting of the Universal Declaration, advocacy for it within UNESCO in 1947-8, and in its subsequent advancement. The Drafting Committee included John Peters Humphrey was newly appointed as Director of the Division of Human Rights within the United Nations Secretariat. In this role, he produced the first draft of a list of rights that were to form the basis of the Declaration. The underlying",
+              "id": "12461048",
+              "score": 1.6599674,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "John Peters Humphrey",
+              "text": "John Peters Humphrey John Peters Humphrey, OC (April 30, 1905 \u2013 March 14, 1995) was a Canadian legal scholar, jurist, and human rights advocate. He is most famous as the author of the first draft of the Universal Declaration of Human Rights. Humphrey was born to Frank Humphrey and Nellie Peter on April 30, 1905, in Hampton, New Brunswick. His childhood was touched by tragedy as he lost both his parents to cancer and he also lost one of his arms in an accident while playing with fire. Humphrey attended a boarding school where he endured teasing from other students;",
+              "id": "1737809",
+              "score": 1.6434989,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Cyrus Cylinder",
+              "text": "of the Jewish people following their Babylonian captivity (an act that the Book of Ezra attributes to Cyrus), as the text refers to the restoration of cult sanctuaries and repatriation of deported peoples. This interpretation has been disputed, as the text identifies only Mesopotamian sanctuaries, and makes no mention of Jews, Jerusalem, or Judea. The Cylinder has also been referred to by Mohammad Reza Pahlavi, the last Shah of Iran as the first declaration of universal human rights, a view rejected by some historians as anachronistic and a misunderstanding of the Cylinder's generic nature as a typical statement made by",
+              "id": "6090820",
+              "score": 1.2777393,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Drafting of the Universal Declaration of Human Rights",
+              "text": "Drafting of the Universal Declaration of Human Rights The Universal Declaration of Human Rights was drafted from early 1947 to late 1948 by Drafting Committee the first United Nations Commission on Human Rights. Further discussion and amendments were made by the Commission on Human Rights, the Economic and Social Council and the General Assembly of the United Nations. Members of the Commission who contributed significantly to the creation of the Declaration included Canadian John Peters Humphrey of the United Nations Secretariat, Eleanor Roosevelt of the United States (who chaired the Drafting Committee), Ren\u00e9 Cassin of France, Charles Malik of Lebanon,",
+              "id": "12461047",
+              "score": 1.6110829,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "John Peters Humphrey",
+              "text": "of the bench, which sits beside two tall stone plinths, one of which has several articles from the Universal Declaration of Human Rights carved into it in English, French and Maliseet. The memorial sits on the front lawn of the County Court House in the center of the town. John Peters Humphrey John Peters Humphrey, OC (April 30, 1905 \u2013 March 14, 1995) was a Canadian legal scholar, jurist, and human rights advocate. He is most famous as the author of the first draft of the Universal Declaration of Human Rights. Humphrey was born to Frank Humphrey and Nellie Peter",
+              "id": "1737820",
+              "score": 1.6041157,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Declaration of the Rights of Man and of the Citizen",
+              "text": "version of the Declaration was discussed by the representatives on the basis of a 24 article draft proposed by , led by . The draft was later modified during the debates. A second and lengthier declaration, known as the Declaration of the Rights of Man and Citizen of 1793, was written in 1793 but never formally adopted. The concepts in the Declaration come from the philosophical and political duties of the Enlightenment, such as individualism, the social contract as theorized by the Genevan philosopher Rousseau, and the separation of powers espoused by the Baron de Montesquieu. As can be seen",
+              "id": "101361",
+              "score": 1.6027459,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gold_at_4",
+      "data": [
+        {
+          "question_id": "d225a676-fae9-422e-b813-b44b1a02dcc7",
+          "question": "who got the first nobel prize in physics",
+          "answers": [
+            "Wilhelm Conrad R\u00f6ntgen"
+          ],
+          "documents": [
+            {
+              "title": "Nobel Prize in Physics",
+              "text": "receive a diploma, a medal and a document confirming the prize amount. Nobel Prize in Physics The Nobel Prize in Physics () is a yearly award given by the Royal Swedish Academy of Sciences for those who have made the most outstanding contributions for mankind in the field of physics. It is one of the five Nobel Prizes established by the will of Alfred Nobel in 1895 and awarded since 1901; the others being the Nobel Prize in Chemistry, Nobel Prize in Literature, Nobel Peace Prize, and Nobel Prize in Physiology or Medicine. The first Nobel Prize in Physics was",
+              "id": "628725",
+              "score": 1.6234328,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Norwegian Americans",
+              "text": "science, Ernest Lawrence won the Nobel Prize in Physics in 1939. Lars Onsager won the 1968 Nobel Prize in Chemistry. Norman Borlaug, father of the Green Revolution, won the Nobel Peace Prize in 1970. Christian B. Anfinsen won the Nobel Prize for chemistry in 1972. Ivar Giaever won the Nobel Prize in Physics 1973. Carl Richard Hagen is noted for his work in physics. In engineering, Clayton Jacobson II is credited with the invention of the modern personal watercraft. Ole Singstad was a pioneer of underwater tunnels. Ole Evinrude invented the first outboard motor with practical commercial application, recognizable today",
+              "id": "4107064",
+              "score": 1.6037977,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Nobel Prize in Physics",
+              "text": "Nobel Prize in Physics The Nobel Prize in Physics () is a yearly award given by the Royal Swedish Academy of Sciences for those who have made the most outstanding contributions for mankind in the field of physics. It is one of the five Nobel Prizes established by the will of Alfred Nobel in 1895 and awarded since 1901; the others being the Nobel Prize in Chemistry, Nobel Prize in Literature, Nobel Peace Prize, and Nobel Prize in Physiology or Medicine. The first Nobel Prize in Physics was awarded to physicist Wilhelm R\u00f6ntgen in recognition of the extraordinary services he",
+              "id": "628713",
+              "score": 1.5958772,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "E\u0301cole normale supe\u0301rieure (Paris)",
+              "text": "was also awarded the Abel prize. In addition, eight \"normaliens\" have gone on to receive the Nobel Prize in Physics: Claude Cohen-Tannoudji, Pierre-Gilles de Gennes, Albert Fert, Alfred Kastler, Gabriel Lippmann, Louis N\u00e9el, Jean Baptiste Perrin and Serge Haroche, while other ENS physicists include such major figures as Paul Langevin, famous for developing Langevin dynamics and the Langevin equation. Alumnus Paul Sabatier won the Nobel Prize in Chemistry. A ranking of universities worldwide based on ratios of alumni to Nobel prize-winners published in 2016 by American scholars Stephen Hsu and Jonathan Wai placed ENS as the first university worldwide, far",
+              "id": "2112526",
+              "score": 1.5804691,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "University of Wu\u0308rzburg",
+              "text": "the discovery of x-rays by physicist Wilhelm Conrad R\u00f6ntgen, first winner of the Nobel Prize for Physics, in 1895. R\u00f6ntgen's discovery, which he dubbed a \"new kind of ray\", is regarded as the university's greatest intellectual achievement, and, simultaneously, a scientific development of huge global import. R\u00f6ntgen's successors, namely Wilhelm Wien, Johannes Stark and the chemists Emil Fischer and Eduard Buchner, also number among the succession of Nobel Prize winners to lecture at the university, a tradition which endures in the modern-day example of Klaus von Klitzing. After World War II, the free state of Bavaria invested a fortune in",
+              "id": "3253246",
+              "score": 1.3327142,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Nobel Prize in Physics",
+              "text": "rendered by the discovery of the remarkable rays (or x-rays). This award is administered by the Nobel Foundation and widely regarded as the most prestigious award that a scientist can receive in physics. It is presented in Stockholm at an annual ceremony on 10 December, the anniversary of Nobel's death. Through 2018, a total of 209 individuals have been awarded the prize. Only three women (1.4% of laureates) have won the Nobel Prize in Physics: Marie Curie in 1903, Maria Goeppert Mayer in 1963, and Donna Strickland in 2018. Alfred Nobel, in his last will and testament, stated that his",
+              "id": "628714",
+              "score": 1.5673295,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        },
+        {
+          "question_id": "de9b2e49-a157-48a4-9f0d-1484796df4c5",
+          "question": "when is the next deadpool movie being released",
+          "answers": [
+            "May 18, 2018"
+          ],
+          "documents": [
+            {
+              "title": "Deadpool (video game)",
+              "text": "2015 in North America and Australia, and November 20, 2015 in the United Kingdom. It is unknown how Activision reacquired the rights to publish \"Deadpool: The Video Game\", but it is believed that the re-release was timed to help promote the then-upcoming Deadpool feature film, released roughly three months after the next-gen version of the game. High Moon Studios showed an early demo of the video game to journalists at Gamescom 2012, where the game earned a nomination for Best of Show. Several sites wrote positive impression of the demo that was shown at Gamescom and the Electronic Entertainment Expo",
+              "id": "16652154",
+              "score": 1.680884,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Deadpool (film)",
+              "text": "footage was leaked online in July 2014, and was met with an overwhelmingly enthusiastic response. That September, Fox gave \"Deadpool\" a release date of February 12, 2016. Production was set to begin in March 2015, with Simon Kinberg joining as producer. Reynolds attributed Fox's green-lighting of the film entirely to the leak. He, Miller and the writers had previously discussed leaking the footage themselves, and Reynolds initially thought that Miller had done so. He later believed the leak came from someone at Fox. In exchange for being able to make the film the way they wanted, Fox gave the crew",
+              "id": "18286027",
+              "score": 1.6732361,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Deadpool (film)",
+              "text": "May of that year. Several vendors provided visual effects for the film, ranging from the addition of blood and gore to the creation of the CG character Colossus. \"Deadpool\" was released in the United States on February 12, 2016, after an unconventional marketing campaign. The film achieved both financial and critical success. It earned over $783 million against a $58 million budget, breaking numerous records: it became the highest-grossing R-rated film, the highest-grossing \"X-Men\" film, and the ninth-highest-grossing 2016 film. Critics praised Reynolds' performance, the film's style and faithfulness to the comics, and its action sequences. Some detractors criticized the",
+              "id": "18286012",
+              "score": 1.6697204,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Paul Wernick",
+              "text": "Tim Miller. The R-rated film was released on February 12, 2016. Its opening weekend was the highest grossing of all time for R-Rated films, and it went on to gross more than $780 million worldwide. The team's next project, sci-fi thriller \"Life\", was released in March 2017. The film was directed by Daniel Espinosa, produced by Skydance, and through Sony Pictures, with Ryan Reynolds, Jake Gyllenhaal, and Rebecca Ferguson starring. They wrote \"Deadpool 2\" in 2018, which like its predecessor was released to positive reviews. Wernick and Reese were announced as the co-screenwriters of the feature film adaptation of \"Cowboy",
+              "id": "13479582",
+              "score": 1.6621784,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Show Dogs",
+              "text": "million in the United States and Canada, and $20.9 million in other territories, for a worldwide total of $38.8 million. In the United States and Canada, \"Show Dogs\" was released on May 18, 2018 alongside \"Deadpool 2\" and \"Book Club\", and was projected to gross $7\u20139 million from 3,145 theaters in its opening weekend. It ended up debuting to $6 million, finishing sixth at the box office. It dropped 49% in its second weekend to $3.1 million, finishing seventh. On review aggregation website Rotten Tomatoes, the film holds an approval rating of 17% based on 60 reviews with an average",
+              "id": "19902220",
+              "score": 1.247823,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Deadpool 2",
+              "text": "film, explaining its general plot, was released at the end of March. \"Forbes\" contributor Scott Mendelson called it \"pretty funny and mostly entertaining\", but was disappointed in it being a \"conventional\" trailer compared to the more out-there videos previously released for the film. He explained that he thought the first film \"had a winning lead character and fine character-centric jokes, but a pretty generic origin story plot that eventually became the thing it was critiquing\", and was concerned that the sequel would turn out to be \"a more standard 'superhero sequel' sell\". Mendelson also noted the inclusion of T.J. Miller",
+              "id": "18960896",
+              "score": 1.6511292,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        },
+        {
+          "question_id": "15ac367e-89b0-48da-996f-dfd21dc76bf2",
+          "question": "the south west wind blows across nigeria between",
+          "answers": [
+            "till September"
+          ],
+          "documents": [
+            {
+              "title": "Geography of Nigeria",
+              "text": "south atlantic ocean, locally known as the south western wind, or by its main name, The Tropical Maritime (MT) airmass. These two major wind systems in Nigeria are known as the trade winds. The tropical maritime airmass (MT) is responsible for Nigeria's rainy season. This wind (the tropical maritime airmass) invades the country from February in the southern part of Nigeria while it takes longer for the wind to fully cover the whole of the country, reaching the northern part of Nigeria in June. Its invasion is as a result of the northward retreat, of the tropical continental airmass (CT)",
+              "id": "283806",
+              "score": 1.7124131,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Geography of Nigeria",
+              "text": "of low pressure to develop over west Africa and Nigeria (between March to May). The Tropical continental airmass (CT) from the Sahara Desert in the northern part of West Africa, is weakened due to the overheating of the land surface in west Africa and Nigeria at this time. The Tropical continental airmass (CT) begins to retreat northwards to the Sahara Desert due to massive heating of the land which transfers heat in the form of convection into the Tropical continental airmass (CT) which constitutes the main layer of air above the land. This transfer of heat in the Tropical continental",
+              "id": "283809",
+              "score": 1.6039791,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Geography of Nigeria",
+              "text": "airmass (CT) in turn, causes the wind to expand and become lighter as this is the normal behaviour for winds moving above intensely heated grounds. The Tropical continental airmass (CT) loses its strength as a major airmass in the region of west Africa and over Nigeria at this time (around February in the southern part of Nigeria to June in northern Nigeria) and begins to retreat coupled with the rising of air in form of convection within this airmass (Tropical continental airmass (CT)), further weakening the dominance of the wind over west Africa and Nigeria. The Tropical continental airmass (CT)",
+              "id": "283810",
+              "score": 1.5820746,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Geography of Nigeria",
+              "text": "northern end is south of the 15 degrees line at about 14 degrees. Nigeria's location in the wetter part of the easterly waves south of the 15 degree line creates wetter climatic conditions for Nigeria especially during the monsoons. The Tropical Continental Airmass (CT) locally known as the harmattan, is a wind originating from North Africa which crosses the Sahara Desert into west Africa to Nigeria. This airmass dominates Nigeria's climate during the dry season from December to March. The Tropical continental airmass is dusty and creates a haze within the atmosphere of west Africa and Nigeria when it predominates.",
+              "id": "283814",
+              "score": 1.5722123,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Geography of Nigeria",
+              "text": "north easterlies formed mainly as a result of the interactions of the two dominant airmasses in Nigeria known as the Maritime tropical(south westerlies) and the Continental tropical(north easterlies), begins in central Nigeria while the Monsoons from the south atlantic ocean arrives in central Nigeria in July bringing with it high humidity, heavy cloud cover and heavy rainfall which can be daily occurrence lasting till September when the monsoons gradually begin retreating southward to the southern part of Nigeria.Rainfall totals in central Nigeria varies from in the lowlands of the river Niger Benue trough to over along the south western escarpment",
+              "id": "283803",
+              "score": 1.4846077,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Awka",
+              "text": "dry winds from across the Sahara desert. The monsoon winds from the Atlantic creates six months of heavy tropical rains, which occur between April and July, followed by a short dry period in August lasting two to three weeks with the rain resuming in September and October. This is followed by five months of dryness (November - March) marked by a Harmattan wind, also known as Ugulu in Igbo, which is a particularly dry and dusty wind which enters Nigeria in late December or in the early part of January and is characterized by a grey haze limiting visibility and",
+              "id": "5683497",
+              "score": 1.545485,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        },
+        {
+          "question_id": "0a9bf937-0632-45d7-981d-71b0f17dc06d",
+          "question": "what does hp mean in war and order",
+          "answers": [
+            "hit points or health points"
+          ],
+          "documents": [
+            {
+              "title": "Order of War",
+              "text": "Order of War Order of War is a World War II Strategy video game developed by Wargaming.net and published by Square Enix. It was released on September 22, 2009. In the summer of 1944, World War II entered its end-game when the Allies launched two major operations that would drive back German forces on both the Western and Eastern Fronts at once. Order of War contains two campaigns, one American and one German. Order of War allows players to lead American forces to victory in the west and also places players in command of the German forces charged with repelling",
+              "id": "13284088",
+              "score": 1.363863,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Dark Ages (1999 video game)",
+              "text": "boost stats so they can learn skills with the fewest points actually spent possible, enabling the excess points to be spent in CON or WIS, allowing the character to enjoy a greatly improved HP or MP pool and regeneration while leveling. HP and MP are the standards hit point and magic points. HP is reduced from receiving damage in combat from enemies, and if it is reduced to 0 results in the death of the character except under special circumstances. If a character is a member of a party, instead of immediate death the character is in a swooning state",
+              "id": "4045297",
+              "score": 1.3113221,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Hume's principle",
+              "text": "Hume's principle Hume's principle or HP\u2014the terms were coined by George Boolos\u2014says that the number of \"F\"s is equal to the number of \"G\"s if and only if there is a one-to-one correspondence (a bijection) between the \"F\"s and the \"G\"s. HP can be stated formally in systems of second-order logic. Hume's principle is named for the Scottish philosopher David Hume. HP plays a central role in Gottlob Frege's philosophy of mathematics. Frege shows that HP and suitable definitions of arithmetical notions entail all axioms of what we now call second-order arithmetic. This result is known as Frege's theorem, which",
+              "id": "2104361",
+              "score": 1.3078943,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Order of War",
+              "text": "the Red Army\u2019s offensive in the east. Order of War features detailed graphics and a historically accurate storyline. The main focus of the game that sets it apart from other strategy offers is the sweeping scale of battlefield vistas featuring company level engagements. Players take command of multiple unit types, including ground troops, artillery, tanks and aircraft in strategic assaults based on key missions and operations from 1944. Order of War is a Real Time Strategy (RTS) game without requiring the player to manage traditional base building or resource collection activities. Much like the Relic Entertainment's \"\" series or the",
+              "id": "13284089",
+              "score": 1.2997231,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Health (gaming)",
+              "text": "Health (gaming) Health or vitality is an attribute assigned to entities such as characters or objects within role-playing games and video games, that indicates their continued ability to function. Health is usually measured in hit points or health points, shortened to HP which lowers by set amounts when the entity is attacked or injured. When the HP of a player character or non-player character reaches zero, that character is incapacitated and barred from taking further action. In some games, such as those with cooperative multiplayer and party based role playing games, it may be possible for an ally to revive",
+              "id": "9383879",
+              "score": 1.2184865,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "War and Peace (game)",
+              "text": "Spain and Russia where it was harder for armies to live off the land; all units in their home country get a -1 DRM whereas unsupplied units get a +1 DRM). If more than one strength point is to be lost then one of them must be cavalry if there is one in the hex. Neutral countries are immune from attrition, enabling a defeated major power to rebuild their forces until they rejoin the war. Diplomacy takes place in the alliance phase. This system is used to allow nations to ally with one another. Alliances essentially allow you to acquire",
+              "id": "12658916",
+              "score": 1.292705,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        },
+        {
+          "question_id": "be0c4e08-e000-4932-8f84-849451b5baf2",
+          "question": "who wrote the first declaration of human rights",
+          "answers": [
+            "Cyrus"
+          ],
+          "documents": [
+            {
+              "title": "Drafting of the Universal Declaration of Human Rights",
+              "text": "P. C. Chang of Republic of China (Taiwan), and Hansa Mehta of India among others. While not a member of the drafting committee, the French philosopher Jacques Maritain was influential in the lead up to the drafting of the Universal Declaration, advocacy for it within UNESCO in 1947-8, and in its subsequent advancement. The Drafting Committee included John Peters Humphrey was newly appointed as Director of the Division of Human Rights within the United Nations Secretariat. In this role, he produced the first draft of a list of rights that were to form the basis of the Declaration. The underlying",
+              "id": "12461048",
+              "score": 1.6599674,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "John Peters Humphrey",
+              "text": "John Peters Humphrey John Peters Humphrey, OC (April 30, 1905 \u2013 March 14, 1995) was a Canadian legal scholar, jurist, and human rights advocate. He is most famous as the author of the first draft of the Universal Declaration of Human Rights. Humphrey was born to Frank Humphrey and Nellie Peter on April 30, 1905, in Hampton, New Brunswick. His childhood was touched by tragedy as he lost both his parents to cancer and he also lost one of his arms in an accident while playing with fire. Humphrey attended a boarding school where he endured teasing from other students;",
+              "id": "1737809",
+              "score": 1.6434989,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Drafting of the Universal Declaration of Human Rights",
+              "text": "Drafting of the Universal Declaration of Human Rights The Universal Declaration of Human Rights was drafted from early 1947 to late 1948 by Drafting Committee the first United Nations Commission on Human Rights. Further discussion and amendments were made by the Commission on Human Rights, the Economic and Social Council and the General Assembly of the United Nations. Members of the Commission who contributed significantly to the creation of the Declaration included Canadian John Peters Humphrey of the United Nations Secretariat, Eleanor Roosevelt of the United States (who chaired the Drafting Committee), Ren\u00e9 Cassin of France, Charles Malik of Lebanon,",
+              "id": "12461047",
+              "score": 1.6110829,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "John Peters Humphrey",
+              "text": "of the bench, which sits beside two tall stone plinths, one of which has several articles from the Universal Declaration of Human Rights carved into it in English, French and Maliseet. The memorial sits on the front lawn of the County Court House in the center of the town. John Peters Humphrey John Peters Humphrey, OC (April 30, 1905 \u2013 March 14, 1995) was a Canadian legal scholar, jurist, and human rights advocate. He is most famous as the author of the first draft of the Universal Declaration of Human Rights. Humphrey was born to Frank Humphrey and Nellie Peter",
+              "id": "1737820",
+              "score": 1.6041157,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Cyrus Cylinder",
+              "text": "of the Jewish people following their Babylonian captivity (an act that the Book of Ezra attributes to Cyrus), as the text refers to the restoration of cult sanctuaries and repatriation of deported peoples. This interpretation has been disputed, as the text identifies only Mesopotamian sanctuaries, and makes no mention of Jews, Jerusalem, or Judea. The Cylinder has also been referred to by Mohammad Reza Pahlavi, the last Shah of Iran as the first declaration of universal human rights, a view rejected by some historians as anachronistic and a misunderstanding of the Cylinder's generic nature as a typical statement made by",
+              "id": "6090820",
+              "score": 1.2777393,
+              "hasanswer": true,
+              "isgold": null,
+              "original_retrieval_index": null
+            },
+            {
+              "title": "Declaration of the Rights of Man and of the Citizen",
+              "text": "version of the Declaration was discussed by the representatives on the basis of a 24 article draft proposed by , led by . The draft was later modified during the debates. A second and lengthier declaration, known as the Declaration of the Rights of Man and Citizen of 1793, was written in 1793 but never formally adopted. The concepts in the Declaration come from the philosophical and political duties of the Enlightenment, such as individualism, the social contract as theorized by the Genevan philosopher Rousseau, and the separation of powers espoused by the Baron de Montesquieu. As can be seen",
+              "id": "101361",
+              "score": 1.6027459,
+              "hasanswer": false,
+              "isgold": null,
+              "original_retrieval_index": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
