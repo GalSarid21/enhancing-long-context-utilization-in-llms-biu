@@ -13,10 +13,9 @@ T = TypeVar("T")
 class Document(BaseModel):
     title: str
     text: str
-    id: Optional[str] = None
-    score: Optional[float] = None
-    hasanswer: Optional[bool] = None
-    isgold: Optional[bool] = None
+    id: str
+    score: float
+    hasanswer: bool
     original_retrieval_index: Optional[int] = None
 
     @classmethod
