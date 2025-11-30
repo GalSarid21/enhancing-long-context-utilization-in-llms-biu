@@ -12,7 +12,6 @@ from common.consts import NQ_DATASET_FILE_PATH
 
 
 def _count_lines(path: Path) -> int:
-    from xopen import xopen
     total = 0
     with xopen(path, "rt") as f:
         for total, _ in enumerate(f, 1):
@@ -31,6 +30,16 @@ def _create_new_data(data_path: Path) -> List[Dict]:
             
             line = line.strip()
             entry = json.loads(line)
+
+            hasanswer = False
+            for ctx in entry["ctxs"]:
+                if ctx["hasanswer"]:
+                    hasanswer = True
+                    break
+
+            if not hasanswer:
+                print(f"Skipping {i}: {hasanswer=}")
+                continue
 
             entry["id"] = str(uuid.uuid4())
             data_with_uuid.append(entry)
@@ -73,7 +82,7 @@ def run() -> None:
 
     data_with_uuid = _create_new_data(data_path=data_path)
 
-    out_path = DATASET_FILE_PATH
+    out_path = NQ_DATASET_FILE_PATH
     _save_new_data(new_data=data_with_uuid, out_path=out_path)
 
     _validate_results(out_path=out_path)

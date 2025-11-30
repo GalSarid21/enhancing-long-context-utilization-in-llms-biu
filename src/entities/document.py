@@ -28,7 +28,8 @@ class Document(BaseModel):
         # Convert score to float if it's provided.
         if score is not None:
             score = float(score)
-        return cls(**dict(data, id=id, score=score))
+        hasanswer = bool(data.pop("hasanswer"))
+        return cls(**dict(data, id=id, score=score, hasanswer=hasanswer))
 
     def to_dict(self) -> Dict[str, Any]:
         field_names = list(self.__annotations__.keys())

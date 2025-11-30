@@ -173,6 +173,7 @@ async def read_data_file(prompting_mode: PromptingMode, path: Optional[str] = No
 
             line_as_dict = json.loads(line)
             question_data_payload = await _get_single_question_raw_data_payload(raw_data=line_as_dict, prompting_mode=prompting_mode)
+            
             raw_question_data = SingleQuestionRawData(**question_data_payload)
             raw_data.append(raw_question_data)
             
@@ -208,6 +209,8 @@ async def _get_single_question_raw_data_payload(raw_data: Dict, prompting_mode: 
                 docs.append(document)
 
         question_data_payload["gold_docs"] = gold_docs
-        question_data_payload["documents"] = docs
+    
+        if prompting_mode != PromptingMode.BASELINE:
+            question_data_payload["documents"] = docs
 
     return question_data_payload
