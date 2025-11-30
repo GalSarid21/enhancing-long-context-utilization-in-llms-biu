@@ -1,7 +1,7 @@
 import pytest
 import json
 
-from assertpy import assert_that, soft_assertions
+from assertpy import assert_that
 from pathlib import Path
 from typing import List, Dict, Optional
 

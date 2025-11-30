@@ -28,3 +28,4 @@ class SingleIdxData(BaseModel):
 
 class GoldIdxChangeExperimentData(BaseDataClass):
     experiments: List[SingleIdxData]
+    model: Optional[str] = None

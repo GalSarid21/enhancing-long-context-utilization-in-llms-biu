@@ -39,10 +39,4 @@ def read_cli_env_args() -> Namespace:
         type=int
     )
 
-    parser.add_argument(
-        "--min_prompt_tokens",
-        help="minimum tokens for dataset single prompt",
-        type=int
-    )
-
     return parser.parse_args()

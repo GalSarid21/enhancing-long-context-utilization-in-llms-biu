@@ -1,9 +1,9 @@
 from pydantic import BaseModel
+from typing import Dict
 
 from src.entities.enums import Status
-from src.entities.base import BaseTaskResults
 
 
 class TaskResultsDTO(BaseModel):
     status: Status
-    results: BaseTaskResults
+    results: Dict

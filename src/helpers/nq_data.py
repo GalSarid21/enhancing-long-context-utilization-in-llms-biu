@@ -17,7 +17,6 @@ from src.entities.experiments.gold_idx_change.data import (
 )
 from src.entities.document import Document
 from src.entities.enums import PromptingMode
-from src.wrappers import HfTokenizer
 
 
 logger = logging.getLogger(__name__)
@@ -28,14 +27,15 @@ async def get_golden_idx_change_data(
     model_name: Optional[str] = None,
     num_idxs: Optional[int] = None,
     path: Optional[str] = None,
-    num_examples: Optional[int] = None
+    num_examples: Optional[int] = None,
+    model: Optional[str] = None
 ) -> GoldIdxChangeExperimentData:
 
     logger.info(f"get_golden_idx_change_data - started: {num_idxs=}, {prompting_mode=}, {model_name=}, {path=}, {num_examples=}")
     raw_data: List[SingleQuestionRawData] = await read_data_file(prompting_mode=prompting_mode, path=path, num_examples=num_examples)
     experiments = []
 
-    if num_idxs:
+    if num_idxs and prompting_mode in PromptingMode.get_ctx_modes():
         experiments = await _create_experiments_with_full_documents_list(num_idxs=num_idxs,
                                                                          raw_data=raw_data,
                                                                          model_name=model_name)
@@ -43,8 +43,8 @@ async def get_golden_idx_change_data(
     else:
         experiments = await _create_experiments_with_partial_documents_list(prompting_mode=prompting_mode, raw_data=raw_data)
 
-    gold_idx_change_data = GoldIdxChangeExperimentData(experiments=experiments)
-    logger.info(f"get_golden_idx_change_data - finished: {len(gold_idx_change_data.experiments)=}, {gold_idx_change_data=}")
+    gold_idx_change_data = GoldIdxChangeExperimentData(experiments=experiments, model=model)
+    logger.info(f"get_golden_idx_change_data - finished: {len(gold_idx_change_data.experiments)=}")
     return gold_idx_change_data
 
 
@@ -75,20 +75,37 @@ async def _validate_create_gold_idx_list_args(num_docs: int, num_idxs: int) -> N
 async def _create_experiments_with_full_documents_list(
     num_idxs: int,
     raw_data: List[SingleQuestionRawData],
-    model_name: str
+    model_name: str,
+    log_steps: int = 100
 ) -> List[SingleIdxData]:
+
+    if log_steps <= 0 or log_steps >= len(raw_data):
+        raise ValueError(f"'log_steps' mus be in range [1,{len(raw_data)-1}]")
 
     model_short_name = model_name.split("/")[-1]
 
     num_docs = MODEL_DOCS_MAPPINGS.get(model_short_name)
     if not num_docs:
         raise RuntimeError(f"num docs mapping failed! model={model_short_name}")
+    
+    logger.info(f"MODEL_DOCS_MAPPINGS: {num_docs=}")
 
     experiments = []
     async for gold_idx in _generate_gold_idxs(num_idxs=num_idxs, num_docs=num_docs):
+        logger.info(f"IDX: {gold_idx=}")
 
         idx_data = []
-        for data in raw_data:
+        for i, data in enumerate(raw_data, 1):
+            if log_steps and i % log_steps == 0:
+                logger.info(f"PROCESSING: {i}/{len(raw_data)}")
+
+            if not data.documents:
+                logger.warning(f"question has no docs: {data.question_id=}")
+                continue
+            if not data.gold_docs:
+                logger.warning(f"question has no gold docs: {data.question_id=}")
+                continue
+            
             documents_cpy: List[Document] = deepcopy(data.documents)
             documents_cpy = documents_cpy[:num_docs]
 
@@ -110,10 +127,20 @@ async def _create_experiments_with_full_documents_list(
     return experiments
 
 
-async def _create_experiments_with_partial_documents_list(prompting_mode: PromptingMode, raw_data: List[SingleQuestionRawData]) -> List[SingleIdxData]:
+async def _create_experiments_with_partial_documents_list(
+    prompting_mode: PromptingMode,
+    raw_data: List[SingleQuestionRawData],
+    log_steps: int = 100
+) -> List[SingleIdxData]:
+
+    if log_steps <= 0 or log_steps >= len(raw_data):
+        raise ValueError(f"'log_steps' mus be in range [1,{len(raw_data)-1}]")
+
     idx_data = []
 
-    for data in raw_data:
+    for i, data in enumerate(raw_data, 1):
+        if log_steps and i % log_steps == 0:
+            logger.info(f"PROCESSING: {i}/{len(raw_data)}")
         documents = None
         
         if prompting_mode == PromptingMode.BASELINE:
@@ -153,7 +180,7 @@ async def read_data_file(prompting_mode: PromptingMode, path: Optional[str] = No
                 raw_data[:num_examples]
                 break
     
-    logger.info(f"read_data_file - finished: {len(raw_data)=}, {raw_data=}")
+    logger.info(f"read_data_file - finished: {len(raw_data)=}")
     return raw_data
 
 
@@ -181,7 +208,6 @@ async def _get_single_question_raw_data_payload(raw_data: Dict, prompting_mode: 
                 docs.append(document)
 
         question_data_payload["gold_docs"] = gold_docs
-        if prompting_mode != PromptingMode.BASELINE:
-            question_data_payload["documents"] = docs[:5] # TEST
+        question_data_payload["documents"] = docs
 
     return question_data_payload

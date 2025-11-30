@@ -3,7 +3,7 @@ import torch
 from argparse import Namespace
 from datetime import datetime, timezone
 
-from src.wrappers import vLLM
+from src.wrappers import vLLM, HfTokenizer
 from src.entities.dto import TaskResultsDTO
 from src.tasks.abstract import AbstractTask
 from src.prompt_builder import PromptBuilder
@@ -16,6 +16,8 @@ class GoldIdxChangeExperiment(AbstractTask):
     def __init__(self, args: Namespace) -> None:
         super().__init__(args)
         self._configs = Configs()
+
+        self._tokenizer = HfTokenizer(model=self._model)
 
         self._prompt_builder = PromptBuilder(
             prompting_mode=self._prompting_mode,
@@ -40,7 +42,7 @@ class GoldIdxChangeExperiment(AbstractTask):
         )
 
     def _set_results_file_name(self) -> str:
-        f"gold_idx_change_{datetime.now().strftime("%Y%m%d")}_{datetime.now(timezone.utc).timestamp()}.json"
+        f"gold_idx_change_{datetime.now().strftime('%Y%m%d')}_{datetime.now(timezone.utc).timestamp()}.json"
 
     @property
     def results_dir(self) -> str:

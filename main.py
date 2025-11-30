@@ -27,7 +27,9 @@ PROG_NAME = "Enhancing Long-Context Utilization in LLMs"
 async def main(args: Namespace) -> None:
     logger.info("main - started")
 
-    task: AbstractTask = await _get_running_task(task_type=args.task_type, task_name=args.task_name)
+    task: AbstractTask = await _get_running_task(task_type=args.task_type,
+                                                 task_name=args.task_name,
+                                                 args=args)
     logger.info(f"main - created task obj: {task=}")
 
     data: BaseDataClass = await task.load_data()
@@ -41,15 +43,15 @@ async def main(args: Namespace) -> None:
     logger.info("main - finished")
 
 
-async def _get_running_task(task_type: str, task_name: str) -> AbstractTask:
+async def _get_running_task(task_type: str, task_name: str, args: Namespace) -> AbstractTask:
     task_type = TaskType(task_type)
     task_name = TaskName(task_name)
 
     if task_name == TaskName.GOLD_IDX_CHANGE:
         if task_type == TaskType.DATASET_CREATION:
-            return GoldIdxChangeDatasetCreation()
+            return GoldIdxChangeDatasetCreation(args=args)
         if task_type == TaskType.EXPERIMENT:
-            return GoldIdxChangeExperiment()
+            return GoldIdxChangeExperiment(args=args)
 
 
 if __name__ == "__main__":

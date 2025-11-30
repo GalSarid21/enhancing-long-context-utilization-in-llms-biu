@@ -1,14 +1,13 @@
 import logging
 import torch
-import json
 
 from argparse import Namespace
+from typing import Dict
 from abc import ABC, abstractmethod
 
 from src.entities.enums import PromptingMode
-from src.entities.base import BaseDataClass, BaseTaskResults
+from src.entities.base import BaseDataClass
 from src.entities.dto import TaskResultsDTO
-from src.wrappers import HfTokenizer
 
 
 logger = logging.getLogger(__name__)
@@ -21,7 +20,7 @@ class AbstractTask(ABC):
         self._results_file_name = None
 
         self._prompting_mode = PromptingMode(args.prompting_mode)
-        self._tokenizer = HfTokenizer(args.model)
+        self._model = args.model
 
         self._log_env_resources()
 
@@ -41,7 +40,6 @@ class AbstractTask(ABC):
     async def run(self, data: BaseDataClass) -> TaskResultsDTO:
         pass
 
-    async def log_results(self, results: BaseTaskResults) -> None:
-        res_path = f"{self._results_dir}/{self._results_file_name}"
-        with open(res_path, "w") as f:
-            json.dump(f, results.model_dump(), indent=2)
+    @abstractmethod
+    async def log_results(self, results: Dict) -> None:
+        pass
