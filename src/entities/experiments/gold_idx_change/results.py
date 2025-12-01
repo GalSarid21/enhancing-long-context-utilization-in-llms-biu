@@ -6,7 +6,7 @@ from src.entities.enums import PromptingMode, Metric
 
 class SingleQuestionResult(BaseModel):
     question_id: str
-    model_answer: str
+    model_answer: Optional[str] = None
     score: float
     num_prompt_tokens: int
 

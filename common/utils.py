@@ -1,7 +1,8 @@
-from src.entities.document import Document
+import random
 
 from typing import List, Dict, Optional
-import random
+
+from src.entities.document import Document
 
 
 def get_messages_list(

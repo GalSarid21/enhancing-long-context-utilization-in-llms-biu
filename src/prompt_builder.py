@@ -62,7 +62,7 @@ class PromptBuilder:
         }
 
 
-    def build(
+    async def build(
         self,
         question: str,
         documents: Optional[List[Document]] = None

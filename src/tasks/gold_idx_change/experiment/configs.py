@@ -7,3 +7,4 @@ class Configs(BaseModel):
     temperature: float = 0.01
     top_p: float = 0.95
     max_tokens: int = 256
+    results_folder: str = "results/gold_idx_change"

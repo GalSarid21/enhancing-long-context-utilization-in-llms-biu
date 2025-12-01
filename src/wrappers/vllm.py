@@ -37,9 +37,9 @@ class vLLM:
             gpu_memory_utilization=gpu_memory_utilization
         )
 
-    def generate_batch(self, prompts: List[str]) -> List[str]:
+    async def generate_batch(self, prompts: List[str]) -> List[str]:
         results = self._llm.generate(prompts, self._sampling_params)
         return [res.outputs[0].text for res in results]
     
-    def generate(self, prompt: str,) -> str:
+    async def generate(self, prompt: str,) -> str:
         return self.generate_batch(prompts=[prompt])[0]

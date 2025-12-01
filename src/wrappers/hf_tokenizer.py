@@ -29,7 +29,7 @@ class HfTokenizer:
         return self._is_chat_model
 
 
-    def tokenize(
+    async def tokenize(
         self,
         text: str,
         pair: Optional[str] = None,
@@ -46,7 +46,7 @@ class HfTokenizer:
             **kwargs
         )
 
-    def apply_chat_template(
+    async def apply_chat_template(
         self,
         conversation: List[Dict[str, str]],
         chat_template: str | None = None,
@@ -75,7 +75,7 @@ class HfTokenizer:
             **tokenizer_kwargs
         )
 
-    def count_tokens(
+    async def count_tokens(
         self,
         prompt_with_inst_tokens: Optional[bool] = False,
         **kwargs
