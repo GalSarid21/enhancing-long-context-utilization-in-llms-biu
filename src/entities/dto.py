@@ -1,9 +1,9 @@
 from pydantic import BaseModel
-from typing import Dict
+from typing import Optional
 
 from src.entities.enums import Status
 
 
 class TaskResultsDTO(BaseModel):
     status: Status
-    results: Dict
+    error: Optional[str] = None

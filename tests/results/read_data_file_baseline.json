@@ -1,6 +1,6 @@
 [
   {
-    "question_id": "4a945472-eb40-47f2-8d3e-cb074c57c509",
+    "question_id": "a9c3c4bd-56b6-4915-9ddc-a9fb4441d7fb",
     "question": "who got the first nobel prize in physics",
     "answers": [
       "Wilhelm Conrad R\u00f6ntgen"
@@ -13,7 +13,6 @@
         "id": "718073",
         "score": 1.3848525,
         "hasanswer": true,
-        "isgold": null,
         "original_retrieval_index": null
       },
       {
@@ -22,7 +21,6 @@
         "id": "9459602",
         "score": 1.3701544,
         "hasanswer": true,
-        "isgold": null,
         "original_retrieval_index": null
       },
       {
@@ -31,13 +29,12 @@
         "id": "3253246",
         "score": 1.3327142,
         "hasanswer": true,
-        "isgold": null,
         "original_retrieval_index": null
       }
     ]
   },
   {
-    "question_id": "ab5539ea-eaa7-4cdd-9405-f946df97b46b",
+    "question_id": "5404e1b9-a707-46da-ade9-9711b1a77971",
     "question": "when is the next deadpool movie being released",
     "answers": [
       "May 18, 2018"
@@ -50,7 +47,6 @@
         "id": "18960839",
         "score": 1.6794444,
         "hasanswer": true,
-        "isgold": null,
         "original_retrieval_index": null
       },
       {
@@ -59,7 +55,6 @@
         "id": "13336807",
         "score": 1.616356,
         "hasanswer": true,
-        "isgold": null,
         "original_retrieval_index": null
       },
       {
@@ -68,7 +63,6 @@
         "id": "18286085",
         "score": 1.5693839,
         "hasanswer": true,
-        "isgold": null,
         "original_retrieval_index": null
       },
       {
@@ -77,7 +71,6 @@
         "id": "18960882",
         "score": 1.5676728,
         "hasanswer": true,
-        "isgold": null,
         "original_retrieval_index": null
       },
       {
@@ -86,7 +79,6 @@
         "id": "4266708",
         "score": 1.5098503,
         "hasanswer": true,
-        "isgold": null,
         "original_retrieval_index": null
       },
       {
@@ -95,7 +87,6 @@
         "id": "18960900",
         "score": 1.5085999,
         "hasanswer": true,
-        "isgold": null,
         "original_retrieval_index": null
       },
       {
@@ -104,7 +95,6 @@
         "id": "20733592",
         "score": 1.4476388,
         "hasanswer": true,
-        "isgold": null,
         "original_retrieval_index": null
       },
       {
@@ -113,7 +103,6 @@
         "id": "19479825",
         "score": 1.4411979,
         "hasanswer": true,
-        "isgold": null,
         "original_retrieval_index": null
       },
       {
@@ -122,7 +111,6 @@
         "id": "3284108",
         "score": 1.3799517,
         "hasanswer": true,
-        "isgold": null,
         "original_retrieval_index": null
       },
       {
@@ -131,7 +119,6 @@
         "id": "10449966",
         "score": 1.3427012,
         "hasanswer": true,
-        "isgold": null,
         "original_retrieval_index": null
       },
       {
@@ -140,7 +127,6 @@
         "id": "20350256",
         "score": 1.3219819,
         "hasanswer": true,
-        "isgold": null,
         "original_retrieval_index": null
       },
       {
@@ -149,13 +135,12 @@
         "id": "19902220",
         "score": 1.247823,
         "hasanswer": true,
-        "isgold": null,
         "original_retrieval_index": null
       }
     ]
   },
   {
-    "question_id": "d89c6982-f6bc-4f23-95d5-a33170a3ed2f",
+    "question_id": "0ecce69a-bdb2-4dc8-b5c0-054c8841fab3",
     "question": "the south west wind blows across nigeria between",
     "answers": [
       "till September"
@@ -168,7 +153,6 @@
         "id": "283803",
         "score": 1.4846077,
         "hasanswer": true,
-        "isgold": null,
         "original_retrieval_index": null
       }
     ]

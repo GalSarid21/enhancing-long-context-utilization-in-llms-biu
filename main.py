@@ -7,7 +7,6 @@ from argparse import Namespace
 
 from src.args import read_cli_env_args
 from src.entities.dto import TaskResultsDTO
-from src.entities.base import BaseDataClass
 from src.entities.enums import TaskType, TaskName
 from src.tasks.abstract import AbstractTask
 from src.tasks.gold_idx_change import GoldIdxChangeDatasetCreation, GoldIdxChangeExperiment
@@ -32,15 +31,8 @@ async def main(args: Namespace) -> None:
                                                  args=args)
     logger.info(f"main - created task obj: {task=}")
 
-    data: BaseDataClass = await task.load_data()
-    logger.info(f"main - data was loaded: {data=}")
-
-    res_dto: TaskResultsDTO = await task.run(data=data)
+    res_dto: TaskResultsDTO = await task.run()
     logger.info(f"main - task running completed: {res_dto=}")
-
-    await task.log_results(results=res_dto.results)
-    logger.info(f"main - results file logged successfully")
-    logger.info("main - finished")
 
 
 async def _get_running_task(task_type: str, task_name: str, args: Namespace) -> AbstractTask:

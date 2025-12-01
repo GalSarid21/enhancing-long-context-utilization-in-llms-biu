@@ -3,14 +3,13 @@ import json
 
 from collections.abc import AsyncIterator
 from pathlib import Path
-from typing import Optional, Dict,List
+from typing import Optional, Dict,List, Union
 from xopen import xopen
 from copy import deepcopy
 
 from common.consts import NQ_DATASET_FILE_PATH, MODEL_DOCS_MAPPINGS
 
 from src.entities.experiments.gold_idx_change.data import (
-    GoldIdxChangeExperimentData,
     SingleQuestionRawData,
     SingleQuestionData,
     SingleIdxData
@@ -28,24 +27,25 @@ async def get_golden_idx_change_data(
     num_idxs: Optional[int] = None,
     path: Optional[str] = None,
     num_examples: Optional[int] = None,
-    model: Optional[str] = None
-) -> GoldIdxChangeExperimentData:
+    log_steps: Optional[int] = 100
+) -> Union[List[SingleIdxData], AsyncIterator[SingleIdxData]]:
 
     logger.info(f"get_golden_idx_change_data - started: {num_idxs=}, {prompting_mode=}, {model_name=}, {path=}, {num_examples=}")
     raw_data: List[SingleQuestionRawData] = await read_data_file(prompting_mode=prompting_mode, path=path, num_examples=num_examples)
     experiments = []
 
-    if num_idxs and prompting_mode in PromptingMode.get_ctx_modes():
-        experiments = await _create_experiments_with_full_documents_list(num_idxs=num_idxs,
-                                                                         raw_data=raw_data,
-                                                                         model_name=model_name)
+    if num_idxs and prompting_mode in PromptingMode.get_multiple_docs_modes():
+        return _generate_full_documents_list_experiments(num_idxs=num_idxs,
+                                                         raw_data=raw_data,
+                                                         model_name=model_name,
+                                                         log_steps=log_steps)
     # when there are no gold indcies - we're working in closedbook or baseline
     else:
-        experiments = await _create_experiments_with_partial_documents_list(prompting_mode=prompting_mode, raw_data=raw_data)
-
-    gold_idx_change_data = GoldIdxChangeExperimentData(experiments=experiments, model=model)
-    logger.info(f"get_golden_idx_change_data - finished: {len(gold_idx_change_data.experiments)=}")
-    return gold_idx_change_data
+        experiments = await _create_experiments_with_partial_documents_list(prompting_mode=prompting_mode,
+                                                                            raw_data=raw_data,
+                                                                            log_steps=log_steps)
+        logger.info(f"get_golden_idx_change_data - finished: {len(experiments)=}")
+        return experiments
 
 
 async def _generate_gold_idxs(num_idxs: int, num_docs: int) -> AsyncIterator[int]:
@@ -72,12 +72,12 @@ async def _validate_create_gold_idx_list_args(num_docs: int, num_idxs: int) -> N
         raise ValueError("num_idxs cannot exceed num_docs")
 
 
-async def _create_experiments_with_full_documents_list(
+async def _generate_full_documents_list_experiments(
     num_idxs: int,
     raw_data: List[SingleQuestionRawData],
     model_name: str,
     log_steps: int = 100
-) -> List[SingleIdxData]:
+) -> AsyncIterator[List[SingleIdxData]]:
 
     if log_steps <= 0 or log_steps >= len(raw_data):
         raise ValueError(f"'log_steps' mus be in range [1,{len(raw_data)-1}]")
@@ -90,7 +90,6 @@ async def _create_experiments_with_full_documents_list(
     
     logger.info(f"MODEL_DOCS_MAPPINGS: {num_docs=}")
 
-    experiments = []
     async for gold_idx in _generate_gold_idxs(num_idxs=num_idxs, num_docs=num_docs):
         logger.info(f"IDX: {gold_idx=}")
 
@@ -122,9 +121,7 @@ async def _create_experiments_with_full_documents_list(
                 )
             )
 
-        experiments.append(SingleIdxData(name=f"gold_at_{gold_idx}", data=idx_data))
-    
-    return experiments
+        yield SingleIdxData(name=f"gold_at_{gold_idx}", data=idx_data)
 
 
 async def _create_experiments_with_partial_documents_list(

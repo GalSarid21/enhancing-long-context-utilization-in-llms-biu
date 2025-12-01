@@ -1,49 +1,47 @@
-{
-  "experiments": [
-    {
-      "name": "closedbook",
-      "data": [
-        {
-          "question_id": "4a945472-eb40-47f2-8d3e-cb074c57c509",
-          "question": "who got the first nobel prize in physics",
-          "answers": [
-            "Wilhelm Conrad R\u00f6ntgen"
-          ],
-          "documents": null
-        },
-        {
-          "question_id": "ab5539ea-eaa7-4cdd-9405-f946df97b46b",
-          "question": "when is the next deadpool movie being released",
-          "answers": [
-            "May 18, 2018"
-          ],
-          "documents": null
-        },
-        {
-          "question_id": "d89c6982-f6bc-4f23-95d5-a33170a3ed2f",
-          "question": "the south west wind blows across nigeria between",
-          "answers": [
-            "till September"
-          ],
-          "documents": null
-        },
-        {
-          "question_id": "0ac2753d-5c6a-44dc-bd40-ddc31b2c0e84",
-          "question": "what does hp mean in war and order",
-          "answers": [
-            "hit points or health points"
-          ],
-          "documents": null
-        },
-        {
-          "question_id": "4dcacd05-13db-4b0d-8ed7-ca1339edf0d9",
-          "question": "who wrote the first declaration of human rights",
-          "answers": [
-            "Cyrus"
-          ],
-          "documents": null
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "name": "closedbook",
+    "data": [
+      {
+        "question_id": "a9c3c4bd-56b6-4915-9ddc-a9fb4441d7fb",
+        "question": "who got the first nobel prize in physics",
+        "answers": [
+          "Wilhelm Conrad R\u00f6ntgen"
+        ],
+        "documents": null
+      },
+      {
+        "question_id": "5404e1b9-a707-46da-ade9-9711b1a77971",
+        "question": "when is the next deadpool movie being released",
+        "answers": [
+          "May 18, 2018"
+        ],
+        "documents": null
+      },
+      {
+        "question_id": "0ecce69a-bdb2-4dc8-b5c0-054c8841fab3",
+        "question": "the south west wind blows across nigeria between",
+        "answers": [
+          "till September"
+        ],
+        "documents": null
+      },
+      {
+        "question_id": "bb9dd014-8265-494b-b503-45de646e7b67",
+        "question": "what does hp mean in war and order",
+        "answers": [
+          "hit points or health points"
+        ],
+        "documents": null
+      },
+      {
+        "question_id": "26fe6286-33b8-4e85-8ea2-d91e705f4b1d",
+        "question": "who wrote the first declaration of human rights",
+        "answers": [
+          "Cyrus"
+        ],
+        "documents": null
+      }
+    ]
+  }
+]

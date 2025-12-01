@@ -1,8 +1,8 @@
 import logging
 import torch
 
+from pathlib import Path
 from argparse import Namespace
-from typing import Dict
 from abc import ABC, abstractmethod
 
 from src.entities.enums import PromptingMode
@@ -17,8 +17,12 @@ class AbstractTask(ABC):
 
     def __init__(self, args: Namespace) -> None:
         self._prompting_mode = PromptingMode(args.prompting_mode)
-        self._base_dir = args.base_dir or "./"
+        
+        base_dir_str = args.base_dir or ".//"
+        self._base_dir = Path(base_dir_str)
+        
         self._model = args.model
+        self._model_short_name = self._model.split("/")[-1]
 
         self._log_env_resources()
 
@@ -31,13 +35,5 @@ class AbstractTask(ABC):
         logger.info(msg)
 
     @abstractmethod
-    async def load_data(self) -> BaseDataClass:
-        pass
-
-    @abstractmethod
     async def run(self, data: BaseDataClass) -> TaskResultsDTO:
-        pass
-
-    @abstractmethod
-    async def log_results(self, results: Dict) -> None:
         pass

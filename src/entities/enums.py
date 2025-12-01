@@ -21,6 +21,10 @@ class PromptingMode(str, Enum):
     @staticmethod
     def get_ctx_modes() -> List["PromptingMode"]:
         return [PromptingMode.OPENBOOK, PromptingMode.OPENBOOK_RANDOM, PromptingMode.BASELINE]
+    
+    @staticmethod
+    def get_multiple_docs_modes() -> List["PromptingMode"]:
+        return [PromptingMode.OPENBOOK, PromptingMode.OPENBOOK_RANDOM]
 
 
 class Metric(str, Enum):

@@ -42,18 +42,7 @@ class GoldIdxChangeExperiment(AbstractTask):
         )
 
     def _set_results_file_name(self) -> str:
-        f"gold_idx_change_{datetime.now().strftime('%Y%m%d')}_{datetime.now(timezone.utc).timestamp()}.json"
+        return f"gold_idx_change_{datetime.now().strftime('%Y%m%d')}_{datetime.now(timezone.utc).timestamp()}.json"
 
-    @property
-    def results_dir(self) -> str:
-        return self._configs.results_dir
-
-    @property
-    def results_file_name(self) -> str:
-        return self._results_file_name
-
-    async def load_data(self) -> GoldIdxChangeExperimentData:
-        return super().load_data()
-    
     async def run(self, data: GoldIdxChangeExperimentData) -> TaskResultsDTO:
         return super().run()
