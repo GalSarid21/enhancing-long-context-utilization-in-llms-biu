@@ -34,6 +34,12 @@ def read_cli_env_args() -> Namespace:
     )
 
     parser.add_argument(
+        "--base_dir",
+        help="app base dir",
+        type=str
+    )
+
+    parser.add_argument(
         "--max_model_len",
         help="maximum tokens the model can get as input",
         type=int

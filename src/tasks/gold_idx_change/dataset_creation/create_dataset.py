@@ -30,7 +30,7 @@ class GoldIdxChangeDatasetCreation(AbstractTask):
         return TaskResultsDTO(status=Status.SUCCESS, results=data.model_dump())
 
     async def log_results(self, results: Dict) -> None:
-        dataset_dir = self._configs.dataset_base_dir / self._configs.num_idxs
+        dataset_dir = self._base_dir / self._configs.dataset_folder / f"num_idxs_{self._configs.num_idxs}"
         os.makedirs(dataset_dir, exist_ok=True)
 
         experiments = results.get("experiments")

@@ -16,10 +16,8 @@ logger = logging.getLogger(__name__)
 class AbstractTask(ABC):
 
     def __init__(self, args: Namespace) -> None:
-        self._results_dir = None
-        self._results_file_name = None
-
         self._prompting_mode = PromptingMode(args.prompting_mode)
+        self._base_dir = args.base_dir or "./"
         self._model = args.model
 
         self._log_env_resources()
