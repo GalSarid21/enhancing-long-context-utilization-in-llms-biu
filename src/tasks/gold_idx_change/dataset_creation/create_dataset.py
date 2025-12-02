@@ -1,4 +1,3 @@
-import os
 import json
 import logging
 
@@ -25,34 +24,28 @@ class GoldIdxChangeDatasetCreation(AbstractTask):
         self._configs = Configs()
 
     async def run(self) -> TaskResultsDTO:
+        logger.info(f"run - started: {self._dataset_dir=}")
+    
         try:
-            dataset_dir = self._base_dir / self._configs.dataset_folder
-            if self._prompting_mode in PromptingMode.get_multiple_docs_modes():
-                dataset_dir = dataset_dir / f"num_idxs_{self._configs.num_idxs}" / self._model_short_name
-
-            os.makedirs(dataset_dir, exist_ok=True)
-            logger.info(f"run - started: {dataset_dir=}")
-            
             gold_idx_data = await nq_helper.get_golden_idx_change_data(prompting_mode=self._prompting_mode,
                                                                        model_name=self._model,
                                                                        num_idxs=self._configs.num_idxs)
-
             if isinstance(gold_idx_data, AsyncIterator):
                 async for idx_data in gold_idx_data:
-                    await self._log_single_idx_data(idx_data=idx_data, dataset_dir=dataset_dir)
+                    await self._log_single_idx_data(idx_data=idx_data)
             else:
-                await self._log_single_idx_data(idx_data=gold_idx_data[0], dataset_dir=dataset_dir)
+                await self._log_single_idx_data(idx_data=gold_idx_data[0])
 
             res_dto = TaskResultsDTO(status=Status.SUCCESS)
             logger.info(f"run - finished: {res_dto=}")
             return res_dto
 
         except Exception as e:
-            logger.exception(str(e))
+            logger.exception(f"run - failed: {e}")
             return TaskResultsDTO(status=Status.FAILURE, error=str(e))
     
-    async def _log_single_idx_data(self, idx_data: SingleIdxData, dataset_dir: str) -> None:
-        dataset_path = dataset_dir / f"{idx_data.name}.jsonl.gz"
+    async def _log_single_idx_data(self, idx_data: SingleIdxData) -> None:
+        dataset_path = self._dataset_dir / f"{idx_data.name}.jsonl.gz"
         logger.info(f"_log_single_idx_data - logging datset: {dataset_path=}")
 
         with xopen(dataset_path, "wt") as f:

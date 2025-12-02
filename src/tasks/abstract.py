@@ -1,5 +1,6 @@
 import logging
 import torch
+import os
 
 from pathlib import Path
 from argparse import Namespace
@@ -18,11 +19,16 @@ class AbstractTask(ABC):
     def __init__(self, args: Namespace) -> None:
         self._prompting_mode = PromptingMode(args.prompting_mode)
         
+        self._model: str = args.model
+        self._model_short_name: str = self._model.split("/")[-1]
+
         base_dir_str = args.base_dir or ".//"
         self._base_dir = Path(base_dir_str)
-        
-        self._model = args.model
-        self._model_short_name = self._model.split("/")[-1]
+
+        self._dataset_dir: Path = self._base_dir / self._configs.dataset_folder
+        if self._prompting_mode in PromptingMode.get_multiple_docs_modes():
+            self._dataset_dir = self._dataset_dir / f"num_idxs_{self._configs.num_idxs}" / self._model_short_name
+        os.makedirs(self._dataset_dir, exist_ok=True)
 
         self._log_env_resources()
 
