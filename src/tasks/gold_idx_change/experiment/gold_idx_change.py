@@ -1,6 +1,7 @@
 import logging
 import torch
 import json
+import os
 
 from xopen import xopen
 from pathlib import Path
@@ -97,6 +98,7 @@ class GoldIdxChangeExperiment(AbstractTask):
         return SingleIdxResults(name=name, metric=Metric.BEST_SUBSPAN_EM, results=sigle_question_res_list)
         
     async def _log_single_idx_data(self, idx_data: SingleIdxResults) -> None:
+        os.makedirs(self._configs.results_folder, exist_ok=True)
         res_file_name = f"{idx_data.name}_{idx_data.metric}_{datetime.now(timezone.utc).timestamp()}.jsonl.gz"
         res_path = self._configs.results_folder / res_file_name
         logger.info(f"_log_single_idx_data - logging res file: {res_path=}")
