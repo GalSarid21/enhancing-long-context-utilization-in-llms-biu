@@ -56,11 +56,13 @@ class GoldIdxChangeExperiment(AbstractTask):
         try:
             if self._prompting_mode in PromptingMode.get_multiple_docs_modes():
                 for file_path in self._dataset_dir.iterdir():
+                    logger.info(f"run - processing: {file_path=}")
                     if file_path.is_file():
                         res = await self._process_single_dataset(dataset_path=file_path)
                         await self._log_single_idx_data(idx_data=res)
             else:
                 file_path = self._dataset_dir / f"{self._prompting_mode.value}.jsonl.gz"
+                logger.info(f"run - processing: {file_path=}")
                 res = await self._process_single_dataset(dataset_path=file_path)
                 await self._log_single_idx_data(idx_data=res)
 
@@ -103,10 +105,10 @@ class GoldIdxChangeExperiment(AbstractTask):
         return SingleIdxResults(name=name, metric=Metric.BEST_SUBSPAN_EM, results=sigle_question_res_list)
         
     async def _log_single_idx_data(self, idx_data: SingleIdxResults) -> None:
-        res_folder = self._base_dir / self._configs.results_folder
+        res_folder = self._base_dir / self._configs.results_folder / f"num_idxs_{self._configs.num_idxs}" / self._model_short_name
         os.makedirs(res_folder, exist_ok=True)
 
-        res_file_name = f"{idx_data.name}_{self._model_short_name}_{datetime.now(timezone.utc).strftime('%Y%m%d')}.jsonl.gz"
+        res_file_name = f"{idx_data.name}_{datetime.now(timezone.utc).strftime('%Y%m%d')}.jsonl.gz"
         res_path = res_folder / res_file_name
         logger.info(f"_log_single_idx_data - logging res file: {res_path=}")
 
