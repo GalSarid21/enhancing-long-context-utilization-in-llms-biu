@@ -110,5 +110,5 @@ class HfTokenizer:
                 "'messages' input variables."
             )
 
-        tokenized_messages = self.apply_chat_template(messages)
+        tokenized_messages = await self.apply_chat_template(messages)
         return len(tokenized_messages)

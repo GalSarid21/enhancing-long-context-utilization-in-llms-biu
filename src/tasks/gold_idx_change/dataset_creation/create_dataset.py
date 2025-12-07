@@ -20,8 +20,8 @@ logger = logging.getLogger(__name__)
 class GoldIdxChangeDatasetCreation(AbstractTask):
 
     def __init__(self, args: Namespace):
-        super().__init__(args)
         self._configs = Configs()
+        super().__init__(args)
 
     async def run(self) -> TaskResultsDTO:
         logger.info(f"run - started: {self._dataset_dir=}")

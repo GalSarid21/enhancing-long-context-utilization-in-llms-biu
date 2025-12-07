@@ -25,14 +25,15 @@ logger = logging.getLogger(__name__)
 class GoldIdxChangeExperiment(AbstractTask):
     
     def __init__(self, args: Namespace) -> None:
-        super().__init__(args)
         self._configs = Configs()
+        super().__init__(args)
 
         self._tokenizer = HfTokenizer(model=self._model)
 
         self._prompt_builder = PromptBuilder(
             prompting_mode=self._prompting_mode,
-            tokenizer=self._tokenizer
+            tokenizer=self._tokenizer,
+            max_tokens=self._configs.max_tokens
         )
 
         self._llm: vLLM = self._load_llm(args=args)
@@ -59,6 +60,7 @@ class GoldIdxChangeExperiment(AbstractTask):
                         res = await self._process_single_dataset(dataset_path=file_path)
                         await self._log_single_idx_data(idx_data=res)
             else:
+                file_path = self._dataset_dir / f"{self._prompting_mode.value}.jsonl.gz"
                 res = await self._process_single_dataset(dataset_path=file_path)
                 await self._log_single_idx_data(idx_data=res)
 
@@ -89,8 +91,11 @@ class GoldIdxChangeExperiment(AbstractTask):
         for question_data, pred, prompt in zip(single_idx_data, preds, prompts):
 
             res = SingleQuestionResult(question_id=question_data.question_id,
-                                       score=best_subspan_em(prediction=pred, ground_truths=question_data.questions),
-                                       num_prompt_tokens=await self._tokenizer.count_tokens(prompt))
+                                       question=question_data.question,
+                                       answers=question_data.answers,
+                                       model_answer=pred,
+                                       score=best_subspan_em(prediction=pred, ground_truths=question_data.answers),
+                                       num_prompt_tokens=await self._tokenizer.count_tokens(prompt=prompt))
             
             sigle_question_res_list.append(res)
         
@@ -98,9 +103,11 @@ class GoldIdxChangeExperiment(AbstractTask):
         return SingleIdxResults(name=name, metric=Metric.BEST_SUBSPAN_EM, results=sigle_question_res_list)
         
     async def _log_single_idx_data(self, idx_data: SingleIdxResults) -> None:
-        os.makedirs(self._configs.results_folder, exist_ok=True)
-        res_file_name = f"{idx_data.name}_{idx_data.metric}_{datetime.now(timezone.utc).timestamp()}.jsonl.gz"
-        res_path = self._configs.results_folder / res_file_name
+        res_folder = self._base_dir / self._configs.results_folder
+        os.makedirs(res_folder, exist_ok=True)
+
+        res_file_name = f"{idx_data.name}_{self._model_short_name}_{datetime.now(timezone.utc).strftime('%Y%m%d')}.jsonl.gz"
+        res_path = res_folder / res_file_name
         logger.info(f"_log_single_idx_data - logging res file: {res_path=}")
 
         with xopen(res_path, "wt") as f:

@@ -82,7 +82,7 @@ class PromptBuilder:
             return prompt
 
         messages = get_messages_list(user=user_prompt, system=self._system)
-        prompt = self._tokenizer.apply_chat_template(messages, tokenize=False)
+        prompt = await self._tokenizer.apply_chat_template(messages, tokenize=False)
         return prompt
 
     def _get_prompt_components(self) -> Tuple[str, str]:
