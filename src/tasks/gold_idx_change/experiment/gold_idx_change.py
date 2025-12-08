@@ -61,12 +61,16 @@ class GoldIdxChangeExperiment(AbstractTask):
             if self._prompting_mode in PromptingMode.get_multiple_docs_modes():
                 existing_res_files = await self._get_results_dir_existing_file()
                 
-                for file_path in self._dataset_dir.iterdir():
-                    logger.info(f"run - processing: {file_path=}")
-                    
-                    if file_path.is_file() and file_path not in existing_res_files:
-                        res = await self._process_single_dataset(dataset_path=file_path)
-                        await self._log_single_idx_data(idx_data=res)
+                for file_path in self._dataset_dir.iterdir():                    
+                    if file_path.is_file():
+                        
+                        if file_path in existing_res_files:
+                            logger.info(f"run - skipping existing file: {file_path=}")
+
+                        else:
+                            logger.info(f"run - processing: {file_path=}")
+                            res = await self._process_single_dataset(dataset_path=file_path)
+                            await self._log_single_idx_data(idx_data=res)
             else:
                 file_path = self._dataset_dir / f"{self._prompting_mode.value}.jsonl.gz"
                 logger.info(f"run - processing: {file_path=}")
