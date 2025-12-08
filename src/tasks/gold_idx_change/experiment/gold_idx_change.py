@@ -4,6 +4,7 @@ import json
 import os
 
 from xopen import xopen
+from typing import Set
 from pathlib import Path
 from argparse import Namespace
 from datetime import datetime, timezone
@@ -27,6 +28,9 @@ class GoldIdxChangeExperiment(AbstractTask):
     def __init__(self, args: Namespace) -> None:
         self._configs = Configs()
         super().__init__(args)
+
+        self._res_folder = self._base_dir / self._configs.results_folder / f"num_idxs_{self._configs.num_idxs}" / self._model_short_name
+        os.makedirs(self._res_folder, exist_ok=True)
 
         self._tokenizer = HfTokenizer(model=self._model)
 
@@ -55,9 +59,12 @@ class GoldIdxChangeExperiment(AbstractTask):
         
         try:
             if self._prompting_mode in PromptingMode.get_multiple_docs_modes():
+                existing_res_files = await self._get_results_dir_existing_file()
+                
                 for file_path in self._dataset_dir.iterdir():
                     logger.info(f"run - processing: {file_path=}")
-                    if file_path.is_file():
+                    
+                    if file_path.is_file() and file_path not in existing_res_files:
                         res = await self._process_single_dataset(dataset_path=file_path)
                         await self._log_single_idx_data(idx_data=res)
             else:
@@ -68,6 +75,7 @@ class GoldIdxChangeExperiment(AbstractTask):
 
             res_dto = TaskResultsDTO(status=Status.SUCCESS)
             logger.info(f"run - finished: {res_dto=}")
+            return res_dto
         
         except Exception as e:
             logger.exception(f"run - failed: {e}")
@@ -105,13 +113,17 @@ class GoldIdxChangeExperiment(AbstractTask):
         return SingleIdxResults(name=name, metric=Metric.BEST_SUBSPAN_EM, results=sigle_question_res_list)
         
     async def _log_single_idx_data(self, idx_data: SingleIdxResults) -> None:
-        res_folder = self._base_dir / self._configs.results_folder / f"num_idxs_{self._configs.num_idxs}" / self._model_short_name
-        os.makedirs(res_folder, exist_ok=True)
-
         res_file_name = f"{idx_data.name}_{datetime.now(timezone.utc).strftime('%Y%m%d')}.jsonl.gz"
-        res_path = res_folder / res_file_name
+        res_path = self._res_folder / res_file_name
         logger.info(f"_log_single_idx_data - logging res file: {res_path=}")
 
         with xopen(res_path, "wt") as f:
             for data in idx_data.results:
                 f.write(json.dumps(data.model_dump(), ensure_ascii=False) + "\n")
+    
+    async def _get_results_dir_existing_file(self) -> Set:
+        existing_res_files = [
+            file for file in self._res_folder.iterdir()
+            if file.is_file()
+        ]
+        return set(existing_res_files)

@@ -8,7 +8,8 @@ dependencies = [
     "matplotlib>=3.10.7",
     "pydantic>=2.12.4",
     "setuptools>=80.9.0",
-    "transformers==4.52.4",
+    "torch==2.6.0",
+    "transformers==4.51.3",
     "vllm==0.8.4",
     "xopen>=2.0.2",
 ]

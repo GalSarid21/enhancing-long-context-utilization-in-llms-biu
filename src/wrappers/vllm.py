@@ -42,4 +42,4 @@ class vLLM:
         return [res.outputs[0].text for res in results]
     
     async def generate(self, prompt: str,) -> str:
-        return self.generate_batch(prompts=[prompt])[0]
+        return await self.generate_batch(prompts=[prompt])[0]
