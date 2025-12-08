@@ -60,7 +60,8 @@ class GoldIdxChangeExperiment(AbstractTask):
         try:
             if self._prompting_mode in PromptingMode.get_multiple_docs_modes():
                 existing_res_files = await self._get_results_dir_existing_file()
-                
+                logger.info(f"run - found existing res files: {len(existing_res_files)=}")
+
                 for file_path in self._dataset_dir.iterdir():                    
                     if file_path.is_file():
                         
