@@ -62,7 +62,7 @@ class GoldIdxChangeExperiment(AbstractTask):
                 existing_res_files = await self._get_results_dir_files(dir=self._res_dir, return_file_names_only=True)
                 processing_files = await self._get_results_dir_files(dir=self._dataset_dir)
 
-                for file_path in processing_files:                    
+                for file_path in processing_files:
                     if file_path.name in existing_res_files:
                         logger.info(f"run - skipping existing file: {file_path.name=}")
 
@@ -126,7 +126,8 @@ class GoldIdxChangeExperiment(AbstractTask):
     
     async def _get_results_dir_files(self, dir: Path, return_file_names_only: Optional[bool] = False) -> Set:
         existing_files = [
-            file.name if return_file_names_only else file
+            f"{file.name.rsplit('_', 1)[0]}.jsonl.gz"
+            if return_file_names_only else file
             for file in dir.iterdir()
             if file.is_file() and file.name.endswith(".jsonl.gz")
         ]
