@@ -4,7 +4,7 @@ import json
 import os
 
 from xopen import xopen
-from typing import Set
+from typing import Set, Optional
 from pathlib import Path
 from argparse import Namespace
 from datetime import datetime, timezone
@@ -29,8 +29,8 @@ class GoldIdxChangeExperiment(AbstractTask):
         self._configs = Configs()
         super().__init__(args)
 
-        self._res_folder = self._base_dir / self._configs.results_folder / f"num_idxs_{self._configs.num_idxs}" / self._model_short_name
-        os.makedirs(self._res_folder, exist_ok=True)
+        self._res_dir = self._base_dir / self._configs.results_folder / f"num_idxs_{self._configs.num_idxs}" / self._model_short_name
+        os.makedirs(self._res_dir, exist_ok=True)
 
         self._tokenizer = HfTokenizer(model=self._model)
 
@@ -59,19 +59,17 @@ class GoldIdxChangeExperiment(AbstractTask):
         
         try:
             if self._prompting_mode in PromptingMode.get_multiple_docs_modes():
-                existing_res_files = await self._get_results_dir_existing_file()
-                logger.info(f"run - found existing res files: {len(existing_res_files)=}")
+                existing_res_files = await self._get_results_dir_files(dir=self._res_dir, return_file_names_only=True)
+                processing_files = await self._get_results_dir_files(dir=self._dataset_dir)
 
-                for file_path in self._dataset_dir.iterdir():                    
-                    if file_path.is_file():
-                        
-                        if file_path in existing_res_files:
-                            logger.info(f"run - skipping existing file: {file_path=}")
+                for file_path in processing_files:                    
+                    if file_path.name in existing_res_files:
+                        logger.info(f"run - skipping existing file: {file_path.name=}")
 
-                        else:
-                            logger.info(f"run - processing: {file_path=}")
-                            res = await self._process_single_dataset(dataset_path=file_path)
-                            await self._log_single_idx_data(idx_data=res)
+                    else:
+                        logger.info(f"run - processing: {file_path.name=}")
+                        res = await self._process_single_dataset(dataset_path=file_path)
+                        await self._log_single_idx_data(idx_data=res)
             else:
                 file_path = self._dataset_dir / f"{self._prompting_mode.value}.jsonl.gz"
                 logger.info(f"run - processing: {file_path=}")
@@ -119,16 +117,18 @@ class GoldIdxChangeExperiment(AbstractTask):
         
     async def _log_single_idx_data(self, idx_data: SingleIdxResults) -> None:
         res_file_name = f"{idx_data.name}_{datetime.now(timezone.utc).strftime('%Y%m%d')}.jsonl.gz"
-        res_path = self._res_folder / res_file_name
+        res_path = self._res_dir / res_file_name
         logger.info(f"_log_single_idx_data - logging res file: {res_path=}")
 
         with xopen(res_path, "wt") as f:
             for data in idx_data.results:
                 f.write(json.dumps(data.model_dump(), ensure_ascii=False) + "\n")
     
-    async def _get_results_dir_existing_file(self) -> Set:
-        existing_res_files = [
-            file for file in self._res_folder.iterdir()
-            if file.is_file()
+    async def _get_results_dir_files(self, dir: Path, return_file_names_only: Optional[bool] = False) -> Set:
+        existing_files = [
+            file.name if return_file_names_only else file
+            for file in dir.iterdir()
+            if file.is_file() and file.name.endswith(".jsonl.gz")
         ]
-        return set(existing_res_files)
+        logger.info(f"run - found {len(existing_files)} files: {dir=}, {existing_files=}")
+        return set(existing_files)
