@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "matplotlib>=3.10.7",
+    "pandas>=2.3.3",
     "pydantic>=2.12.4",
     "setuptools>=80.9.0",
     "torch==2.6.0",

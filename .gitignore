@@ -216,3 +216,4 @@ __marimo__/
 # ignore results and data folder
 /results
 /data
+/notebooks
