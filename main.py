@@ -10,6 +10,7 @@ from src.entities.dto import TaskResultsDTO
 from src.entities.enums import TaskType, TaskName
 from src.tasks.abstract import AbstractTask
 from src.tasks.gold_idx_change import GoldIdxChangeDatasetCreation, GoldIdxChangeExperiment
+from src.tasks.num_docs_increnet import NumDocsIncrementExperiment
 
 
 logging.basicConfig(
@@ -44,6 +45,10 @@ async def _get_running_task(task_type: str, task_name: str, args: Namespace) -> 
             return GoldIdxChangeDatasetCreation(args=args)
         if task_type == TaskType.EXPERIMENT:
             return GoldIdxChangeExperiment(args=args)
+    
+    if task_name == TaskName.NUM_DOCS_INCREMENT:
+        if task_type == TaskType.EXPERIMENT:
+            return NumDocsIncrementExperiment(args=args)
 
 
 if __name__ == "__main__":
