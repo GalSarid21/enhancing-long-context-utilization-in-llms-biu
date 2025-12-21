@@ -32,6 +32,7 @@ class NumDocsIncrementExperiment(AbstractTask):
         super().__init__(args)
 
         self._gold_location = GoldLocation(args.gold_location)
+        self._dataset_path = args.dataset_path
 
         self._res_dir = (
             self._base_dir / 
@@ -49,9 +50,10 @@ class NumDocsIncrementExperiment(AbstractTask):
         )
     
     async def run(self) -> TaskResultsDTO:
-        logger.info(f"run - started")
+        logger.info(f"run - started: {self._dataset_path=}")
         try:
-            raw_data: List[SingleQuestionRawData] = await read_data_file(prompting_mode=self._prompting_mode)
+            raw_data: List[SingleQuestionRawData] = await read_data_file(prompting_mode=self._prompting_mode,
+                                                                         path=self._dataset_path)
     
             for n_docs in range(0, MAX_DOCS, self._configs.docs_step_size):
                 logger.info(f"run - start processing {n_docs} docs")
