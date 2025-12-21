@@ -49,7 +49,7 @@ class NumDocsIncrementExperiment(AbstractTask):
         )
     
     async def run(self) -> TaskResultsDTO:
-        logger.info(f"run - started: {self._dataset_dir=}")
+        logger.info(f"run - started")
         try:
             raw_data: List[SingleQuestionRawData] = await read_data_file(prompting_mode=self._prompting_mode)
     
