@@ -29,6 +29,11 @@ class GoldIdxChangeExperiment(AbstractTask):
         self._configs = Configs()
         super().__init__(args)
 
+        self._dataset_dir: Path = self._base_dir / self._configs.dataset_folder
+        if self._prompting_mode in PromptingMode.get_multiple_docs_modes():
+            self._dataset_dir = self._dataset_dir / f"num_idxs_{self._configs.num_idxs}" / self._model_short_name
+        os.makedirs(self._dataset_dir, exist_ok=True)
+
         self._res_dir = self._base_dir / self._configs.results_folder / f"num_idxs_{self._configs.num_idxs}" / self._model_short_name
         os.makedirs(self._res_dir, exist_ok=True)
 
