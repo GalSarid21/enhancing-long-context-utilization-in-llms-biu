@@ -2,6 +2,7 @@ import logging
 import torch
 import json
 import os
+import gc
 
 from datetime import datetime, timezone
 from argparse import Namespace
@@ -99,6 +100,18 @@ class NumDocsIncrementExperiment(AbstractTask):
                 )
 
                 await self._log_single_idx_data(experiment_res=single_experiment_results)
+
+                try:
+                    llm.shutdown()
+                except AttributeError:
+                    # fallback: try engine directly if exposed
+                    engine = getattr(llm, "llm_engine", None)
+                    if engine is not None and hasattr(engine, "shutdown"):
+                        engine.shutdown()
+
+                del llm
+                gc.collect()
+                torch.cuda.empty_cache()
 
             res_dto = TaskResultsDTO(status=Status.SUCCESS)
             logger.info(f"run - finished: {res_dto=}")
