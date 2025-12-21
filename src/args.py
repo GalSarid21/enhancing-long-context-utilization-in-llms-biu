@@ -17,7 +17,7 @@ def read_cli_env_args() -> Namespace:
     parser.add_argument(
         "--task_name",
         help="task name to run",
-        choices=[TaskName.GOLD_IDX_CHANGE],
+        choices=[name for name in TaskName],
         type=str
     )
 
