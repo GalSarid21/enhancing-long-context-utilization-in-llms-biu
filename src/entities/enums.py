@@ -9,6 +9,7 @@ class TaskType(str, Enum):
 
 class TaskName(str, Enum):
     GOLD_IDX_CHANGE = "gold_idx_change"
+    NUM_DOCS_INCREMENT = "num_docs_increment"
 
 
 class PromptingMode(str, Enum):
@@ -34,3 +35,9 @@ class Metric(str, Enum):
 class Status(str, Enum):
     SUCCESS = "success"
     FAILURE = "failure"
+
+
+class GoldLocation(str, Enum):
+    START = "start"
+    MIDDLE = "middle"
+    END = "end"

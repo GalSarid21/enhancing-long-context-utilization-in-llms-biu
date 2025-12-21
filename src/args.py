@@ -45,4 +45,10 @@ def read_cli_env_args() -> Namespace:
         type=int
     )
 
+    parser.add_argument(
+        "--gold_location",
+        help="gold doc relative location in increase number of documents experiment",
+        type=int
+    )
+
     return parser.parse_args()

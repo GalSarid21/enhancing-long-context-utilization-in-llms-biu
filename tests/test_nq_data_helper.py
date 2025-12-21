@@ -5,7 +5,7 @@ from assertpy import assert_that
 from pathlib import Path
 from typing import List, Dict, Optional, AsyncIterator
 
-from src.entities.experiments.gold_idx_change.data import (
+from src.entities.experiments.data import (
     SingleQuestionRawData,
     SingleIdxData
 )

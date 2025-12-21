@@ -10,7 +10,7 @@ import src.helpers.nq_data as nq_helper
 from src.entities.dto import TaskResultsDTO
 from src.tasks.abstract import AbstractTask
 from src.entities.enums import Status
-from src.entities.experiments.gold_idx_change.data import SingleIdxData
+from src.entities.experiments.data import SingleIdxData
 from src.tasks.gold_idx_change.dataset_creation.configs import Configs
 
 

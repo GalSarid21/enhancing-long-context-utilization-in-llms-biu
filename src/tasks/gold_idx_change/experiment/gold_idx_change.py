@@ -10,14 +10,14 @@ from argparse import Namespace
 from datetime import datetime, timezone
 
 from src.metrics import best_subspan_em
-from src.wrappers import vLLM, HfTokenizer
+from src.wrappers import vLLM
 from src.entities.dto import TaskResultsDTO
 from src.entities.enums import Metric, Status, PromptingMode
 from src.tasks.abstract import AbstractTask
 from src.prompt_builder import PromptBuilder
 from src.tasks.gold_idx_change.experiment.configs import Configs
-from src.entities.experiments.gold_idx_change.data import SingleQuestionData
-from src.entities.experiments.gold_idx_change.results import SingleIdxResults, SingleQuestionResult
+from src.entities.experiments.data import SingleQuestionData
+from src.entities.experiments.results import SingleExperimentResults, SingleQuestionResult
 
 
 logger = logging.getLogger(__name__)
@@ -31,8 +31,6 @@ class GoldIdxChangeExperiment(AbstractTask):
 
         self._res_dir = self._base_dir / self._configs.results_folder / f"num_idxs_{self._configs.num_idxs}" / self._model_short_name
         os.makedirs(self._res_dir, exist_ok=True)
-
-        self._tokenizer = HfTokenizer(model=self._model)
 
         self._prompt_builder = PromptBuilder(
             prompting_mode=self._prompting_mode,
@@ -84,7 +82,7 @@ class GoldIdxChangeExperiment(AbstractTask):
             logger.exception(f"run - failed: {e}")
             return TaskResultsDTO(status=Status.FAILURE, error=str(e))
     
-    async def _process_single_dataset(self, dataset_path: Path) -> SingleIdxResults:
+    async def _process_single_dataset(self, dataset_path: Path) -> SingleExperimentResults:
         prompts = []
         single_idx_data = []
         
@@ -113,9 +111,9 @@ class GoldIdxChangeExperiment(AbstractTask):
             sigle_question_res_list.append(res)
         
         name = dataset_path.as_posix().split("/")[-1].split(".")[0]
-        return SingleIdxResults(name=name, metric=Metric.BEST_SUBSPAN_EM, results=sigle_question_res_list)
+        return SingleExperimentResults(name=name, metric=Metric.BEST_SUBSPAN_EM, results=sigle_question_res_list)
         
-    async def _log_single_idx_data(self, idx_data: SingleIdxResults) -> None:
+    async def _log_single_idx_data(self, idx_data: SingleExperimentResults) -> None:
         res_file_name = f"{idx_data.name}_{datetime.now(timezone.utc).strftime('%Y%m%d')}.jsonl.gz"
         res_path = self._res_dir / res_file_name
         logger.info(f"_log_single_idx_data - logging res file: {res_path=}")

@@ -3,13 +3,13 @@ import json
 
 from collections.abc import AsyncIterator
 from pathlib import Path
-from typing import Optional, Dict,List, Union
+from typing import Optional, Dict, List, Union
 from xopen import xopen
 from copy import deepcopy
 
 from common.consts import NQ_DATASET_FILE_PATH, MODEL_DOCS_MAPPINGS
 
-from src.entities.experiments.gold_idx_change.data import (
+from src.entities.experiments.data import (
     SingleQuestionRawData,
     SingleQuestionData,
     SingleIdxData

@@ -9,6 +9,7 @@ from abc import ABC, abstractmethod
 from src.entities.enums import PromptingMode
 from src.entities.base import BaseDataClass
 from src.entities.dto import TaskResultsDTO
+from src.wrappers import HfTokenizer
 
 
 logger = logging.getLogger(__name__)
@@ -29,6 +30,8 @@ class AbstractTask(ABC):
         if self._prompting_mode in PromptingMode.get_multiple_docs_modes():
             self._dataset_dir = self._dataset_dir / f"num_idxs_{self._configs.num_idxs}" / self._model_short_name
         os.makedirs(self._dataset_dir, exist_ok=True)
+
+        self._tokenizer = HfTokenizer(model=self._model)
 
         self._log_env_resources()
 
