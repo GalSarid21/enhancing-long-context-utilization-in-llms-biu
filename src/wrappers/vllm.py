@@ -52,3 +52,6 @@ class vLLM:
             engine = getattr(self._llm, "llm_engine", None)
             if engine is not None and hasattr(engine, "shutdown"):
                 engine.shutdown()
+        finally:
+            # drop references inside the wrapper too
+            self._llm = None

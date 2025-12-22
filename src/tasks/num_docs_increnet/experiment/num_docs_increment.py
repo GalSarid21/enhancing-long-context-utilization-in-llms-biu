@@ -40,7 +40,7 @@ class NumDocsIncrementExperiment(AbstractTask):
             self._configs.results_folder / 
             f"doc_step_{self._configs.docs_step_size}" /
             self._model_short_name /
-            f"gold_location_{self._gold_location}"
+            f"gold_location_{self._gold_location.value}"
         )
         os.makedirs(self._res_dir, exist_ok=True)
 
