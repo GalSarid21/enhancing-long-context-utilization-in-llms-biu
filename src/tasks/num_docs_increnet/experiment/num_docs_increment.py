@@ -57,8 +57,14 @@ class NumDocsIncrementExperiment(AbstractTask):
                                                                          path=self._dataset_path)
     
             for n_docs in range(0, MAX_DOCS, self._configs.docs_step_size):
-                logger.info(f"run - start processing {n_docs} docs")
+                existing_res_files = await self._get_results_dir_files(dir=self._res_dir, return_file_names_only=True)
+                curr_exp_name = await self._get_curr_exp_name(n_docs=n_docs, add_extension=True)
 
+                if curr_exp_name in existing_res_files:
+                    logger.info(f"run - skipping existing file: res_file={curr_exp_name}")
+                    continue
+                
+                logger.info(f"run - start processing {n_docs} docs")
                 llm = await self._load_llm(n_docs=n_docs)
 
                 prompts = []
@@ -94,7 +100,7 @@ class NumDocsIncrementExperiment(AbstractTask):
                     sigle_question_res_list.append(res)
 
                 single_experiment_results = SingleExperimentResults(
-                    name=f"num_docs_{n_docs}",
+                    name=await self._get_curr_exp_name(n_docs=n_docs),
                     metric=Metric.BEST_SUBSPAN_EM,
                     results=sigle_question_res_list
                 )
@@ -143,3 +149,9 @@ class NumDocsIncrementExperiment(AbstractTask):
         del llm
         gc.collect()
         torch.cuda.empty_cache()
+
+    async def _get_curr_exp_name(n_docs: str, add_extension: bool = False) -> str:
+        res_file_name = f"num_docs_{n_docs}"
+        if add_extension:
+            res_file_name += ".jsonl.gz"
+        return res_file_name

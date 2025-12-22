@@ -126,13 +126,4 @@ class GoldIdxChangeExperiment(AbstractTask):
         with xopen(res_path, "wt") as f:
             for data in idx_data.results:
                 f.write(json.dumps(data.model_dump(), ensure_ascii=False) + "\n")
-    
-    async def _get_results_dir_files(self, dir: Path, return_file_names_only: Optional[bool] = False) -> Set:
-        existing_files = [
-            f"{file.name.rsplit('_', 1)[0]}.jsonl.gz"
-            if return_file_names_only else file
-            for file in dir.iterdir()
-            if file.is_file() and file.name.endswith(".jsonl.gz")
-        ]
-        logger.info(f"run - found {len(existing_files)} files: {dir=}, {existing_files=}")
-        return set(existing_files)
+

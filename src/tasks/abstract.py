@@ -1,9 +1,9 @@
 import logging
 import torch
-import os
 
 from pathlib import Path
 from argparse import Namespace
+from typing import Optional, Set
 from abc import ABC, abstractmethod
 
 from src.entities.enums import PromptingMode
@@ -41,3 +41,13 @@ class AbstractTask(ABC):
     @abstractmethod
     async def run(self, data: BaseDataClass) -> TaskResultsDTO:
         pass
+
+    async def _get_results_dir_files(self, dir: Path, return_file_names_only: Optional[bool] = False) -> Set:
+        existing_files = [
+            f"{file.name.rsplit('_', 1)[0]}.jsonl.gz"
+            if return_file_names_only else file
+            for file in dir.iterdir()
+            if file.is_file() and file.name.endswith(".jsonl.gz")
+        ]
+        logger.info(f"run - found {len(existing_files)} files: {dir=}, {existing_files=}")
+        return set(existing_files)
