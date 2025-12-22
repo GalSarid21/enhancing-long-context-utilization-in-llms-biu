@@ -69,7 +69,6 @@ class NumDocsIncrementExperiment(AbstractTask):
 
                 prompts = []
                 for data in raw_data:
-                    gold_doc = data.gold_docs[0]
                     docs = data.documents[:n_docs]
                     docs_cpy = deepcopy(docs)
 
@@ -80,7 +79,9 @@ class NumDocsIncrementExperiment(AbstractTask):
                         insert_idx = len(docs_cpy)
                     else:
                         insert_idx = len(docs_cpy) // 2
-                    docs_cpy.insert(insert_idx, gold_doc)
+                    
+                    data.gold_docs.sort(key=lambda obj: obj.score)
+                    docs_cpy.insert(insert_idx, data.gold_docs[0])
 
                     prompt = await self._prompt_builder.build(question=data.question, documents=docs_cpy)
                     prompts.append(prompt)
