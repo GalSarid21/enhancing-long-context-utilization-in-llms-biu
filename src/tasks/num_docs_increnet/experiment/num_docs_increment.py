@@ -100,22 +100,16 @@ class NumDocsIncrementExperiment(AbstractTask):
                 )
 
                 await self._log_single_idx_data(experiment_res=single_experiment_results)
-
-                try:
-                    llm.shutdown()
-                except AttributeError:
-                    # fallback: try engine directly if exposed
-                    engine = getattr(llm, "llm_engine", None)
-                    if engine is not None and hasattr(engine, "shutdown"):
-                        engine.shutdown()
-
-                del llm
-                gc.collect()
-                torch.cuda.empty_cache()
+                await self._shutdown_gracefully(llm=llm)
 
             res_dto = TaskResultsDTO(status=Status.SUCCESS)
             logger.info(f"run - finished: {res_dto=}")
             return res_dto
+
+        except ValueError as e:
+            if "longer than the maximum model length" in str(e):
+                logger.info(f"Prompt too long for model context window: {e}. shutdown gracefully.")
+                await self._shutdown_gracefully(llm=llm)
 
         except Exception as e:
             logger.exception(f"run - failed: {e}")
@@ -143,3 +137,9 @@ class NumDocsIncrementExperiment(AbstractTask):
         with xopen(res_path, "wt") as f:
             for data in experiment_res.results:
                 f.write(json.dumps(data.model_dump(), ensure_ascii=False) + "\n")
+    
+    async def _shutdown_gracefully(self, llm: vLLM) -> None:
+        await llm.shutdown_gracefully()
+        del llm
+        gc.collect()
+        torch.cuda.empty_cache()

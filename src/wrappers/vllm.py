@@ -43,3 +43,12 @@ class vLLM:
     
     async def generate(self, prompt: str,) -> str:
         return await self.generate_batch(prompts=[prompt])[0]
+    
+    async def shutdown_gracefully(self) -> None:
+        try:
+            self._llm.shutdown()
+        except AttributeError:
+            # fallback: try engine directly if exposed
+            engine = getattr(self._llm, "llm_engine", None)
+            if engine is not None and hasattr(engine, "shutdown"):
+                engine.shutdown()

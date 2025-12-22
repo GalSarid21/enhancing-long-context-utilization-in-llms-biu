@@ -48,9 +48,9 @@ def build_summary(folder_path: str) -> List[Dict]:
 
 
 def run() -> None:
-    summary: List[Dict] = build_summary(folder_path="./results/gold_idx_change/num_idxs_20/gemma-3-4b-it")
+    summary: List[Dict] = build_summary(folder_path="./results/gold_idx_change/num_idxs_20/Llama-3.2-3B-Instruct")
     
-    out_dir = Path("./data/summaries/gold_idx_change/num_idxs_20/gemma-3-4b-it")
+    out_dir = Path("./data/summaries/gold_idx_change/num_idxs_20/Llama-3.2-3B-Instruct")
     os.makedirs(out_dir, exist_ok=True)
 
     out_file = out_dir / "summary.json"
