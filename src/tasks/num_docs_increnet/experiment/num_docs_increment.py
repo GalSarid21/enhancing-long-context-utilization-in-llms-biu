@@ -150,7 +150,7 @@ class NumDocsIncrementExperiment(AbstractTask):
         gc.collect()
         torch.cuda.empty_cache()
 
-    async def _get_curr_exp_name(n_docs: str, add_extension: bool = False) -> str:
+    async def _get_curr_exp_name(self, n_docs: str, add_extension: bool = False) -> str:
         res_file_name = f"num_docs_{n_docs}"
         if add_extension:
             res_file_name += ".jsonl.gz"
