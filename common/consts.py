@@ -3,7 +3,8 @@ from pathlib import Path
 
 NQ_DATASET_FILE_PATH = Path("./data/nq-open-with-uuid-367.jsonl.gz")
 MAX_DOCS = 1000
-MAX_DOC_LEN = 510
+MAX_DOC_LEN = 300
+GLOBAL_MAX_MODEL_LEN = 131072
 SYSTEM_LEN = 2000
 MODEL_DOCS_MAPPINGS = {
     "gemma-3-4b-it": 685,

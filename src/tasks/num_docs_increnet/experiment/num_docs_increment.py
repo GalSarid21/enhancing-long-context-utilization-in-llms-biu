@@ -10,7 +10,12 @@ from typing import List
 from xopen import xopen
 from copy import deepcopy
 
-from common.consts import MAX_DOCS, MAX_DOC_LEN, SYSTEM_LEN
+from common.consts import (
+    MAX_DOCS,
+    MAX_DOC_LEN,
+    SYSTEM_LEN,
+    GLOBAL_MAX_MODEL_LEN
+)
 from src.metrics import best_subspan_em
 from src.wrappers import vLLM
 from src.entities.dto import TaskResultsDTO
@@ -128,6 +133,8 @@ class NumDocsIncrementExperiment(AbstractTask):
     
     async def _load_llm(self, n_docs: int) -> vLLM:
         max_model_len = (n_docs * MAX_DOC_LEN) + SYSTEM_LEN
+        if max_model_len > GLOBAL_MAX_MODEL_LEN:
+            max_model_len = GLOBAL_MAX_MODEL_LEN
         
         return vLLM(
             model=self._model,
