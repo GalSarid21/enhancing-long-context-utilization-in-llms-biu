@@ -117,8 +117,10 @@ class NumDocsIncrementExperiment(AbstractTask):
             if "longer than the maximum model length" in str(e):
                 logger.info(f"Prompt too long for model context window: {e}. shutdown gracefully.")
                 await self._shutdown_gracefully(llm=llm)
+                return TaskResultsDTO(status=Status.SUCCESS)
             else:
-                logger.exception(e)
+                logger.exception(f"run - failed: {e}")
+                return TaskResultsDTO(status=Status.FAILURE, error=str(e))
 
         except Exception as e:
             logger.exception(f"run - failed: {e}")
