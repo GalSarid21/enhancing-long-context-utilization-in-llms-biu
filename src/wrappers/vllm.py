@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional, Dict
 from vllm import LLM, SamplingParams
 
 
@@ -17,7 +17,7 @@ class vLLM:
         temperature: float,
         max_model_len: int,
         gpu_memory_utilization: float,
-        
+        rope_scaling: Optional[Dict] = None
     ) -> None:
         
         self._model = model
@@ -34,7 +34,8 @@ class vLLM:
             tensor_parallel_size=num_gpus,
             trust_remote_code=True,
             max_model_len=max_model_len,
-            gpu_memory_utilization=gpu_memory_utilization
+            gpu_memory_utilization=gpu_memory_utilization,
+            rope_scaling=rope_scaling
         )
 
     async def generate_batch(self, prompts: List[str]) -> List[str]:

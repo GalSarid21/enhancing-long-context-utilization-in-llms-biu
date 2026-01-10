@@ -54,7 +54,8 @@ class GoldIdxChangeExperiment(AbstractTask):
             max_tokens=self._configs.max_tokens,
             temperature=self._configs.temperature,
             max_model_len=args.max_model_len,
-            gpu_memory_utilization=self._configs.gpu_memory_utilization
+            gpu_memory_utilization=self._configs.gpu_memory_utilization,
+            rope_scaling=self.rope_scaling
         )
 
     async def run(self) -> TaskResultsDTO:

@@ -144,7 +144,8 @@ class NumDocsIncrementExperiment(AbstractTask):
             max_tokens=self._configs.max_tokens,
             temperature=self._configs.temperature,
             max_model_len=max_model_len,
-            gpu_memory_utilization=self._configs.gpu_memory_utilization
+            gpu_memory_utilization=self._configs.gpu_memory_utilization,
+            rope_scaling=self.rope_scaling
         )
     
     async def _log_single_idx_data(self, experiment_res: SingleExperimentResults) -> None:

@@ -28,6 +28,8 @@ class AbstractTask(ABC):
 
         self._tokenizer = HfTokenizer(model=self._model)
 
+        self.rope_scaling = getattr(self.config, "rope_scaling", None)
+
         self._log_env_resources()
 
     def _log_env_resources(self) -> None:

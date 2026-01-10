@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import Dict, Union
 
 
 class Configs(BaseModel):
@@ -10,3 +11,4 @@ class Configs(BaseModel):
     max_tokens: int = 256
     dataset_folder: str = "data/datasets"
     results_folder: str = "results/num_docs_increment"
+    rope_scaling: Dict[str, Union[str, float]] = {"type": "dynamic", "factor": 0.9}
