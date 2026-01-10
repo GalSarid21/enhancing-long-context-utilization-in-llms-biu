@@ -57,4 +57,10 @@ def read_cli_env_args() -> Namespace:
         type=str
     )
 
+    parser.add_argument(
+        "--rope_scaling",
+        help="RoPE scaling config to load LLM with",
+        type=str
+    )
+
     return parser.parse_args()

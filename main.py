@@ -10,7 +10,7 @@ from src.entities.dto import TaskResultsDTO
 from src.entities.enums import TaskType, TaskName
 from src.tasks.abstract import AbstractTask
 from src.tasks.gold_idx_change import GoldIdxChangeDatasetCreation, GoldIdxChangeExperiment
-from src.tasks.num_docs_increnet import NumDocsIncrementExperiment
+from src.tasks.num_docs_increment import NumDocsIncrementExperiment
 
 
 logging.basicConfig(

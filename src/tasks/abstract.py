@@ -1,5 +1,6 @@
 import logging
 import torch
+import json
 
 from pathlib import Path
 from argparse import Namespace
@@ -18,6 +19,9 @@ logger = logging.getLogger(__name__)
 class AbstractTask(ABC):
 
     def __init__(self, args: Namespace) -> None:
+        if not self._configs:
+            raise RuntimeError("self._configs must be set in subclass before calling super().__init__")
+
         self._prompting_mode = PromptingMode(args.prompting_mode)
         
         self._model: str = args.model
@@ -28,7 +32,9 @@ class AbstractTask(ABC):
 
         self._tokenizer = HfTokenizer(model=self._model)
 
-        self.rope_scaling = getattr(self.config, "rope_scaling", None)
+        self.rope_scaling = json.loads(args.rope_scaling) if args.rope_scaling else None
+        if self.rope_scaling:
+            self._configs.results_folder = f"{self._configs.results_folder}_rp_{self.rope_scaling['factor']}"
 
         self._log_env_resources()
 

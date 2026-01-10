@@ -25,7 +25,7 @@ from src.prompt_builder import PromptBuilder
 from src.helpers.nq_data import read_data_file
 from src.entities.experiments.data import SingleQuestionRawData
 from src.entities.experiments.results import SingleQuestionResult, SingleExperimentResults
-from src.tasks.num_docs_increnet.experiment.configs import Configs
+from src.tasks.num_docs_increment.experiment.configs import Configs
 
 
 logger = logging.getLogger(__name__)
@@ -41,8 +41,8 @@ class NumDocsIncrementExperiment(AbstractTask):
         self._dataset_path = args.dataset_path
 
         self._res_dir = (
-            self._base_dir / 
-            self._configs.results_folder / 
+            self._base_dir /
+            self._configs.results_folder /
             f"doc_step_{self._configs.docs_step_size}" /
             self._model_short_name /
             f"gold_location_{self._gold_location.value}"
