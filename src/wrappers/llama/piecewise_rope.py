@@ -5,22 +5,26 @@ from transformers.models.llama.modeling_llama import LlamaRotaryEmbedding, Llama
 
 
 class PiecewiseRoPE(LlamaRotaryEmbedding):
-    def __init__(self, dim, max_position_embeddings=2048, base=10000, device=None, factors=None):
+    def __init__(self, dim, max_position_embeddings=2048, base=10000, device=None, factors=None, base_factor=32.0):
         super().__init__(dim, max_position_embeddings, base, device)
-        # 1. Read from Env Var if available, otherwise use factors passed from config
-        env_factors = os.getenv("ROPE_PIECEWISE_FACTORS")
-        if env_factors:
-            self.factors = torch.tensor(json.loads(env_factors), device=device)
-        else:
-            self.factors = torch.tensor(factors or [1.0], device=device)
-            
-        self.num_segments = len(self.factors)
+        # We store the base factor (e.g., 32.0) and the multipliers (e.g., [0.95, 1, 1.05])
+        self.multipliers = torch.tensor(factors or [1.0], device=device)
+        self.base_factor = base_factor
+        self.num_segments = len(self.multipliers)
         self.segment_size = max_position_embeddings // self.num_segments
 
     def forward(self, x, position_ids, seq_len=None):
+        # Determine the segment index for each position
         segment_indices = (position_ids // self.segment_size).clamp(0, self.num_segments - 1)
-        current_factors = self.factors[segment_indices]
-        scaled_positions = position_ids.to(x.dtype) / current_factors
+        
+        # Calculate the final factor: base_factor * multiplier
+        # Example: 32.0 * 0.95 = 30.4 for the first segment
+        current_multipliers = self.multipliers[segment_indices]
+        final_effective_factors = self.base_factor * current_multipliers
+        
+        # Scale positions: position_ids / effective_factor
+        scaled_positions = position_ids.to(x.dtype) / final_effective_factors
+        
         return super().forward(x, scaled_positions, seq_len)
 
 
