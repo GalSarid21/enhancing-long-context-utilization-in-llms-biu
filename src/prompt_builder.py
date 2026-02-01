@@ -97,3 +97,8 @@ class PromptBuilder:
             f"Document [{document_index}](Title: {document.title}) {document.text}"
             for document_index, document in enumerate(documents, 1)
         )
+
+
+def test():
+    from transformers import LlamaForCausalLM
+
