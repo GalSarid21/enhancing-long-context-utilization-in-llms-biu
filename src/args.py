@@ -67,6 +67,13 @@ def read_cli_env_args() -> Namespace:
         help="Model backend to use",
         type=str,
         choices=[backend.value for backend in ModelBackend],
+        default=ModelBackend.VLLM.value
+    )
+
+    parser.add_argument(
+        "--piecewise_rope_factors",
+        help="Piecewise RoPE factors to use as a comma separated list",
+        type=str
     )
 
     return parser.parse_args()

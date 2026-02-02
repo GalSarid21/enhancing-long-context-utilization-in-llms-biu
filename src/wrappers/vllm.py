@@ -19,6 +19,7 @@ class vLLM:
         max_model_len: int,
         gpu_memory_utilization: float,
         rope_scaling: Optional[Dict] = None,
+        enforce_eager: Optional[bool] = None,
         backend: Optional[ModelBackend] = ModelBackend.VLLM
     ) -> None:
         
@@ -30,14 +31,6 @@ class vLLM:
             top_p=top_p
         )
 
-        from vllm.model_executor.models import ModelRegistry
-        from src.wrappers.llama.piecewise import PiecewiseLlamaForCausalLM
-
-        # 1. Manually tell vLLM: "Treat this new class as a Llama architecture"
-        if "PiecewiseLlamaForCausalLM" not in ModelRegistry.get_supported_archs():
-            # We map your custom name to your custom class
-            ModelRegistry.register_model("PiecewiseLlamaForCausalLM", PiecewiseLlamaForCausalLM)
-
         llm_payload = dict(
             model=model,
             dtype=dtype,
@@ -45,7 +38,8 @@ class vLLM:
             trust_remote_code=True,
             max_model_len=max_model_len,
             gpu_memory_utilization=gpu_memory_utilization,
-            rope_scaling=rope_scaling
+            rope_scaling=rope_scaling,
+            enforce_eager=enforce_eager
         )
 
         if backend is not ModelBackend.VLLM:

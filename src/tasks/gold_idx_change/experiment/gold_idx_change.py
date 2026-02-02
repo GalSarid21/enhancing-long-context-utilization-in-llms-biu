@@ -4,7 +4,7 @@ import json
 import os
 
 from xopen import xopen
-from typing import Set, Optional
+from typing import List, Optional
 from pathlib import Path
 from argparse import Namespace
 from datetime import datetime, timezone
@@ -43,6 +43,16 @@ class GoldIdxChangeExperiment(AbstractTask):
             max_tokens=self._configs.max_tokens
         )
 
+        if args.piecewise_rope_factors:
+            piecewise_rope_factors: List[str] = [fact.strip() for fact in args.piecewise_rope_factors.split(",")]
+            from src.wrappers.llama.patch import apply_piecewise_monkeypatch
+            apply_piecewise_monkeypatch(multipliers=piecewise_rope_factors)
+            # enforce eager needs to be set on custom python vllm setup
+            enforce_eager: Optional[bool] = True
+        else:
+            enforce_eager: Optional[bool] = None
+
+        setattr(args, "enforce_eager", enforce_eager)
         self._llm: vLLM = self._load_llm(args=args)
 
     def _load_llm(self, args: Namespace) -> vLLM:
@@ -56,7 +66,8 @@ class GoldIdxChangeExperiment(AbstractTask):
             max_model_len=args.max_model_len,
             gpu_memory_utilization=self._configs.gpu_memory_utilization,
             rope_scaling=self.rope_scaling,
-            backend=ModelBackend(args.backend)
+            backend=ModelBackend(args.backend),
+            enforce_eager=args.enforce_eager
         )
 
     async def run(self) -> TaskResultsDTO:

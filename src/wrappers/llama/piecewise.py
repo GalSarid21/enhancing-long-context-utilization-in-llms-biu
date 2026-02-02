@@ -1,12 +1,17 @@
+import logging
 import torch
 import math
 from transformers.models.llama.modeling_llama import LlamaRotaryEmbedding, LlamaModel, LlamaForCausalLM
 
 
+logger = logging.getLogger(__name__)
+
+
 class PiecewiseRoPE(LlamaRotaryEmbedding):
     def __init__(self, dim, max_position_embeddings=131072, base=500000, device=None, factors=None, rope_scaling=None):
         super().__init__(dim, max_position_embeddings, base, device)
-        
+        logger.info("[PiecewiseRoPE] Initializing... factors=%s, segments=%d", factors, len(factors or [1.0]))
+
         # 1. Capture Meta's Llama 3.1/3.2 parameters
         self.scaling_factor = rope_scaling.get("factor", 32.0)
         self.low_freq_factor = rope_scaling.get("low_freq_factor", 1.0)
@@ -70,6 +75,7 @@ class PiecewiseLlamaModel(LlamaModel):
 
 class PiecewiseLlamaForCausalLM(LlamaForCausalLM):
     def __init__(self, config):
+        logger.info("Initializing PiecewiseLlamaForCausalLM")
         super().__init__(config)
         self.model = PiecewiseLlamaModel(config)
         self.post_init()
