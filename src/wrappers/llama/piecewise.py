@@ -3,7 +3,7 @@ import math
 from transformers.models.llama.modeling_llama import LlamaRotaryEmbedding, LlamaModel, LlamaForCausalLM
 
 
-class PiecewiseWarpedRoPE(LlamaRotaryEmbedding):
+class PiecewiseRoPE(LlamaRotaryEmbedding):
     def __init__(self, dim, max_position_embeddings=131072, base=500000, device=None, factors=None, rope_scaling=None):
         super().__init__(dim, max_position_embeddings, base, device)
         
@@ -46,7 +46,7 @@ class PiecewiseWarpedRoPE(LlamaRotaryEmbedding):
         
         # Standard RoPE logic using our pre-warped inv_freq
         inv_freq_expanded = self.inv_freq[None, :, None].float().expand(position_ids.shape[0], -1, 1)
-        position_ids_expanded = scaled_positions[:, None, :].float()
+        position_ids_expanded = scaled_positions[:, None, :].float().to(self.inv_freq.device)
         freqs = (inv_freq_expanded @ position_ids_expanded).transpose(1, 2)
         emb = torch.cat((freqs, freqs), dim=-1)
         

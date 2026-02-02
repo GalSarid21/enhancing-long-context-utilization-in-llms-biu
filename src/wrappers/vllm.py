@@ -28,6 +28,14 @@ class vLLM:
             top_p=top_p
         )
 
+        from vllm.model_executor.models import ModelRegistry
+        from src.wrappers.llama.piecewise import PiecewiseLlamaForCausalLM
+
+        # 1. Manually tell vLLM: "Treat this new class as a Llama architecture"
+        if "PiecewiseLlamaForCausalLM" not in ModelRegistry.get_supported_archs():
+            # We map your custom name to your custom class
+            ModelRegistry.register_model("PiecewiseLlamaForCausalLM", PiecewiseLlamaForCausalLM)
+
         self._llm = LLM(
             model=model,
             dtype=dtype,
