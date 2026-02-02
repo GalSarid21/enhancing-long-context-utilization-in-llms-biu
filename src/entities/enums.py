@@ -41,3 +41,8 @@ class GoldLocation(str, Enum):
     START = "start"
     MIDDLE = "middle"
     END = "end"
+
+
+class ModelBackend(str, Enum):
+    VLLM = "vllm"
+    TRANSFORMERS = "transformers"

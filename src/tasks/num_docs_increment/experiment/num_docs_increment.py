@@ -19,7 +19,7 @@ from common.consts import (
 from src.metrics import best_subspan_em
 from src.wrappers import vLLM
 from src.entities.dto import TaskResultsDTO
-from src.entities.enums import Metric, Status, GoldLocation
+from src.entities.enums import Metric, Status, GoldLocation, ModelBackend
 from src.tasks.abstract import AbstractTask
 from src.prompt_builder import PromptBuilder
 from src.helpers.nq_data import read_data_file
@@ -39,6 +39,8 @@ class NumDocsIncrementExperiment(AbstractTask):
 
         self._gold_location = GoldLocation(args.gold_location)
         self._dataset_path = args.dataset_path
+        self._backend = ModelBackend(args.backend)
+
 
         self._res_dir = (
             self._base_dir /
@@ -145,7 +147,8 @@ class NumDocsIncrementExperiment(AbstractTask):
             temperature=self._configs.temperature,
             max_model_len=max_model_len,
             gpu_memory_utilization=self._configs.gpu_memory_utilization,
-            rope_scaling=self.rope_scaling
+            rope_scaling=self.rope_scaling,
+            backend=self._backend
         )
     
     async def _log_single_idx_data(self, experiment_res: SingleExperimentResults) -> None:

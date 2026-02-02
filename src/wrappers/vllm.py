@@ -1,12 +1,13 @@
 from typing import List, Optional, Dict
 from vllm import LLM, SamplingParams
 
+from src.entities.enums import ModelBackend
+
 
 class vLLM:
     """
     A wrapper class to abstract the vLLM package from the project.
     """
-
     def __init__(
         self,
         model: str,
@@ -17,7 +18,8 @@ class vLLM:
         temperature: float,
         max_model_len: int,
         gpu_memory_utilization: float,
-        rope_scaling: Optional[Dict] = None
+        rope_scaling: Optional[Dict] = None,
+        backend: Optional[ModelBackend] = ModelBackend.VLLM
     ) -> None:
         
         self._model = model
@@ -36,7 +38,7 @@ class vLLM:
             # We map your custom name to your custom class
             ModelRegistry.register_model("PiecewiseLlamaForCausalLM", PiecewiseLlamaForCausalLM)
 
-        self._llm = LLM(
+        llm_payload = dict(
             model=model,
             dtype=dtype,
             tensor_parallel_size=num_gpus,
@@ -45,6 +47,11 @@ class vLLM:
             gpu_memory_utilization=gpu_memory_utilization,
             rope_scaling=rope_scaling
         )
+
+        if backend is not ModelBackend.VLLM:
+            llm_payload["model_impl"] = backend.value
+
+        self._llm = LLM(**llm_payload)
 
     async def generate_batch(self, prompts: List[str]) -> List[str]:
         results = self._llm.generate(prompts, self._sampling_params)

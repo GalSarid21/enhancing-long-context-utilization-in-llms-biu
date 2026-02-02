@@ -12,7 +12,7 @@ from datetime import datetime, timezone
 from src.metrics import best_subspan_em
 from src.wrappers import vLLM
 from src.entities.dto import TaskResultsDTO
-from src.entities.enums import Metric, Status, PromptingMode
+from src.entities.enums import Metric, Status, PromptingMode, ModelBackend
 from src.tasks.abstract import AbstractTask
 from src.prompt_builder import PromptBuilder
 from src.tasks.gold_idx_change.experiment.configs import Configs
@@ -55,7 +55,8 @@ class GoldIdxChangeExperiment(AbstractTask):
             temperature=self._configs.temperature,
             max_model_len=args.max_model_len,
             gpu_memory_utilization=self._configs.gpu_memory_utilization,
-            rope_scaling=self.rope_scaling
+            rope_scaling=self.rope_scaling,
+            backend=ModelBackend(args.backend)
         )
 
     async def run(self) -> TaskResultsDTO:

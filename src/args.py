@@ -1,7 +1,6 @@
 from argparse import ArgumentParser, Namespace
 
-from src.entities.enums import PromptingMode
-from src.entities.enums import TaskType, TaskName
+from src.entities.enums import TaskType, TaskName, ModelBackend
 
 
 def read_cli_env_args() -> Namespace:
@@ -61,6 +60,13 @@ def read_cli_env_args() -> Namespace:
         "--rope_scaling",
         help="RoPE scaling config to load LLM with",
         type=str
+    )
+
+    parser.add_argument(
+        "--backend",
+        help="Model backend to use",
+        type=str,
+        choices=[backend.value for backend in ModelBackend],
     )
 
     return parser.parse_args()
