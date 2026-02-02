@@ -11,9 +11,9 @@ def apply_piecewise_monkeypatch(
     max_position_embeddings: int = 131072
 ) -> None:
     """
-    Type-hinted monkeypatch for piecewise RoPE scaling in vLLM 0.8.4.
+    monkeypatch for piecewise RoPE scaling in vLLM 0.8.4.
     """
-    
+    logger.info(f"apply_piecewise_monkeypatch - started: {multipliers=}, {max_position_embeddings=}")
     num_segments: int = len(multipliers)
     segment_size: int = max_position_embeddings // num_segments
 
@@ -84,4 +84,4 @@ def apply_piecewise_monkeypatch(
         original_worker_init(self, *args, **kwargs)
 
     Worker.__init__ = patched_worker_init
-    logger.info("vLLM Worker initialization patched.")
+    logger.info("apply_piecewise_monkeypatch - finished:vLLM Worker initialization patched")
