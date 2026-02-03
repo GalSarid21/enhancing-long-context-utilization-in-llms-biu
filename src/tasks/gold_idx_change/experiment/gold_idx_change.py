@@ -44,7 +44,7 @@ class GoldIdxChangeExperiment(AbstractTask):
         )
 
         if args.piecewise_rope_factors:
-            piecewise_rope_factors: List[str] = [fact.strip() for fact in args.piecewise_rope_factors.split(",")]
+            piecewise_rope_factors: List[str] = [float(f.strip()) for f in args.piecewise_rope_factors.split(",")]
             from src.wrappers.llama.patch import apply_piecewise_monkeypatch
             apply_piecewise_monkeypatch(multipliers=piecewise_rope_factors)
             # enforce eager needs to be set on custom python vllm setup

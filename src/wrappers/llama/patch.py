@@ -1,87 +1,84 @@
 import torch
 import logging
+import math
 from typing import Tuple, List, Any
 import vllm.model_executor.layers.rotary_embedding as vllm_rope
-from vllm.worker.worker import Worker
 
 logger = logging.getLogger("vllm")
 
 def apply_piecewise_monkeypatch(
     multipliers: List[float], 
-    max_position_embeddings: int = 131072
+    max_position_embeddings: int = 131072,
+    rope_theta: float = 500000.0
 ) -> None:
-    """
-    monkeypatch for piecewise RoPE scaling in vLLM 0.8.4.
-    """
-    logger.info(f"apply_piecewise_monkeypatch - started: {multipliers=}, {max_position_embeddings=}")
-    num_segments: int = len(multipliers)
-    segment_size: int = max_position_embeddings // num_segments
+    
+    min_mult = min(multipliers)
+    required_len = int(max_position_embeddings / min_mult) + 2
+    
+    logger.info(f"--- Piecewise RoPE Setup ---")
+    logger.info(f"Multipliers: {multipliers}")
+    logger.info(f"Required Cache Length: {required_len}")
 
-    # 1. THE INJECTION LOGIC
-    def piecewise_forward_native(
-        self: Any, 
-        positions: torch.Tensor,
-        query: torch.Tensor,
-        key: torch.Tensor
-    ) -> Tuple[torch.Tensor, torch.Tensor]:
+    # 1. THE CUSTOM FORWARD
+    def piecewise_forward_native(self, positions, query, key):
+        num_tokens = query.shape[0]
+        head_size = getattr(self, "head_size", 128)
         
-        flat_positions: torch.Tensor = positions.flatten()
+        m_tensor = vllm_rope.RotaryEmbedding._piecewise_multipliers
+        s_size = vllm_rope.RotaryEmbedding._segment_size
         
-        # DEFENSIVE ATTRIBUTE RETRIEVAL
-        # We provide defaults so it doesn't crash during vLLM's initial profiling
-        m_tensor: torch.Tensor = getattr(self, "_piecewise_multipliers", None)
-        n_segs: int = getattr(self, "_num_segments", num_segments)
-        s_size: int = getattr(self, "_segment_size", segment_size)
-
-        # Fallback: if profiling happens before Worker.__init__ finishes, use standard scaling
-        if m_tensor is None:
-            return original_rope_forward(self, positions, query, key)
-
-        # PIECEWISE LOGIC
-        segment_indices: torch.Tensor = (flat_positions // s_size).clamp(0, n_segs - 1)
-        current_multipliers: torch.Tensor = m_tensor[segment_indices].unsqueeze(-1)
+        flat_positions = positions.flatten()
+        segment_indices = (flat_positions // s_size).clamp(0, len(m_tensor) - 1)
+        current_multipliers = m_tensor[segment_indices].to(device=positions.device)
         
-        # INTERPOLATION MATH
-        # Cast to float for division, then back to long for indexing
-        scaled_positions: torch.Tensor = (flat_positions.float() / current_multipliers.squeeze(-1)).long()
+        scaled_positions = (flat_positions.float() / current_multipliers).round().long()
+        lookup_indices = scaled_positions.clamp(0, self.cos_sin_cache.shape[0] - 1)
 
-        # Index the cos/sin cache with scaled positions
-        cos_sin: torch.Tensor = self.cos_sin_cache.index_select(0, scaled_positions)
+        cos_sin = self.cos_sin_cache.index_select(0, lookup_indices)
         cos, sin = cos_sin.chunk(2, dim=-1)
+
+        if cos.shape[-1] != head_size:
+            cos = torch.cat([cos, cos], dim=-1)
+            sin = torch.cat([sin, sin], dim=-1)
+
+        def rotate_half(x):
+            return torch.cat((-x[..., x.shape[-1]//2:], x[..., :x.shape[-1]//2]), dim=-1)
+
+        query = query.view(num_tokens, -1, head_size)
+        key = key.view(num_tokens, -1, head_size)
         
-        def rotate_half(x: torch.Tensor) -> torch.Tensor:
-            x1 = x[..., : x.shape[-1] // 2]
-            x2 = x[..., x.shape[-1] // 2 :]
-            return torch.cat((-x2, x1), dim=-1)
+        q_out = (query * cos.unsqueeze(1)) + (rotate_half(query) * sin.unsqueeze(1))
+        k_out = (key * cos.unsqueeze(1)) + (rotate_half(key) * sin.unsqueeze(1))
+        return q_out.flatten(1), k_out.flatten(1)
 
-        # Apply rotation (query and key are mutated or returned depending on vLLM version)
-        query = (query * cos) + (rotate_half(query) * sin)
-        key = (key * cos) + (rotate_half(key) * sin)
+    # 2. THE HARDENED INITIALIZATION (Manual Frequency Calculation)
+    original_init = vllm_rope.RotaryEmbedding.__init__
 
-        return query, key
-
-    # 2. PERFORM THE INJECTION
-    # Store the original forward so we can fall back to it if needed
-    original_rope_forward = vllm_rope.RotaryEmbedding.forward
-    vllm_rope.RotaryEmbedding.forward = piecewise_forward_native
-
-    # 3. WORKER-LEVEL ATTRIBUTE DEFINITION
-    original_worker_init = Worker.__init__
-
-    def patched_worker_init(self: Worker, *args: Any, **kwargs: Any) -> None:
-        # ATTACH TO CLASS: This ensures 'self' in the forward pass can see them
-        if not hasattr(vllm_rope.RotaryEmbedding, "_piecewise_multipliers"):
-            setattr(vllm_rope.RotaryEmbedding, "_piecewise_multipliers", torch.tensor(
-                multipliers, 
-                device="cuda", 
-                dtype=torch.bfloat16 
-            ))
-            setattr(vllm_rope.RotaryEmbedding, "_num_segments", num_segments)
-            setattr(vllm_rope.RotaryEmbedding, "_segment_size", segment_size)
+    def patched_rope_init(self, *args, **kwargs):
+        original_init(self, *args, **kwargs)
+        
+        if not hasattr(vllm_rope.RotaryEmbedding, "_global_extended_cache"):
+            logger.info(f"--- Building Extended Piecewise Cache (Size: {required_len}) ---")
             
-            logger.info(f"[POC ACTIVE] Piecewise attributes defined on RotaryEmbedding class.")
-        
-        original_worker_init(self, *args, **kwargs)
+            # Manually reconstruct Llama 3.2 frequencies to be 100% sure
+            # These are the standard Llama 3 parameters
+            dim = self.rotary_dim
+            # Standard RoPE frequencies: theta^(-2i/d)
+            inv_freq = 1.0 / (rope_theta ** (torch.arange(0, dim, 2, device="cuda").float() / dim))
+            
+            # Build the cache
+            t = torch.arange(required_len, device="cuda", dtype=torch.float32)
+            freqs = torch.einsum("i,j->ij", t, inv_freq)
+            emb = torch.cat((freqs.cos(), freqs.sin()), dim=-1)
+            
+            vllm_rope.RotaryEmbedding._global_extended_cache = emb.to(dtype=self.cos_sin_cache.dtype)
+            vllm_rope.RotaryEmbedding._piecewise_multipliers = torch.tensor(
+                multipliers, device="cuda", dtype=torch.float32
+            )
+            vllm_rope.RotaryEmbedding._segment_size = max_position_embeddings // len(multipliers)
 
-    Worker.__init__ = patched_worker_init
-    logger.info("apply_piecewise_monkeypatch - finished:vLLM Worker initialization patched")
+        self.cos_sin_cache = vllm_rope.RotaryEmbedding._global_extended_cache
+
+    vllm_rope.RotaryEmbedding.__init__ = patched_rope_init
+    vllm_rope.RotaryEmbedding.forward = piecewise_forward_native
+    logger.info("Piecewise Monkeypatch Injected.")
