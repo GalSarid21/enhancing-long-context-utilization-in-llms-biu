@@ -26,7 +26,7 @@ def apply_piecewise_monkeypatch(
         head_size: int = getattr(self, "head_size", 128)
         
         # Instance attributes from patched __init__
-        m_tensor: torch.Tensor = self._piecewise_multipliers
+        m_tensor = self._piecewise_multipliers.to(device=positions.device)
         s_size: int = self._segment_size
         
         flat_positions: torch.Tensor = positions.flatten()
@@ -84,7 +84,6 @@ def apply_piecewise_monkeypatch(
         
         self._piecewise_multipliers = torch.tensor(
             combined_multipliers, 
-            device="cpu", # Moved to GPU in forward
             dtype=torch.float32 
         )
         self._segment_size = max_position_embeddings // len(multipliers)
