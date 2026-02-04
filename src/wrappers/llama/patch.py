@@ -9,12 +9,33 @@ def apply_piecewise_monkeypatch(
     max_position_embeddings: int = 131072
 ) -> None:
     """
-    Implements Piecewise RoPE scaling for Llama 3.2.
-    Uses 'Virtual Position' mapping to achieve dynamic scaling factors 
-    relative to the native 32x base.
+    Research Implementation: Multi-Cache Piecewise Rotary Positional Embedding (RoPE).
+
+    1. THE PIECEWISE CONCEPT:
+    This patch implements the hypothesis that different regions of a long-context 
+    window (e.g., 128K) benefit from varying positional 'densities'. By dividing 
+    the context into discrete segments, we can apply specific scaling factors to 
+    each region, theoretically optimizing the trade-off between positional 
+    resolution (precision) and context capacity (stretching).
+
+    2. MULTI-CACHE APPROACH:
+    Unlike standard linear scaling, Llama 3.2 utilizes non-linear 'Su-scaling' 
+    where different frequencies are scaled at different rates. To preserve 
+    architectural integrity, this implementation dynamically instantiates N 
+    unique Llama3RotaryEmbedding caches—one for each multiplier provided. 
+    During the forward pass, tokens are masked based on their relative position 
+    and mapped to their corresponding frequency table, ensuring that each 
+    segment utilizes the exact frequency distribution intended by the 
+    scaling factor.
+
+    3. RESEARCH CONTEXT:
+    This is a non-standard monkeypatching implementation designed for 
+    experimental evaluation of context utilization in decoder-only transformers. 
+    It bypasses static configuration limits to allow for real-time, 
+    position-dependent scaling adjustments within the vLLM model executor.
     """
 
-    # 1. THE FORWARD PASS (The 'Stitching' Logic)
+    # 1. THE FORWARD PASS (The Switchboard)
     def piecewise_forward_native(
         self: Any, 
         positions: torch.Tensor, 
@@ -24,76 +45,98 @@ def apply_piecewise_monkeypatch(
         
         num_tokens: int = query.shape[0]
         head_size: int = getattr(self, "head_size", 128)
-        
-        # Instance attributes from patched __init__
-        m_tensor = self._piecewise_multipliers.to(device=positions.device)
-        s_size: int = self._segment_size
+        dtype = query.dtype
+        device = query.device
         
         flat_positions: torch.Tensor = positions.flatten()
+        s_size: int = self._segment_size
         
-        # Select the 'best' multiplier for this token's range
-        segment_indices: torch.Tensor = (flat_positions // s_size).clamp(0, len(m_tensor) - 1)
+        # Determine which cache each token should use
+        segment_indices: torch.Tensor = (flat_positions // s_size).clamp(0, len(self._piecewise_caches) - 1)
         
-        # Fetch the pre-multiplied combined factor (e.g. 1.5 * 32)
-        # We use float32 for precise division at high token counts
-        current_combined_factors: torch.Tensor = m_tensor[segment_indices].to(
-            device=positions.device, dtype=torch.float32
-        )
+        # Initialize output tensors
+        # We reassemble cos/sin to ensure the original token order is preserved
+        cos = torch.empty((num_tokens, head_size // 2), device=device, dtype=dtype)
+        sin = torch.empty((num_tokens, head_size // 2), device=device, dtype=dtype)
         
-        # Virtual Position: Actual / (Experimental_Multiplier * 32.0)
-        scaled_positions: torch.Tensor = (flat_positions.float() / current_combined_factors).round().long()
-        
-        # Clamp to avoid indexing outside the 128k (or extended) cache
-        lookup_indices: torch.Tensor = scaled_positions.clamp(0, self.cos_sin_cache.shape[0] - 1)
+        # Process each segment's cache
+        for i, cache in enumerate(self._piecewise_caches):
+            mask = (segment_indices == i)
+            if not mask.any():
+                continue
+            
+            # Select tokens for this segment
+            # We use the original positions; the cache already contains the scaling
+            seg_positions = flat_positions[mask]
+            
+            # Lookup from the specific cache for this factor
+            # Ensure the cache is on the right device
+            cache_gpu = cache.to(device=device, non_blocking=True)
+            cos_sin = cache_gpu.index_select(0, seg_positions.clamp(0, cache.shape[0]-1))
+            
+            c, s = cos_sin.chunk(2, dim=-1)
+            cos[mask] = c.to(dtype=dtype)
+            sin[mask] = s.to(dtype=dtype)
 
-        # Lookup from the native Su-scaled Llama 3.2 cache
-        cos_sin: torch.Tensor = self.cos_sin_cache.index_select(0, lookup_indices)
-        cos, sin = cos_sin.chunk(2, dim=-1)
-
-        if cos.shape[-1] != head_size:
-            cos = torch.cat([cos, cos], dim=-1)
-            sin = torch.cat([sin, sin], dim=-1)
+        # Broadcast for GQA [num_tokens, 1, head_size]
+        cos = torch.cat([cos, cos], dim=-1).unsqueeze(1)
+        sin = torch.cat([sin, sin], dim=-1).unsqueeze(1)
 
         def rotate_half(x: torch.Tensor) -> torch.Tensor:
-            x1 = x[..., : x.shape[-1] // 2]
-            x2 = x[..., x.shape[-1] // 2 :]
+            x1, x2 = x.chunk(2, dim=-1)
             return torch.cat((-x2, x1), dim=-1)
 
         query = query.view(num_tokens, -1, head_size)
         key = key.view(num_tokens, -1, head_size)
         
-        cos = cos.unsqueeze(1)
-        sin = sin.unsqueeze(1)
-        
-        q_out: torch.Tensor = (query * cos) + (rotate_half(query) * sin)
-        k_out: torch.Tensor = (key * cos) + (rotate_half(key) * sin)
+        q_out = (query * cos) + (rotate_half(query) * sin)
+        k_out = (key * cos) + (rotate_half(key) * sin)
         
         return q_out.flatten(1), k_out.flatten(1)
 
-    # 2. THE INITIALIZATION (Factor Pre-calculation)
+    # 2. THE INITIALIZATION (Dynamic Cache Building)
     import vllm.model_executor.layers.rotary_embedding as vllm_rope
     original_init = vllm_rope.Llama3RotaryEmbedding.__init__
 
     def patched_rope_init(self: Any, *args: Any, **kwargs: Any) -> None:
         original_init(self, *args, **kwargs)
         
-        native_factor: float = getattr(self, "scaling_factor", 32.0)
+        # vLLM/Llama 3.2 specific scaling parameters
+        native_factor = getattr(self, "scaling_factor", 32.0)
+        low_f = getattr(self, "low_freq_factor", 1.0)
+        high_f = getattr(self, "high_freq_factor", 4.0)
+        orig_max = getattr(self, "old_context_len", 8192)
         
-        # Pre-align your multipliers to the model's expected 32x baseline
-        combined_multipliers: List[float] = [m * native_factor for m in multipliers]
-        
-        self._piecewise_multipliers = torch.tensor(
-            combined_multipliers, 
-            dtype=torch.float32 
-        )
+        # DYNAMICALLY build a cache for every multiplier provided
+        self._piecewise_caches = []
+        for i, m in enumerate(multipliers):
+            logger.info(f"Initializing Piecewise Cache {i} with multiplier {m}")
+            target_factor = m * native_factor
+            
+            # Instantiate a temporary object to inherit the complex Llama 3 frequency math
+            temp_rope = vllm_rope.Llama3RotaryEmbedding(
+                head_size=self.head_size,
+                rotary_dim=self.rotary_dim,
+                max_position_embeddings=max_position_embeddings,
+                base=self.base,
+                is_neox_style=True,
+                scaling_factor=target_factor,
+                low_freq_factor=low_f,
+                high_freq_factor=high_f,
+                old_context_len=orig_max,
+                dtype=self.cos_sin_cache.dtype
+            )
+            # Store the pre-calculated buffer
+            self._piecewise_caches.append(temp_rope.cos_sin_cache)
+            
         self._segment_size = max_position_embeddings // len(multipliers)
         
-        if not hasattr(vllm_rope.Llama3RotaryEmbedding, "_logged_once"):
-            logger.info(f"THESIS MODE: Piecewise RoPE Scaling Enabled")
-            logger.info(f"Baseline Factor: {native_factor}")
-            logger.info(f"Combined Factors: {combined_multipliers}")
-            vllm_rope.Llama3RotaryEmbedding._logged_once = True
+        if not hasattr(vllm_rope.Llama3RotaryEmbedding, "_logged_final"):
+            logger.info(f"--- Multi-Cache Piecewise Setup ---")
+            logger.info(f"Regions: {len(multipliers)} | Multipliers: {multipliers}")
+            logger.info(f"Effective Factors: {[m * native_factor for m in multipliers]}")
+            vllm_rope.Llama3RotaryEmbedding._logged_final = True
 
-    # 3. APPLY PATCH
+    # 3. OVERWRITE
     vllm_rope.Llama3RotaryEmbedding.__init__ = patched_rope_init
     vllm_rope.Llama3RotaryEmbedding.forward = piecewise_forward_native
